@@ -1,0 +1,1800 @@
+/*
+ * @(#)FyDataSet.java	0.01 11/04/19
+ *
+ * Copyright 2011 Fuyuncat. All rights reserved.
+ * FUYUNCAT PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+ * Email: fuyucat@gmail.com
+ * WebSite: www.HelloDBA.com
+ */
+package fydb.fy_rightExpression;
+
+import fydb.fy_comm.Beeper;
+import fydb.fy_comm.Tracer;
+import fydb.fy_comm.InitParas;
+import fydb.fy_comm.InitParas.*;
+import fydb.fy_comm.BP;
+import fydb.fy_comm.Debuger;
+import fydb.fy_comm.FyMetaData;
+
+//import java.util.HashMap;
+//import java.util.Map;
+//import java.io.BufferedWriter;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+//import java.io.ObjectInputStream;
+import java.io.InputStreamReader;
+//import java.io.ObjectOutputStream;
+//import java.io.OutputStreamWriter;
+
+import java.io.OutputStreamWriter;
+
+import java.util.ArrayList;
+import java.sql.*;
+
+//import java.util.Collections;
+//import java.util.Date;
+import java.util.HashMap;
+//import java.util.Iterator;
+import java.util.HashSet;
+import java.util.Iterator;
+//import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+public class FyDataSet {
+    //protected InitParas paras = new InitParas();
+    //protected Tracer dtrace = new Tracer();
+    //protected Debuger debuger = new Debuger();
+    protected InitParas paras;
+    protected Tracer dtrace;
+    protected Debuger debuger;
+    protected Beeper beeper;
+
+    //private Map metaCols = new HashMap();
+    private int locker = 0;
+    private boolean quiesced = false;
+    private boolean loaded = false;
+    private int accesserNum = 0;
+    private int maxAccesserNum = 255; // max concurrent access number
+    private boolean bufferLog = true; // buffer the change logs or not
+    private boolean persistent = true; // implement persistent actions or not. true will append the log into disk.
+    private boolean initialized = false; 
+    private boolean keepLogInMemory = false; // if keep log in memory. For some senarios, e.g. building index, implemented logs should be release after building index completed.
+
+    private byte[] lock = new byte[0]; // used for synchronize
+
+    //private ObjectOutputStream logWriter;
+    private String baseLogName;
+    private int curLogSeq = 1;
+    private LogWriter logWriter;
+
+    private ArrayList activeBPs;
+    private FyLogData logs;
+    private BP lastAppliedBp;
+
+    private phyTypes phyType;
+    private memTypes memType;
+    private FyMetaData metaData;
+
+    // option for db dataset
+    private Connection dbconn; 
+    private int dbid;
+    private String schema;
+    private String tableName;
+    private PhyBaseData phyData;
+    private MemBaseData memData;
+    private HashMap indexes = new HashMap();        // entry of an index -- key(ArrayList):col1,col2..;value:indexData(MemBaseData)
+    private ArrayList keyColumns = new ArrayList();
+    private String guid;
+
+    // db dataset constructor
+    public FyDataSet(phyTypes phyType, memTypes memType, Connection dbconn, int dbid, String schema, String tableName, ArrayList keyColumns, HashMap indexes, String guid,
+        InitParas paras, Tracer dtrace, Debuger debuger, Beeper beeper, int maxAccesserNum, boolean bufferLog, boolean persistent) {
+        if (phyType != phyTypes.DB_Oracle && phyType != phyTypes.DB_Mysql){
+            dtrace.trace(2);
+            return;
+        }
+        
+        this.phyType = phyType;
+        this.memType = memType;
+        this.dbconn = dbconn;
+        this.dbid = dbid;
+        this.tableName = tableName;
+        this.schema = schema;
+        this.keyColumns = keyColumns;
+        this.indexes = indexes;
+        this.guid = guid;
+        if (maxAccesserNum > 0)
+            this.maxAccesserNum = maxAccesserNum;
+        this.bufferLog = bufferLog;
+        this.persistent = persistent;
+
+        this.paras = paras;
+        this.dtrace = dtrace;
+        this.debuger = debuger;
+        this.beeper = beeper;
+        //beeper = new Beeper();
+        lastAppliedBp = new BP();
+
+        if (activeBPs == null)
+            activeBPs = new ArrayList();
+        if (logs == null)
+            logs = new FyLogData(Beeper.getReverseComparator()); // build a reversed tree.
+
+        //locker = 0;
+        //quiesce = false;
+    }
+
+    // re-construct function to use default values
+    public FyDataSet(phyTypes phyType, memTypes memType, Connection dbconn, int dbid, String schema, String tableName, ArrayList keyColumns, HashMap indexes, String guid,
+        InitParas paras, Tracer dtrace, Debuger debuger, Beeper beeper) {
+        this(phyType, memType, dbconn, dbid, schema, tableName, keyColumns, indexes, guid, paras, dtrace, debuger, beeper, 255, true, true);
+    }
+    
+    public String getGuid(){
+        return guid;
+    }
+
+    private boolean awake(){
+        if (!initialized){
+            dtrace.trace(104);
+            return false;
+        }
+        while (quiesced){
+            try{
+                Thread.sleep(paras.spinTime);
+            }
+            catch (InterruptedException e) {
+                dtrace.trace(e.getMessage());
+                dtrace.trace(103);
+                return false;
+            }
+        }
+        return true;
+    }
+    
+    //private long convertToLong(String strValue){
+    //}
+    
+    // require access to this dataset
+    public boolean requireAccess(){
+        synchronized(lock){
+            if (accesserNum >= maxAccesserNum-1){
+                return false;
+            }
+            else{
+                accesserNum++;
+                return true;
+            }
+        }
+    }
+
+    public void releaseAccess(){
+        synchronized(lock){
+            accesserNum--;
+            if (accesserNum < 0){
+                dtrace.trace(11);
+                accesserNum = 0;
+            }
+        }
+        return;
+    }
+    
+    // load log control rightExpression from file
+     /*  1~16(1): cur log seq
+      * 17~32(2): lastAppliedBp.level0
+      * 33~48(3): lastAppliedBp.level1
+      * 49~64(4): lastAppliedBp.level2
+      * 4 sections so far
+      */
+    private boolean loadLogControl(){
+        String logControlFile = baseLogName+".sys";
+        int bufLen = 16;
+        char dataEntry[] = new char[bufLen];
+
+        // set default values
+        curLogSeq = 1;
+
+        try{ // read metarightExpression from file.
+            int readSection = 0;
+            int maxSection = 5;
+            File dummmyfile = new File(logControlFile);
+            if (!dummmyfile.exists()){
+                dtrace.trace(logControlFile);
+                dtrace.trace(21);
+                return true;
+            }
+            BufferedReader dataReader = new BufferedReader(new InputStreamReader(new FileInputStream(dummmyfile.getCanonicalPath())));
+            while (dataReader.read(dataEntry, 0 , bufLen) > -1 && readSection<maxSection){
+                readSection++;
+                switch (readSection){
+                case 1: // version
+                    curLogSeq = Integer.parseInt(String.valueOf(dataEntry).trim());
+                    break;
+                case 2: // lastBP.level0
+                    lastAppliedBp.level0 = Long.parseLong(String.valueOf(dataEntry).trim());
+                    break;
+                case 3: // lastBP.level1
+                    lastAppliedBp.level1 = Long.parseLong(String.valueOf(dataEntry).trim());
+                    break;
+                case 4: // lastBP.level2
+                    lastAppliedBp.level2 = Long.parseLong(String.valueOf(dataEntry).trim());
+                    break;
+                }
+            }
+            dataReader.close();
+        }catch (Exception e){
+            dtrace.trace(22);
+            return true;
+        }
+        return true;
+    }
+
+    // initialize a dataset
+    private boolean init(){
+        baseLogName = new String(paras.logDir+File.separator+String.valueOf(dbid)+File.separator+schema+File.separator+tableName);
+        loadLogControl();
+        logWriter = new LogWriter(paras, dtrace);
+        if (!logWriter.openWriter(baseLogName+"_"+String.valueOf(curLogSeq)+".log"))
+            return false;
+        initialized = true;
+        return true;
+    }
+
+    // read the logs to be recovered into a treemap
+    private int readLogs(BufferedReader logReader, TreeMap redoLogs){
+        char buf[];
+        int logNum = 0;
+        try{ // read log from file.
+            // read length
+            String tmpStr = new String();
+            while (logNum < 1024){
+                buf = new char[1];
+                tmpStr = "";
+                if (logReader.read(buf,0,1) < 0) // get first char and check if reach tail
+                    return logNum;
+                tmpStr += String.valueOf(buf);
+                while(logReader.read(buf,0,1)>-1 && buf[0] != '|'){
+                    tmpStr += String.valueOf(buf);
+                }
+                int len = Integer.parseInt(tmpStr.trim());
+
+                buf = new char[len];
+                if (logReader.read(buf,0,len) < 0)
+                    return logNum;
+                int off = 0;
+                BP logBp = new BP();
+                int bpLen = logBp.decodeString(buf,off);
+                if (bpLen < 0){
+                    dtrace.trace(26);
+                    return -1;
+                }
+                off += bpLen;
+                if (beeper.compare(logBp, lastAppliedBp) <= 0) // skip those applied logs
+                    continue;
+                FyLogEntry log = new FyLogEntry(dtrace);
+                if (log.decodeString(buf, off)<0){
+                    dtrace.trace(26);
+                    return -1;
+                }
+                redoLogs.put(logBp,log);
+                logNum++;
+            }
+            return logNum;
+        }catch (Exception e){
+            dtrace.trace(26);
+            return -1;
+        }
+    }
+
+    // return Meta rightExpression
+    public FyMetaData getMetaData(){
+        return metaData;
+    }
+
+    // recover rightExpression from logs
+    private boolean recoverData(){
+        String curLogFile = baseLogName+"_"+String.valueOf(curLogSeq)+".log";
+        try{ // read log from file.
+            int readSection = 0;
+            int maxSection = 5;
+            File dummmyfile = new File(curLogFile);
+            if (!dummmyfile.exists()){
+                dtrace.trace(curLogFile);
+                dtrace.trace(25);
+                return true;
+            }
+            BufferedReader logReader = new BufferedReader(new InputStreamReader(new FileInputStream(dummmyfile.getCanonicalPath())));
+            int bufLen = 256;
+            char dataEntry[] = new char[bufLen];
+            logReader.read(dataEntry, 0 , bufLen);
+            TreeMap redoLogs = new TreeMap(Beeper.getComparator());
+            while (readLogs(logReader, redoLogs) > 0){
+                phyData.implementLog(redoLogs,true);
+                redoLogs.clear();
+            }
+            logReader.close();
+        }catch (Exception e){
+            dtrace.trace(24);
+            return true;
+        }
+        return true;
+    }
+
+    // load rightExpression from physical source to memory dataset 
+    public boolean loadData(BP lastBp) {
+        if (!initialized && !init())
+            return false;
+
+        if (!awake()) // wait quice awake by other process
+            return false;
+        // quiesce the dataset before loading rightExpression
+        //if (quiesce){
+        //    dtrace.trace(102);
+        //    return false;
+        //}
+        quiesced = true;
+        loaded = false;
+        try{
+            // wait all sessions release dataset
+            while (locker > 0){
+                try{
+                    Thread.sleep(paras.spinTime);
+                }
+                catch (InterruptedException e) {
+                    dtrace.trace(e.getMessage());
+                    dtrace.trace(101);
+                    quiesced = false;
+                    return false;
+                }
+            }
+
+            // release rightExpression
+            if (metaData != null)
+                metaData.releaseData();
+            if (memData != null)
+                memData.releaseAll();
+            //if (memData != null)
+            //    try{
+            //        memData.finalize();
+            //    }catch (Throwable e){
+            //        e.printStackTrace();
+            //        dtrace.trace(6);
+            //    }
+    
+            // load rightExpression
+            switch (phyType.ordinal()){
+            case 0: //DB_Oracle:
+            case 1: //DB_Mysql:
+                phyData = new PhyDBData(dtrace, debuger);
+                metaData = phyData.init(dbconn, tableName, keyColumns);
+                break;
+            case 2: //HashMap:
+                phyData = new PhyHashKVData<ArrayList, ArrayList>(dtrace, debuger);
+                metaData = phyData.init(dbconn, tableName, keyColumns);
+                break;
+            case 3: //SortedMap:
+            case 4: //TreeMap:
+            case 5: //File_Json:
+            case 6: //File_XML:
+            default:
+                dtrace.trace(202);
+                quiesced = false;
+                return false;
+            }
+
+            recoverData(); // recover logs
+            lastAppliedBp = lastBp; // set the lastappliedbp as a new last bp in this instance after recovered.
+
+            switch (memType.ordinal())
+            {
+            case 0: //HashMap:
+                memData = new MemHashKVData<ArrayList, ArrayList>(dtrace);
+                break;
+            case 1: //TreeMap:
+            case 2: //SortedMap:
+            default:
+                dtrace.trace(203);
+                quiesced = false;
+                return false;
+            }
+            
+            BP bp = beeper.getBP();
+            //activeBPs.add(bp);
+            FyDataEntry row = phyData.next(bp);
+            while(row != null){
+                if (memData.containsKey(row.key)) { // detect duplicated key
+                    dtrace.trace(210);
+                    memData.releaseAll();
+                    metaData.releaseData();
+                    quiesced = false;
+                    return false;
+                }
+                memData.add(row);
+                // update all indexes
+                Iterator it = indexes.keySet().iterator();
+                while(it.hasNext()){
+                    ArrayList colNames = (ArrayList)it.next();
+                    MemBaseData indexData = (MemBaseData)indexes.get(colNames);
+                    if (indexData == null){
+                        dtrace.trace(colNames.toString());
+                        dtrace.trace(117);
+                        indexes.remove(colNames);
+                        continue;
+                    }
+                    ArrayList colData = getColumnsData(row.value, colNames);
+                    // an index rightExpression entry: coldata1,coldata2..(ArrayList):key1,key2...(ArrayList) 
+                    ArrayList keys = (ArrayList)indexData.get(colData);
+                    if (keys == null)
+                        keys = new ArrayList();
+                    keys.add(row.key);
+                    indexData.set(colData, keys);
+                    indexes.put(colNames,indexData);
+                }
+                row = phyData.next(bp);
+            }
+            metaData.setEntryCount(memData.getSize());
+        }catch(Exception e){
+            dtrace.trace(10);
+            quiesced = false;
+            return false;
+        }
+
+        quiesced = false;
+        loaded = true;
+        debuger.printMsg(metaData.getColumns().toString(), false);
+        return true;
+    }
+    
+    // get rightExpression of specified columns, in exactly same sequence. NULL is inclusive
+    // input columns Name
+    public ArrayList getColumnsData(HashMap wholeRow, ArrayList columns){
+        if (columns == null)
+            return null;
+        ArrayList rightExpression = new ArrayList();
+        if (wholeRow == null){
+            for (int i=0;i<columns.sizeOf();i++)
+                rightExpression.add(null);
+        }else{
+            ArrayList colIDs = metaData.getColIDByName(columns);
+            for (int i=0;i<columns.sizeOf();i++){
+                rightExpression.add(wholeRow.get(colIDs.get(i)));
+            }
+        }
+        return rightExpression;
+    }
+
+    // build an index
+    public boolean buildIndex(ArrayList indColumns, InitParas.memTypes indexType){
+        if (indexes.containsKey(indColumns)){
+            dtrace.trace(116);
+            return false;
+        }
+        return true;
+    }
+
+    //  build a new key, if columns not contain a key column with different rightExpression, it will return a key set equal to the old one.
+    private HashMap generateNewKey(HashMap oldKey, ArrayList<Integer> colIDs, ArrayList newValues){
+        HashMap newKey = new HashMap(oldKey);
+        if (colIDs == null || newValues == null || colIDs.sizeOf() != newValues.sizeOf()){
+            dtrace.trace(213);
+            return newKey;
+        }
+        for (int i=0; i<colIDs.sizeOf(); i++){
+            Integer colID = colIDs.get(i);
+            //HashMap colProperties = (HashMap)metaData.getColumns().get(colID);
+            // ???????consistent get the Key!!!
+            //if (colProperties != null && ((Integer)colProperties.get("K")).intValue() >= 0 && !((String)oldKey.get(colID)).equals((String)newValues.get(i))) { // the column set contains a key column
+            if (metaData.isKeyColumn(colID)) { // the column set contains a key column
+                newKey.remove(colID);
+                newKey.put(colID, (String)newValues.get(i));
+            }
+        }
+        return newKey;
+    }
+
+    //  build a new key, if columns not contain a key column with different rightExpression, it will return a key set equal to the old one.
+    private HashSet generateNewKeys(HashSet oldKeys, ArrayList<Integer> colIDs, ArrayList newValues){
+        HashSet newKeys = new HashSet();
+        Iterator it = oldKeys.iterator();
+        while (it.hasNext()){
+            HashMap oldKey = (HashMap)it.next();
+            HashMap newKey = generateNewKey(oldKey, colIDs, newValues);
+            newKeys.add(newKey);
+        }
+        return newKeys;
+    }
+
+    // identify key from a set of column, then generate a key
+    private HashMap identifyKeyFromColumns(ArrayList<Integer> colIDs, ArrayList<String> values){
+        if (colIDs == null){
+            dtrace.trace(236);
+            return null;
+        }
+        if (values == null){
+            dtrace.trace(217);
+            return null;
+        }
+        if (values.sizeOf() != values.sizeOf()){
+            dtrace.trace(213);
+            return null;
+        }
+        HashMap key = new HashMap();
+        Iterator it = metaData.getKeyColumns().keySet().iterator();
+        while (it.hasNext()){
+            Integer colID = (Integer)it.next();
+            int index = colIDs.indexOf(colID);
+            if (index >= 0)
+                key.put(colID, values.get(index));
+        }
+        return key;
+    }
+
+    // merge 2 rightExpression entry, the items in 2nd one will replace items in the 1st one; and new ones in 2nd one will insert into 1st one
+    private HashMap mergeValues(HashMap value1, HashMap value2){
+        debuger.printMsg(value1.toString(),false);
+        debuger.printMsg(value2.toString(),false);
+        HashMap value = value1;
+        if (value2 == null)
+            return value1;
+        Iterator it = value2.keySet().iterator();
+        while (it.hasNext()){
+            Integer colID = (Integer)it.next();
+            value.remove(colID);
+            String strVal = (String)value2.get(colID);
+            if (strVal != null)
+                value.put(colID,strVal);
+        }
+        return value;
+    }
+
+    // generate a rightExpression entry with inputted columns&values
+    private FyDataEntry generateDataEntry(BP bp, ArrayList<Integer> colIDs, ArrayList<String> values){
+        if (colIDs == null){
+            dtrace.trace(236);
+            return null;
+        }
+        if (values == null){
+            dtrace.trace(217);
+            return null;
+        }
+        if (colIDs.sizeOf() != values.sizeOf()){
+            dtrace.trace(213);
+            return null;
+        }
+        HashMap key = new HashMap();
+        HashMap value = new HashMap();
+        HashMap columns = metaData.getColumns(); // full column list, to be used for nullable test
+        for (int i=0; i<colIDs.sizeOf(); i++){
+            Integer colID = colIDs.get(i);
+            String strVal = values.get(i);
+            columns.remove(colID);
+            if (strVal == null)
+                if (metaData.isNullable(colID) != 1){
+                    dtrace.trace(metaData.getColumnName(colID));
+                    dtrace.trace(248);
+                    return null;
+                }else
+                    continue;
+            if (metaData.isKeyColumn(colID))
+                key.put(colID,strVal);
+            else
+                value.put(colID,strVal);
+        }
+        Iterator it = columns.keySet().iterator();
+        while (it.hasNext()){
+            Integer colID = (Integer)it.next();
+            if (metaData.isNullable(colID) != 1){
+                dtrace.trace(metaData.getColumnName(colID));
+                dtrace.trace(248);
+                return null;
+            }
+        }
+        FyDataEntry rightExpression = new FyDataEntry(bp, key, value);
+        return rightExpression;
+    }
+
+    //private void terminalBP(BP bp){
+    //    activeBPs.remove(bp);
+    //    locker--;
+    //}
+    
+    // consistent get. called in internal. Implement mvcc
+    private HashMap getMemDataByKeyC(BP bp, HashMap key){
+        HashMap val;
+        val = (HashMap)memData.get(key);
+        SortedMap consistentLogs = logs.headMap(bp);
+        //Iterator it = consistentLogs.values().iterator(); 
+        Iterator it = consistentLogs.keySet().iterator(); 
+        while(it.hasNext()) {
+            BP logBp = (BP)it.next();
+            FyLogEntry log = (FyLogEntry)consistentLogs.get(logBp);
+            if (beeper.compareBP(logBp, bp,false) == 0) // ignore the logs with same BP except seq.
+                continue;
+            if (key.equals(log.key))
+            {
+                if (log.op == 1) // consistent with insert operations. means this key must not exist when consistent get begin
+                    val = null;
+                else if (log.op == 2) // consistent with modify operations. rollback the changes
+                {
+                    if (log.value == null) 
+                    {
+                        dtrace.trace(12);
+                        continue; // log value is null, we should ignore this log
+                    }
+                    // apply the old values for consistents
+                    Iterator itValue = log.value.keySet().iterator(); 
+                    while(itValue.hasNext()) {
+                        Integer colID = (Integer)itValue.next();
+                        FyLogEntry.valueChangeEntry colChgs = (FyLogEntry.valueChangeEntry)log.value.get(colID);
+                        if (colChgs != null)
+                        {
+                            if (val == null) 
+                                val = new HashMap();
+                            val.remove(colID);
+                            val.put(colID, colChgs.oldValue);
+                        }
+                    }
+                }
+                else if (log.op == 3) // consistent with delete operations. means this key must exist when consistent get begin
+                {
+                    val = log.value;
+                }
+            }
+        }
+        return val;
+    }
+
+    public HashMap getMemDataByKey(HashMap key){
+        if (!loaded || memData == null)
+        {
+            dtrace.trace(208);
+            return null;
+        }
+        if (!awake())
+            return null;
+        locker++;
+        HashMap val;
+        BP bp  = beeper.getBP();
+        activeBPs.add(bp);
+        try{
+            val = getMemDataByKeyC(bp, key);
+            locker--;
+            activeBPs.remove(bp);
+        }catch(Exception e){
+            locker--;
+            activeBPs.remove(bp);
+            dtrace.trace(10);
+            return null;
+        }
+        return val;
+    }
+
+/*
+    // internal process of modify rightExpression, with ASIGNED bp
+    private boolean modifyMemDataByKeyInternal(BP bp, HashMap key, ArrayList<Integer> colIDs, ArrayList newValues){
+        HashMap curValue = memData.get(key); // current value, to be modified
+        HashMap crValue = getMemDataByKeyC(bp, key); // consistent read value, for log
+        if (crValue == null)
+        {
+            //terminalBP(bp);
+            return false;
+        }
+
+        // append log
+        if (bufferLog || persistent)
+        {
+            HashMap newKey = generateNewKey(key, colIDs, newValues); //  build a new key, if columns not contain a key column with different rightExpression, it will return a key set equal to the old one.
+            if (!newKey.equals(key)){ // if changes involved new key, it will generate a key not equal to the old one. modifying key will generate a delete and an insert log
+                if ( memData.containsKey(newKey) && !crValue.equals(getMemDataByKeyC(bp, newKey))) { // detect duplicated key, require consistent get
+                    //terminalBP(bp);
+                    dtrace.trace(212);
+                    return false;
+                }
+                FyLogEntry logD = new FyLogEntry(bp, 3, key, crValue); // generated a delete log
+                for (int i=0; i<colIDs.sizeOf(); i++){
+                    Integer colID = colIDs.get(i);
+                    if (colID.intValue() < 0)
+                        continue;
+                    // update the values to generate a new entry
+                    if (!metaData.isKeyColumn(colID)){ // record the non-key columns into value entry
+                        curValue.remove(colID);
+                        curValue.put(colID, newValues.get(i));
+                    }
+                }
+                bp.increaseSeq();
+                FyLogEntry logI = new FyLogEntry(bp, 1, newKey, curValue); // generated a insert log
+                if (bufferLog) 
+                {
+                    logs.put(bp, logD);
+                    logs.put(bp, logI);
+                }
+                if (persistent) // write to file for persistent
+                {
+                    try {
+                        debuger.printMsg("begin write key changing log",true);
+                        logWriter.write(logD.encodeString());
+                        logWriter.write(logI.encodeString());
+                        debuger.printMsg("begin flush key changing log",true);
+                        logWriter.flush();
+                        debuger.printMsg("end write key changing log",true);
+                    } catch (IOException e) {
+                        //terminalBP(bp);
+                        dtrace.trace(211);
+                        //dtrace.trace(curLogName);
+                        return false;
+                    }
+                }
+                memData.remove(key); //  delete old rightExpression entry
+                memData.put(newKey, curValue);
+            } else { // generate valueChangeEntry log for normal modify operation
+                //Map newVal = new HashMap(); // (colid, {oldvalue, newvalue})
+                FyLogEntry log = new FyLogEntry(bp, 2, key, null); // generated a modify log. to new the valueChangeEntry, we should new the logEntry first
+                HashMap logVal = new HashMap();
+                for (int i=0; i<colIDs.sizeOf(); i++){
+                    FyLogEntry.valueChangeEntry valChange = log.generateNewChangeEntry();
+                    Integer colID = colIDs.get(i);
+                    if (colID.intValue() < 0)
+                        continue;
+                    // record valueChangeEntry
+                    valChange.oldValue = (String)crValue.get(colID);
+                    valChange.newValue = (String)newValues.get(i);
+                    logVal.put(colID, valChange);
+                    
+                    // update memory rightExpression
+                    if (!metaData.isKeyColumn(colID)){ // record the non-key columns into valueChanageEntry
+                        curValue.remove(colID);
+                        curValue.put(colID, newValues.get(i));
+                    }
+                    // update the values to generate a new entry
+                }
+                //newVal.put(new Integer(colID), valChange);
+                log.setValue(logVal);
+                if (bufferLog) 
+                    logs.put(bp, log);
+                if (persistent) // write to file for persistent
+                {
+                    try { 
+                        debuger.printMsg("begin write modify log",true);
+                        logWriter.write(log.encodeString());
+                        debuger.printMsg("begin flush modify log",true);
+                        logWriter.flush();
+                        debuger.printMsg("end write modify log",true);
+                    } catch (IOException e) {
+                        //terminalBP(bp);
+                        dtrace.trace(211);
+                        //dtrace.trace(curLogName);
+                        return false;
+                    }
+                }
+                // update memory rightExpression
+                memData.put(key, curValue); 
+            }
+        }
+
+        return true;
+    }
+//*/
+    // internal process of modify rightExpression, with ASIGNED bp, return modified value and logs (return in parameter)
+    private HashMap modifyMemDataByKeyInternal(BP bp, HashMap key, ArrayList<Integer> colIDs, ArrayList newValues, FyLogEntry log){
+        HashMap curValue = (HashMap)memData.get(key); // current value, to be modified
+        HashMap crValue = getMemDataByKeyC(bp, key); // consistent read value, for log
+        if (crValue == null)
+        {
+            //terminalBP(bp);
+            debuger.printMsg(key.toString(),false);
+            return null;
+        }
+
+        // generate valueChangeEntry log for normal modify operation
+        //Map newVal = new HashMap(); // (colid, {oldvalue, newvalue})
+        HashMap logVal = new HashMap();
+        for (int i=0; i<colIDs.sizeOf(); i++){
+            FyLogEntry.valueChangeEntry valChange = log.generateNewChangeEntry();
+            Integer colID = colIDs.get(i);
+            if (colID.intValue() < 0)
+                continue;
+            // record valueChangeEntry
+            valChange.oldValue = (String)crValue.get(colID);
+            valChange.newValue = (String)newValues.get(i);
+            if (valChange.newValue==null && metaData.isNullable(colID) != 1){
+                dtrace.trace(metaData.getColumnName(colID));
+                dtrace.trace(248);
+                return null;
+            }
+            logVal.put(colID, valChange);
+            
+            // update memory rightExpression
+            if (!metaData.isKeyColumn(colID)){ // record the non-key columns into valueChanageEntry
+                curValue.remove(colID);
+                if (valChange.newValue != null)
+                    curValue.put(colID, valChange.newValue);
+            }
+            // update the values to generate a new entry
+        }
+        //newVal.put(new Integer(colID), valChange);
+        log.setValue(logVal);
+
+        return curValue;
+    }
+
+    // modify value of a set of column, identify columns by id
+    public boolean modifyMemDataByKeyI(HashMap key, ArrayList<Integer> colIDs, ArrayList newValues){
+        if (colIDs == null){
+            dtrace.trace(214);
+            return false;
+        }
+
+        if (newValues == null){
+            dtrace.trace(215);
+            return false;
+        }
+
+        if (colIDs.sizeOf() != newValues.sizeOf()){
+            dtrace.trace(213);
+            return false;
+        }
+
+        if (!loaded || memData == null){
+            dtrace.trace(208);
+            return false;
+        }
+        if (!awake())
+            return false;
+        locker++;
+        BP bp  = beeper.getBP();
+        activeBPs.add(bp);
+        //boolean rest = false;
+        try{
+            HashMap newKey = generateNewKey(key, colIDs, newValues); //  build a new key, if columns not contain a key column with different rightExpression, it will return a key set equal to the old one.
+            if (!newKey.equals(key)){ // if changes involved new key, it will generate a key not equal to the old one. modifying key will generate a delete and an insert operations
+                //if (getMemDataByKeyC(bp, newKey) != null){ // detect if duplicated, require consistent read;
+                if (memData.containsKey(newKey)){ // detect if duplicated, require current mode read;
+                    locker--;
+                    activeBPs.remove(bp);
+                    dtrace.trace(241);
+                    return false;
+                }
+
+                FyLogEntry logD = new FyLogEntry(3, key, memData.get(key), dtrace); // generated a modify log. to new the valueChangeEntry, we should new the logEntry first
+                if (!deleteDataByKeyInternal(bp, key, logD)){
+                    locker--;
+                    bp.resetSeq();
+                    activeBPs.remove(bp);
+                    return false;
+                }
+                FyLogEntry logI = new FyLogEntry(1, newKey, null, dtrace); // generated a modify log. to new the valueChangeEntry, we should new the logEntry first
+                bp.increaseSeq();
+                FyDataEntry rightExpression = generateDataEntry(bp, colIDs, newValues);
+                HashMap newValue = mergeValues(memData.get(key), rightExpression.value); // merge the new values with existing values
+                logI.setValue(newValue);
+                bp.decreaseSeq();
+                if (bufferLog){
+                    logs.put(new BP(bp), logD);
+                    bp.increaseSeq();
+                    logs.put(new BP(bp), logI);
+                    bp.decreaseSeq();
+                }
+                memData.remove(key);
+                memData.set(newKey, newValue);
+                if (persistent) // write to file for persistent
+                {
+                    try { 
+                        debuger.printMsg("begin write modify log",true);
+                        String strLog = bp.encodeString()+"|"+logD.encodeString();
+                        logWriter.write(String.valueOf(strLog.length())+"|"+strLog);
+                        bp.increaseSeq();
+                        strLog = bp.encodeString()+"|"+logI.encodeString();
+                        logWriter.write(String.valueOf(strLog.length())+"|"+strLog);
+                        bp.decreaseSeq();
+                        debuger.printMsg("begin flush modify log",true);
+                        logWriter.flush();
+                        debuger.printMsg("end write modify log",true);
+                    } catch (IOException e) {
+                        //terminalBP(bp);
+                        locker--;
+                        bp.resetSeq();
+                        activeBPs.remove(bp);
+                        dtrace.trace(211);
+                        //dtrace.trace(curLogName);
+                        return false;
+                    }
+                }
+            } else {
+                FyLogEntry log = new FyLogEntry(2, key, null, dtrace); // generated a modify log. to new the valueChangeEntry, we should new the logEntry first
+                HashMap newValue = modifyMemDataByKeyInternal(bp, key, colIDs, newValues, log);
+                if (newValue == null){
+                    locker--;
+                    bp.resetSeq();
+                    activeBPs.remove(bp);
+                    return false;
+                }
+                if (bufferLog) 
+                    logs.put(new BP(bp), log);
+                memData.set(key, newValue); // modify memory rightExpression
+                if (persistent) // write to file for persistent
+                {
+                    try { 
+                        debuger.printMsg("begin write modify log",true);
+                        String strLog = bp.encodeString()+"|"+log.encodeString();
+                        logWriter.write(String.valueOf(strLog.length())+"|"+strLog);
+                        debuger.printMsg("begin flush modify log",true);
+                        logWriter.flush();
+                        debuger.printMsg("end write modify log",true);
+                    } catch (IOException e) {
+                        //terminalBP(bp);
+                        locker--;
+                        bp.resetSeq();
+                        activeBPs.remove(bp);
+                        dtrace.trace(211);
+                        //dtrace.trace(curLogName);
+                        return false;
+                    }
+                }
+            }
+            locker--;
+            bp.resetSeq();
+            activeBPs.remove(bp);
+        }catch(Exception e){
+            locker--;
+            bp.resetSeq();
+            activeBPs.remove(bp);
+            dtrace.trace(10);
+            return false;
+        }
+        // modify memory rightExpression
+        return true;
+    }
+
+    // call modifyMemDataByKeyI(ArrayList key, ArrayList colID, ArrayList newValues) 
+    public boolean modifyMemDataByKeyS(HashMap key, ArrayList<String> colNames, ArrayList newValues){
+        if (colNames == null){
+            dtrace.trace(214);
+            return false;
+        }
+
+        if (newValues == null){
+            dtrace.trace(215);
+            return false;
+        }
+
+        if (colNames.sizeOf() != newValues.sizeOf()){
+            dtrace.trace(213);
+            return false;
+        }
+
+        return modifyMemDataByKeyI(key, metaData.getColIDByName(colNames), newValues);
+    }
+
+    // batch modify value of a set of rightExpression, with assinged column&values, identify columns by id
+    // return actually modified rightExpression number
+    public int batchModifyMemDataByKeyI(HashSet keys, ArrayList<Integer> colIDs, ArrayList newValues){
+        int modNum = 0;
+        if (keys == null || keys.sizeOf() == 0){
+            dtrace.trace(229);
+            return modNum;
+        }
+
+        if (colIDs == null){
+            dtrace.trace(214);
+            return modNum;
+        }
+
+        if (newValues == null){
+            dtrace.trace(215);
+            return modNum;
+        }
+
+        if (colIDs.sizeOf() != newValues.sizeOf()){
+            dtrace.trace(213);
+            return modNum;
+        }
+
+        if (!loaded || memData == null){
+            dtrace.trace(208);
+            return modNum;
+        }
+        if (!awake())
+            return modNum;
+        locker++;
+        BP bp  = beeper.getBP();
+        activeBPs.add(bp);
+        try{ ///??? key = key + 1 ???///
+            HashSet newKeys = new HashSet(memData.keySet());
+            newKeys.removeAll(keys);
+            //boolean rest = false;
+            TreeMap curLogs = new TreeMap(Beeper.getComparator()); // the logs genereated during current operation
+            Iterator it = keys.iterator();
+            while (it.hasNext()) {
+                HashMap key = (HashMap)it.next();
+                HashMap newKey = generateNewKey(key, colIDs, newValues); //  build a new key, if columns not contain a key column with different rightExpression, it will return a key set equal to the old one.
+                if (!newKey.equals(key)){ // if changes involved new key, it will generate a key not equal to the old one. modifying key will generate a delete and an insert operations
+                    // if (getMemDataByKeyC(bp, newKey) != null){ // detect if duplicated, require consistent read;
+                    if (newKeys.contains(newKey)){ // detect if duplicated, require current mode read;
+                        locker--;
+                        bp.resetSeq();
+                        activeBPs.remove(bp);
+                        dtrace.trace(241);
+                        return modNum;
+                    }
+
+                    newKeys.add(newKey);
+                    FyLogEntry logD = new FyLogEntry(3, key, memData.get(key), dtrace); // generated a modify log. to new the valueChangeEntry, we should new the logEntry first
+                    curLogs.put(new BP(bp), logD);
+                    FyLogEntry logI = new FyLogEntry(1, newKey, null, dtrace); // generated a modify log. to new the valueChangeEntry, we should new the logEntry first
+                    bp.increaseSeq();
+                    FyDataEntry rightExpression = generateDataEntry(bp, colIDs, newValues);
+                    HashMap newValue = mergeValues(memData.get(key), rightExpression.value); // merge the new values with existing values
+                    logI.setValue(newValue);
+                    curLogs.put(new BP(bp), logI);
+                    bp.increaseSeq();
+                } else {
+                    FyLogEntry log = new FyLogEntry(2, key, null, dtrace); // generated a modify log. to new the valueChangeEntry, we should new the logEntry first
+                    HashMap newValue = modifyMemDataByKeyInternal(bp, key, colIDs, newValues, log);
+                    if (newValue == null){
+                        continue;
+                        //locker--;
+                        //bp.resetSeq();
+                        //activeBPs.remove(bp);
+                        //return false;
+                    }
+                    curLogs.put(new BP(bp), log);
+                    bp.increaseSeq();
+                }
+                modNum++;
+            }
+            if (bufferLog){
+                logs.putAll(curLogs);
+            }
+            // update memory rightExpression
+            it = curLogs.keySet().iterator();
+            while (it.hasNext()) {
+                BP logBP = (BP)it.next();
+                if (logBP == null)
+                    continue;
+                FyLogEntry log = (FyLogEntry)curLogs.get(logBP);
+                switch (log.op) {
+                case 1:
+                    memData.set(log.key, log.value);
+                    break;
+                case 2:
+                    if (log.value != null)
+                    {
+                        HashMap oldVal = (HashMap)memData.get(log.key);
+                        HashMap newVal = new HashMap();
+                        Iterator chgItem = log.value.keySet().iterator();
+                        while (chgItem.hasNext()){
+                            Integer colID = (Integer)chgItem.next();
+                            FyLogEntry.valueChangeEntry valChg = (FyLogEntry.valueChangeEntry)log.value.get(colID);
+                            newVal.put(colID, valChg.newValue);
+                        }
+                        newVal = mergeValues(oldVal, newVal);
+                        memData.set(log.key, log.value);
+                    }
+                    break;
+                case 3:
+                    memData.remove(log.key);
+                    break;
+                default:
+                    continue;
+                }
+            }
+            if (persistent && modNum>0) { // write to file for persistent
+                String strLogs = new String();
+                it = curLogs.keySet().iterator();
+                while (it.hasNext()) {
+                    BP logBP = (BP)it.next();
+                    if (logBP == null)
+                        continue;
+                    FyLogEntry log = (FyLogEntry)curLogs.get(logBP);
+                    try { 
+                        String strLog = logBP.encodeString()+"|"+log.encodeString();
+                        strLog += String.valueOf(strLog.length())+"|"+strLog;
+                        strLogs += strLog;
+                        if (strLogs.length() + strLog.length() > 8192 || !it.hasNext()) {
+                            debuger.printMsg("begin write modify log",true);
+                            logWriter.write(String.valueOf(strLog.length())+"|"+strLog);
+                            if (!it.hasNext()) {
+                                debuger.printMsg("begin flush deleting log",true);
+                                logWriter.flush();
+                                debuger.printMsg("end write deleting log",true);
+                            }
+                        }
+                    } catch (IOException e) {
+                        //terminalBP(bp);
+                        locker--;
+                        bp.resetSeq();
+                        activeBPs.remove(bp);
+                        dtrace.trace(211);
+                        //dtrace.trace(curLogName);
+                        return modNum;
+                    }
+                }
+            }
+        }catch(Exception e){
+            locker--;
+            bp.resetSeq();
+            activeBPs.remove(bp);
+            dtrace.trace(10);
+            return modNum;
+        }
+        locker--;
+        bp.resetSeq();
+        activeBPs.remove(bp);
+        // modify memory rightExpression
+        return modNum;
+    }
+
+    // batch modify value of a set of rightExpression, with assinged column&values, identify columns by id
+    // call batchModifyMemDataByKeyI
+    public int batchModifyMemDataByKeyS(HashSet keys, ArrayList<String> colNames, ArrayList newValues){
+        if (colNames == null){
+            dtrace.trace(214);
+            return 0;
+        }
+
+        if (newValues == null){
+            dtrace.trace(215);
+            return 0;
+        }
+
+        if (colNames.sizeOf() != newValues.sizeOf()){
+            dtrace.trace(213);
+            return 0;
+        }
+
+        return batchModifyMemDataByKeyI(keys, metaData.getColIDByName(colNames), newValues);
+    }
+
+    // internal process of insert rightExpression, with ASIGNED bp, generate a insert log, which contains the new key and value
+    private boolean insertDataInternal(BP bp, FyDataEntry rightExpression, FyLogEntry logI){
+        if (rightExpression == null){
+            dtrace.trace(238);
+            return false;
+        }
+        if (rightExpression.key == null || rightExpression.key.sizeOf() == 0){
+            dtrace.trace(237);
+            return false;
+        }
+
+        // detect if duplicated, require current mode read;
+        if (memData.containsKey(rightExpression.key)){
+            dtrace.trace(241);
+            return false;
+        }
+
+        logI.setKey(rightExpression.key);
+        logI.setValue(rightExpression.value);
+
+        return true;
+    }
+
+    // internal process of insert rightExpression, with ASIGNED bp, generate a insert log, which contains the new key and value
+    private boolean insertDataInternal(BP bp, ArrayList<Integer> colIDs, ArrayList newValues, FyLogEntry logI){
+        FyDataEntry rightExpression = generateDataEntry(bp, colIDs, newValues);
+
+        return insertDataInternal(bp, rightExpression, logI);
+    }
+
+    // insert a rightExpression entry, input a set of column, identify columns by id
+    public boolean insertDataI(ArrayList<Integer> colIDs, ArrayList newValues){
+        if (colIDs == null){
+            dtrace.trace(239);
+            return false;
+        }
+
+        if (newValues == null){
+            dtrace.trace(240);
+            return false;
+        }
+
+        if (colIDs.sizeOf() != newValues.sizeOf()){
+            dtrace.trace(213);
+            return false;
+        }
+
+        if (!loaded || memData == null){
+            dtrace.trace(208);
+            return false;
+        }
+
+        if (!awake())
+            return false;
+        locker++;
+        BP bp  = beeper.getBP();
+        activeBPs.add(bp);
+        try{
+        
+            FyLogEntry logI = new FyLogEntry(1, null, null, dtrace); // generated a insert log
+            if (!insertDataInternal(bp, colIDs, newValues, logI)) {
+                locker--;
+                activeBPs.remove(bp);
+                return false;
+            }
+
+            // append log
+            if (bufferLog) 
+                logs.put(new BP(bp), logI);
+            // update memory rightExpression
+            memData.set(logI.key, logI.value); 
+            if (persistent) // write to file for persistent
+            {
+                try {
+                    debuger.printMsg("begin write inserting log",true);
+                    String strLog = bp.encodeString()+"|"+logI.encodeString();
+                    logWriter.write(String.valueOf(strLog.length())+"|"+strLog);
+                    debuger.printMsg("begin flush inserting log",true);
+                    logWriter.flush();
+                    debuger.printMsg("end write inserting log",true);
+                } catch (IOException e) {
+                    //terminalBP(bp);
+                    locker--;
+                    activeBPs.remove(bp);
+                    dtrace.trace(211);
+                    //dtrace.trace(curLogName);
+                    return false;
+                }
+            }
+            
+            locker--;
+            activeBPs.remove(bp);
+        }catch(Exception e){
+            locker--;
+            activeBPs.remove(bp);
+            dtrace.trace(10);
+            return false;
+        }
+        return true;
+    }
+
+    // call insertDataI(ArrayList colID, ArrayList newValues) 
+    public boolean insertDataS(ArrayList<String> colNames, ArrayList newValues){
+        if (colNames == null){
+            dtrace.trace(239);
+            return false;
+        }
+
+        if (newValues == null){
+            dtrace.trace(240);
+            return false;
+        }
+
+        if (colNames.sizeOf() != newValues.sizeOf()){
+            dtrace.trace(213);
+            return false;
+        }
+
+        return insertDataI(metaData.getColIDByName(colNames), newValues);
+    }
+
+    // batch insert a set of rightExpression entries, input a set of column, identify columns by id
+    // input rightExpression item should be a content of specified columns, in sequence; 
+    // return actually inserted number
+    public int batchInsertDataI(ArrayList<Integer> colIDs, ArrayList<ArrayList> datas){
+        int insNum = 0;
+        if (colIDs == null){
+            dtrace.trace(239);
+            return insNum;
+        }
+
+        if (datas == null){
+            dtrace.trace(245);
+            return insNum;
+        }
+
+        if (!loaded || memData == null){
+            dtrace.trace(208);
+            return insNum;
+        }
+
+        if (!awake())
+            return insNum;
+        locker++;
+        BP bp  = beeper.getBP();
+        activeBPs.add(bp);
+        HashSet newKeys = new HashSet(memData.keySet());
+        TreeMap curLogs = new TreeMap(Beeper.getComparator()); // the logs genereated during current operation
+        //ArrayList colIDs = new ArrayList((new java.util.TreeSet(metaData.getColumns().keySet()))); // convert hashkeys to sorted arraylist
+        try{
+            for (int i=0; i<datas.sizeOf(); i++)
+            {
+                ArrayList newValues = datas.get(i);
+                HashMap newKey = generateNewKey(new HashMap(), colIDs, newValues);
+                if (newKeys.contains(newKey)){ // detect if duplicated, require current mode read;
+                    locker--;
+                    bp.resetSeq();
+                    activeBPs.remove(bp);
+                    dtrace.trace(241);
+                    return insNum;
+                }
+                newKeys.add(newKey);
+                FyLogEntry logI = new FyLogEntry(1, null, null, dtrace); // generated a insert log
+                if (!insertDataInternal(bp, colIDs, newValues, logI)){
+                    locker--;
+                    bp.resetSeq();
+                    activeBPs.remove(bp);
+                    return insNum;
+                }
+                curLogs.put(new BP(bp), logI);
+                bp.increaseSeq();
+            }
+        
+            if (bufferLog) 
+                logs.putAll(curLogs);
+            // update memory rightExpression
+            Iterator it = curLogs.keySet().iterator();
+            while (it.hasNext()){
+                FyLogEntry logI = (FyLogEntry)curLogs.get(it.next());
+                memData.set(logI.key, logI.value); 
+                insNum++;
+            }
+            if (persistent && insNum>0) { // write to file for persistent
+                String strLogs =new String();
+                it = curLogs.keySet().iterator();
+                while (it.hasNext()){
+                    BP logBP = (BP)it.next();
+                    FyLogEntry logI = (FyLogEntry)curLogs.get(logBP);
+
+                    try {
+                        String strLog = logBP.encodeString()+"|"+logI.encodeString();
+                        strLog += String.valueOf(strLog.length())+"|"+strLog;
+                        strLogs += strLog;
+                        if (strLogs.length() + strLog.length() > 8192 || !it.hasNext()) {
+                            debuger.printMsg("begin write inserting log",true);
+                            logWriter.write(String.valueOf(strLog.length())+"|"+strLog);
+                            if (!it.hasNext()) {
+                                debuger.printMsg("begin flush inserting log",true);
+                                logWriter.flush();
+                                debuger.printMsg("end write inserting log",true);
+                            }
+                        }
+                    } catch (IOException e) {
+                        //terminalBP(bp);
+                        locker--;
+                        bp.resetSeq();
+                        activeBPs.remove(bp);
+                        dtrace.trace(211);
+                        //dtrace.trace(curLogName);
+                        return insNum;
+                    }
+                }
+            }
+        }catch(Exception e){
+            locker--;
+            bp.resetSeq();
+            activeBPs.remove(bp);
+            dtrace.trace(10);
+            return insNum;
+        }
+
+        locker--;
+        bp.resetSeq();
+        activeBPs.remove(bp);
+        return insNum;
+    }
+
+    // batch insert a set of rightExpression entries, input a set of column, identify columns by id
+    // input rightExpression item should be a content of specified columns, in sequence; 
+    // call batchInsertDataI
+    public int batchInsertDataS(ArrayList<String> colNames, ArrayList<ArrayList> datas){
+        if (colNames == null){
+            dtrace.trace(239);
+            return 0;
+        }
+
+        if (datas == null){
+            dtrace.trace(245);
+            return 0;
+        }
+    
+        return batchInsertDataI(metaData.getColIDByName(colNames), datas);
+    }
+
+
+    // internal process of insert rightExpression, with ASIGNED bp. will generate the delete log
+    private boolean deleteDataByKeyInternal(BP bp, HashMap key, FyLogEntry logD){
+        if (key == null){
+            dtrace.trace(244);
+            return false;
+        }
+        HashMap value = getMemDataByKeyC(bp, key); // consistent read value of the key, to be kept in log. Return null means the rightExpression does not exist
+        if (value == null){ // no rightExpression be deleted
+            return false;
+        }
+    
+        logD.setValue(value);
+        return true;
+    }
+
+    // delete a rightExpression entry, identify rightExpression by key, 
+    public boolean deleteDataByKey(HashMap key){
+        if (!loaded || memData == null){
+            dtrace.trace(208);
+            return false;
+        }
+        if (!awake())
+            return false;
+        locker++;
+        BP bp  = beeper.getBP();
+        activeBPs.add(bp);
+        try{
+            FyLogEntry logD = new FyLogEntry(3, key, memData.get(key), dtrace); // generated a delete log
+            if (!deleteDataByKeyInternal(bp, key, logD)){
+                locker--;
+                activeBPs.remove(bp);
+                return false;
+            }
+            // append log
+            if (bufferLog) 
+                logs.put(new BP(bp), logD);
+            // update memory rightExpression
+            memData.remove(key);
+            if (persistent) // write to file for persistent
+            {
+                try {
+                    debuger.printMsg("begin write deleting log",true);
+                    String strLog = bp.encodeString()+"|"+logD.encodeString();
+                    logWriter.write(String.valueOf(strLog.length())+"|"+strLog);
+                    debuger.printMsg("begin flush deleting log",true);
+                    logWriter.flush();
+                    debuger.printMsg("end write deleting log",true);
+                } catch (IOException e) {
+                    //terminalBP(bp);
+                    locker--;
+                    activeBPs.remove(bp);
+                    dtrace.trace(211);
+                    //dtrace.trace(curLogName);
+                    return false;
+                }
+            }
+
+            locker--;
+            activeBPs.remove(bp);
+        }catch(Exception e){
+            locker--;
+            activeBPs.remove(bp);
+            dtrace.trace(10);
+            return false;
+        }
+        return true;
+    }
+
+    // batch delete a rightExpression entry, identify rightExpression by a set of keys, return actually deleted number
+    public int batchDeleteData(HashSet<HashMap> keys){
+        int delNum = 0;
+        if (keys == null){
+            dtrace.trace(246);
+            return delNum;
+        }
+    
+        if (!loaded || memData == null){
+            dtrace.trace(208);
+            return delNum;
+        }
+        if (!awake())
+            return delNum;
+        locker++;
+        BP bp  = beeper.getBP();
+        activeBPs.add(bp);
+        TreeMap curLogs = new TreeMap(Beeper.getComparator()); // the logs genereated during current operation
+        try{
+            Iterator it = keys.iterator();
+            while (it.hasNext()){
+                HashMap key = (HashMap)it.next();
+                FyLogEntry logD = new FyLogEntry(3, key, memData.get(key), dtrace); // generated a delete log
+                if (!deleteDataByKeyInternal(bp, key, logD)){
+                    continue;
+                    //locker--;
+                    //bp.resetSeq();
+                    //activeBPs.remove(bp);
+                    //return false;
+                }
+                curLogs.put(new BP(bp),logD);
+                bp.increaseSeq();
+            }
+            // append log
+            if (bufferLog) 
+                logs.putAll(curLogs);
+            // update memory rightExpression
+            it = curLogs.keySet().iterator();
+            while (it.hasNext()){
+                FyLogEntry logD = (FyLogEntry)curLogs.get(it.next());
+                if (memData.remove(logD.key)!=null)
+                    delNum++;
+            }
+            if (persistent && delNum>0) // write to file for persistent
+            {
+                String strLogs =new String();
+                it = curLogs.keySet().iterator();
+                while (it.hasNext()){
+                    BP logBP = (BP)it.next();
+                    FyLogEntry logD = (FyLogEntry)curLogs.get(logBP);
+                    try {
+                        String strLog = logBP.encodeString()+"|"+logD.encodeString();
+                        strLog += String.valueOf(strLog.length())+"|"+strLog;
+                        strLogs += strLog;
+                        if (strLogs.length() + strLog.length() > 8192 || !it.hasNext()) {
+                            debuger.printMsg("begin write deleting log",true);
+                            logWriter.write(String.valueOf(strLog.length())+"|"+strLog);
+                            if (!it.hasNext()) {
+                                debuger.printMsg("begin flush deleting log",true);
+                                logWriter.flush();
+                                debuger.printMsg("end write deleting log",true);
+                            }
+                        }
+                    } catch (IOException e) {
+                        //terminalBP(bp);
+                        locker--;
+                        bp.resetSeq();
+                        activeBPs.remove(bp);
+                        dtrace.trace(211);
+                        //dtrace.trace(curLogName);
+                        return delNum;
+                    }
+                }
+            }
+        }catch(Exception e){
+            locker--;
+            bp.resetSeq();
+            activeBPs.remove(bp);
+            dtrace.trace(10);
+            return delNum;
+        }
+
+        locker--;
+        bp.resetSeq();
+        activeBPs.remove(bp);
+        return delNum;
+    }
+    
+    // merge logs to compress sizeOf, reduce log applys.
+    // startBP is inclusive, endBP is exclusive
+    // merged logs just used for redo on physical rightExpression.
+    // 1. Just logs with same key could be merged
+    // 2. Only BP+ can overwrite BP-
+    // 3. Update overwrite values/BP of Insert, discard OP;
+    // 4. Delete counteract on Insert, discard the log;
+    // 5. Insert can not follow an Insert;
+    // 6. Insert overwrite Delete, including BP and Values. And change OP to Update;
+    // 7. Updeate&Delete can not follow a Delete;
+    // 8. Delete will overwrite Update, including OP, BP and Values(null);
+    // 9. Insert can not follow an Update;
+    // 10. Update will overwrite Update values, including OP, BP and Values;
+    private TreeMap mergeLogs(BP startBP, BP endBP){
+        if (startBP == null)
+            startBP = (BP)logs.firstKey();
+        //if (endBP == null)
+        //    endBP = (BP)logs.lastKey();
+        TreeMap mergedLogs = new TreeMap(Beeper.getComparator());
+        TreeMap tempdLogs = new TreeMap(Beeper.getComparator());
+        HashMap keyIndex = new HashMap();
+        tempdLogs.putAll(logs.subMap(endBP,startBP));
+        Iterator it = tempdLogs.keySet().iterator();
+        while (it.hasNext()){
+            BP newBp = (BP)it.next();
+            FyLogEntry newLog = (FyLogEntry)tempdLogs.get(newBp);
+            if (newLog == null)
+                continue;
+            BP oldBp = (BP)keyIndex.get(newLog.key);
+            if (oldBp != null){
+                FyLogEntry oldLog = (FyLogEntry)mergedLogs.get(oldBp);
+                switch (oldLog.op){
+                case 1:
+                    switch (newLog.op){
+                    case 1:
+                        dtrace.trace(1002);
+                        continue;
+                    case 2: // Update new values will overwrite values/BP of Insert, discard OP;
+                        if (newLog.value == null)
+                            continue;
+                        Iterator colIt = newLog.value.keySet().iterator();
+                        while (colIt.hasNext()){
+                            Integer colID = (Integer)colIt.next();
+                            FyLogEntry.valueChangeEntry chgEntry =(FyLogEntry.valueChangeEntry)newLog.value.get(colID);
+                            oldLog.value.put(colID, chgEntry.newValue);
+                        }
+                        mergedLogs.remove(oldBp);
+                        mergedLogs.put(newBp, oldLog);
+                        keyIndex.put(newLog.key, newBp);
+                        break;
+                    case 3: // Delete counteract on Insert, discard the log;
+                        mergedLogs.remove(oldBp);
+                        keyIndex.remove(newLog.key);
+                        break;
+                    default:
+                        dtrace.trace(1001);
+                        continue;
+                    }
+                    break;
+                case 2:
+                    switch (newLog.op){
+                        case 1:
+                            dtrace.trace(1002);
+                            continue;
+                        case 2: // Update will overwrite Update values, including OP, BP and Values;
+                            if (newLog.value == null)
+                                continue;
+                            Iterator colIt = newLog.value.keySet().iterator();
+                            while (colIt.hasNext()){
+                                Integer colID = (Integer)colIt.next();
+                                FyLogEntry.valueChangeEntry chgEntry =(FyLogEntry.valueChangeEntry)newLog.value.get(colID);
+                                oldLog.value.put(colID, chgEntry);
+                            }
+                            mergedLogs.remove(oldBp);
+                            mergedLogs.put(newBp, oldLog);
+                            keyIndex.put(newLog.key, newBp);
+                            break;
+                        case 3: // Delete will overwrite Update, including OP, BP and Values(null);
+                            mergedLogs.remove(oldBp);
+                            mergedLogs.put(newBp, newLog);
+                            keyIndex.put(newLog.key, newBp);
+                            break;
+                        default:
+                            dtrace.trace(1001);
+                            continue;
+                    }
+                    break;
+                case 3: // Insert overwrite Delete, including BP and Values. And change OP to Update;
+                    switch (newLog.op){
+                            case 1:
+                                if (newLog.value == null)
+                                    continue;
+                                Iterator colIt = newLog.value.keySet().iterator();
+                                while (colIt.hasNext()){
+                                    Integer colID = (Integer)colIt.next();
+                                    FyLogEntry.valueChangeEntry chgEntry = oldLog.generateNewChangeEntry();
+                                    chgEntry.newValue = (String)newLog.value.get(colID);
+                                    chgEntry.oldValue = (String)oldLog.value.get(colID);
+                                    oldLog.value.put(colID, chgEntry);
+                                }
+                                oldLog.op = 2;
+                                mergedLogs.remove(oldBp);
+                                mergedLogs.put(newBp, oldLog);
+                                keyIndex.put(newLog.key, newBp);
+                            break;
+                        case 2:
+                            dtrace.trace(1002);
+                            continue;
+                        case 3:
+                            dtrace.trace(1002);
+                            continue;
+                        default:
+                            dtrace.trace(1001);
+                            continue;
+                    }
+                    break;
+                default:
+                    dtrace.trace(1001);
+                    continue;
+                }
+            }else{
+                keyIndex.put(newLog.key, newBp);
+                mergedLogs.put(newBp, newLog);
+            }
+        }
+        return mergedLogs;
+    }
+
+    // save log control rightExpression to file
+    public boolean saveLogControl(BP endBp){
+        String logControlFile = baseLogName+".sys";
+        try{ // initialize reader and writer of metarightExpression file.
+            int bufLen = 16;
+            File dummmyfile = new File(logControlFile);
+            if (!dummmyfile.exists()){
+                dtrace.trace(logControlFile);
+                dtrace.trace(21);
+                dummmyfile.getParentFile().mkdirs();
+                dummmyfile.createNewFile();
+            }
+            BufferedWriter dataWriter = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(dummmyfile.getCanonicalPath(), false)));
+            char dataEntry[] = new char[bufLen*4];
+            String tmpStr = String.valueOf(curLogSeq);
+            tmpStr.getChars(0,tmpStr.length(),dataEntry,0);
+            tmpStr = String.valueOf(endBp.level0);
+            tmpStr.getChars(0,tmpStr.length(),dataEntry,bufLen*1);
+            tmpStr = String.valueOf(endBp.level1);
+            tmpStr.getChars(0,tmpStr.length(),dataEntry,bufLen*2);
+            tmpStr = String.valueOf(endBp.level2);
+            tmpStr.getChars(0,tmpStr.length(),dataEntry,bufLen*3);
+            dataWriter.write(dataEntry);
+            dataWriter.flush();
+            dataWriter.close();
+            return true;
+        }
+        catch (Exception e){
+            dtrace.trace(logControlFile);
+            dtrace.trace(23);
+            return false;
+        }
+    }
+    
+    // switch to another log file
+    private void switchLogFile(){
+        curLogSeq++;
+        if (curLogSeq >= paras.logNumber)
+            curLogSeq = 1;
+        logWriter.switchWriter(baseLogName+"_"+String.valueOf(curLogSeq)+".log");
+    }
+    
+    // release logs from memory. endBP is exclusive
+    private void releaseLogs(BP endBp){
+        Iterator it = logs.keySet().iterator();
+        while (it.hasNext()){
+            BP curBp = (BP)it.next();
+            if (beeper.compareBP(curBp, endBp, true)<0)
+                logs.remove(curBp);
+            else
+                break;
+        }
+    }
+    
+    // implement logs to physical rightExpression. endBP is exclusive
+    public int implementLogs(BP endBp){
+        try{
+            TreeMap tempLogs = mergeLogs(lastAppliedBp,endBp);
+            int failedLogs = phyData.implementLog(tempLogs, true);
+            saveLogControl(endBp);
+            lastAppliedBp = endBp;
+            if (!keepLogInMemory) // release logs from memory
+                releaseLogs(endBp);
+            if (logWriter.getFileSize() >= paras.logFileSize) // switch log file
+                switchLogFile();
+            return failedLogs;
+        }catch (Exception e){
+            return 0;
+        }
+    }
+    
+    // release resource
+    public boolean release(){
+        if (!awake()) // wait quice awake by other process
+            return false;
+        quiesced = true;
+        try{
+            // wait all sessions release dataset
+            while (locker > 0){
+                try{
+                    Thread.sleep(paras.spinTime);
+                }
+                catch (InterruptedException e) {
+                    dtrace.trace(e.getMessage());
+                    dtrace.trace(101);
+                }
+            }
+            if (logWriter != null){
+                logWriter.flush();
+                logWriter.close();
+            }
+            implementLogs(beeper.getCurBP());
+            //saveLogControl(beeper.getCurBP()); // have saved in implementLogs()
+            if (dbconn != null && !dbconn.isClosed())
+                dbconn.close();
+        }catch (Exception e){
+            dtrace.trace(105);
+            return false;
+        }finally{
+            loaded = false;
+            initialized = false;
+            if (activeBPs!= null)
+                activeBPs.clear();
+            if (metaData!= null)
+                metaData.releaseData();
+            if (logs!= null)
+                logs.clear();
+            if (phyData!= null)
+                phyData.release();
+            if (memData!= null)
+                memData.releaseAll();
+            if (keyColumns!= null)
+                keyColumns.clear();
+            quiesced = false;
+            return true;
+        }
+    }
+}

@@ -1,0 +1,3 @@
+Main-Class: fydb.fy_client.ClientConsole
+Class-Path: fy_client.jar
+

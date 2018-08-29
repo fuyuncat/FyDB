@@ -1,0 +1,1886 @@
+2011-05-05 16:06:47 995(error): can not insert null key
+2011-05-05 16:48:15 591(error): can not insert duplicated key
+2011-05-05 16:49:40 657(error): can not insert duplicated key
+2011-05-05 17:02:27 686(error): can not insert duplicated key
+2011-05-06 11:33:36 259(error): key value number does not match key column number
+2011-05-06 11:33:36 275(error): No key found to be deleted
+2011-05-06 13:22:26 541(error): key value number does not match key column number
+2011-05-06 13:22:26 541(error): No key found to be deleted
+2011-05-09 11:03:17 476(error): can not insert duplicated key
+2011-05-09 11:03:17 476(error): key value number does not match key column number
+2011-05-09 11:03:17 476(error): No key found to be deleted
+2011-05-09 11:03:17 507(fatal): internal un handled error!
+2011-05-09 11:03:17 507(error): column number does not match value number
+2011-05-09 11:03:17 523(error): column number does not match value number
+2011-05-09 11:03:17 523(error): column number does not match value number
+2011-05-09 11:03:17 523(error): column number does not match value number
+2011-05-09 11:03:17 523(error): column number does not match value number
+2011-05-09 11:03:17 523(error): column number does not match value number
+2011-05-09 11:04:28 026(error): can not insert duplicated key
+2011-05-09 11:04:28 026(error): key value number does not match key column number
+2011-05-09 11:04:28 026(error): No key found to be deleted
+2011-05-09 11:09:56 101(fatal): internal un handled error!
+2011-05-09 11:09:56 117(error): column number does not match value number
+2011-05-09 11:09:56 117(error): column number does not match value number
+2011-05-09 11:09:56 117(error): column number does not match value number
+2011-05-09 11:09:56 132(error): column number does not match value number
+2011-05-09 11:09:56 132(error): column number does not match value number
+2011-05-09 11:09:56 132(error): column number does not match value number
+2011-05-09 11:10:35 556(error): can not insert duplicated key
+2011-05-09 11:10:35 571(error): key value number does not match key column number
+2011-05-09 11:10:35 571(error): No key found to be deleted
+2011-05-09 11:10:43 446(fatal): internal un handled error!
+2011-05-09 11:10:43 446(error): column number does not match value number
+2011-05-09 11:10:43 446(error): column number does not match value number
+2011-05-09 11:10:43 446(error): column number does not match value number
+2011-05-09 11:10:43 556(error): column number does not match value number
+2011-05-09 11:10:43 556(error): column number does not match value number
+2011-05-09 11:10:43 556(error): column number does not match value number
+2011-05-09 11:10:54 353(error): can not insert duplicated key
+2011-05-09 11:10:54 353(error): key value number does not match key column number
+2011-05-09 11:10:54 353(error): No key found to be deleted
+2011-05-09 11:10:54 369(fatal): internal un handled error!
+2011-05-09 11:10:54 369(error): column number does not match value number
+2011-05-09 11:10:54 369(error): column number does not match value number
+2011-05-09 11:10:54 369(error): column number does not match value number
+2011-05-09 11:10:54 369(error): column number does not match value number
+2011-05-09 11:10:54 384(error): column number does not match value number
+2011-05-09 11:10:54 384(error): column number does not match value number
+2011-05-09 11:11:07 619(error): can not insert duplicated key
+2011-05-09 11:11:07 635(error): key value number does not match key column number
+2011-05-09 11:11:07 635(error): No key found to be deleted
+2011-05-09 11:11:43 418(error): can not insert duplicated key
+2011-05-09 11:11:43 433(error): key value number does not match key column number
+2011-05-09 11:11:43 433(error): No key found to be deleted
+2011-05-09 11:17:04 180(error): can not insert duplicated key
+2011-05-09 11:17:04 195(error): key value number does not match key column number
+2011-05-09 11:17:04 195(error): No key found to be deleted
+2011-05-09 11:17:07 946(error): column number does not match value number
+2011-05-09 11:18:26 199(error): can not insert duplicated key
+2011-05-09 11:18:26 199(error): key value number does not match key column number
+2011-05-09 11:18:26 199(error): No key found to be deleted
+2011-05-09 11:18:30 511(error): column number does not match value number
+2011-05-09 11:18:32 824(error): column number does not match value number
+2011-05-09 11:18:32 824(error): No data assigned to be inserted
+2011-05-09 11:18:41 137(error): column number does not match value number
+2011-05-09 11:18:41 137(error): column number does not match value number
+2011-05-09 11:18:41 137(error): column number does not match value number
+2011-05-09 11:18:41 137(error): column number does not match value number
+2011-05-09 11:18:41 152(error): column number does not match value number
+2011-05-09 11:18:41 152(error): column number does not match value number
+2011-05-09 11:19:46 389(error): can not insert duplicated key
+2011-05-09 11:19:46 389(error): key value number does not match key column number
+2011-05-09 11:19:46 389(error): No key found to be deleted
+2011-05-09 11:19:46 420(error): column number does not match value number
+2011-05-09 11:19:46 420(error): column number does not match value number
+2011-05-09 11:19:46 420(error): No data assigned to be inserted
+2011-05-09 11:19:46 420(error): column number does not match value number
+2011-05-09 11:19:46 420(error): column number does not match value number
+2011-05-09 11:19:46 436(error): column number does not match value number
+2011-05-09 11:19:46 436(error): column number does not match value number
+2011-05-09 11:19:46 452(error): column number does not match value number
+2011-05-09 11:19:46 452(error): column number does not match value number
+2011-05-09 11:20:23 281(error): can not insert duplicated key
+2011-05-09 11:20:23 281(error): key value number does not match key column number
+2011-05-09 11:20:23 281(error): No key found to be deleted
+2011-05-09 11:20:23 313(error): column number does not match value number
+2011-05-09 11:20:23 328(error): column number does not match value number
+2011-05-09 11:20:23 328(error): No data assigned to be inserted
+2011-05-09 11:20:23 328(error): column number does not match value number
+2011-05-09 11:20:23 328(error): column number does not match value number
+2011-05-09 11:20:23 328(error): column number does not match value number
+2011-05-09 11:20:23 328(error): column number does not match value number
+2011-05-09 11:20:23 328(error): column number does not match value number
+2011-05-09 11:20:23 344(error): column number does not match value number
+2011-05-09 11:21:25 581(error): can not insert duplicated key
+2011-05-09 11:21:25 581(error): key value number does not match key column number
+2011-05-09 11:21:25 581(error): No key found to be deleted
+2011-05-09 11:21:25 612(error): column number does not match value number
+2011-05-09 11:21:25 612(error): column number does not match value number
+2011-05-09 11:21:25 612(error): No data assigned to be inserted
+2011-05-09 11:21:25 612(error): column number does not match value number
+2011-05-09 11:21:25 627(error): column number does not match value number
+2011-05-09 11:21:25 627(error): column number does not match value number
+2011-05-09 11:21:25 627(error): column number does not match value number
+2011-05-09 11:21:25 643(error): column number does not match value number
+2011-05-09 11:21:25 643(error): column number does not match value number
+2011-05-09 11:23:09 178(error): can not insert duplicated key
+2011-05-09 11:23:09 178(error): key value number does not match key column number
+2011-05-09 11:23:09 178(error): No key found to be deleted
+2011-05-09 11:23:09 256(error): column number does not match value number
+2011-05-09 11:23:09 256(error): column number does not match value number
+2011-05-09 11:23:09 256(error): No data assigned to be inserted
+2011-05-09 11:23:09 256(error): column number does not match value number
+2011-05-09 11:23:09 256(error): column number does not match value number
+2011-05-09 11:23:09 272(error): column number does not match value number
+2011-05-09 11:23:09 272(error): column number does not match value number
+2011-05-09 11:23:09 272(error): column number does not match value number
+2011-05-09 11:23:09 272(error): column number does not match value number
+2011-05-09 11:32:19 965(error): can not insert duplicated key
+2011-05-09 11:32:19 965(error): key value number does not match key column number
+2011-05-09 11:32:19 965(error): No key found to be deleted
+2011-05-09 11:32:19 981(error): column number does not match value number
+2011-05-09 11:32:19 981(error): column number does not match value number
+2011-05-09 11:32:19 996(error): No data assigned to be inserted
+2011-05-09 11:32:19 996(error): column number does not match value number
+2011-05-09 11:32:19 996(error): column number does not match value number
+2011-05-09 11:32:19 996(error): column number does not match value number
+2011-05-09 11:32:19 996(error): column number does not match value number
+2011-05-09 11:32:19 996(error): column number does not match value number
+2011-05-09 11:32:19 996(error): column number does not match value number
+2011-05-09 11:38:33 026(error): can not insert duplicated key
+2011-05-09 11:38:33 026(error): key value number does not match key column number
+2011-05-09 11:38:33 026(error): No key found to be deleted
+2011-05-09 11:38:33 057(error): column number does not match value number
+2011-05-09 11:38:33 057(error): column number does not match value number
+2011-05-09 11:38:33 057(error): No data assigned to be inserted
+2011-05-09 11:38:33 057(error): column number does not match value number
+2011-05-09 11:38:33 057(error): column number does not match value number
+2011-05-09 11:38:33 057(error): column number does not match value number
+2011-05-09 11:38:33 073(error): column number does not match value number
+2011-05-09 11:38:33 073(error): column number does not match value number
+2011-05-09 11:38:33 073(error): column number does not match value number
+2011-05-09 11:40:01 795(error): can not insert duplicated key
+2011-05-09 11:40:01 795(error): key value number does not match key column number
+2011-05-09 11:40:01 795(error): No key found to be deleted
+2011-05-09 11:40:01 827(error): column number does not match value number
+2011-05-09 11:40:01 827(error): column number does not match value number
+2011-05-09 11:40:01 827(error): No data assigned to be inserted
+2011-05-09 11:40:01 827(error): column number does not match value number
+2011-05-09 11:40:01 858(error): column number does not match value number
+2011-05-09 11:40:01 858(error): column number does not match value number
+2011-05-09 11:40:01 858(error): column number does not match value number
+2011-05-09 11:40:01 858(error): column number does not match value number
+2011-05-09 11:40:01 858(error): column number does not match value number
+2011-05-09 11:40:23 905(error): can not insert duplicated key
+2011-05-09 11:40:23 921(error): key value number does not match key column number
+2011-05-09 11:40:23 921(error): No key found to be deleted
+2011-05-09 11:40:23 952(error): column number does not match value number
+2011-05-09 11:40:23 952(error): column number does not match value number
+2011-05-09 11:40:23 952(error): No data assigned to be inserted
+2011-05-09 11:40:23 952(error): column number does not match value number
+2011-05-09 11:40:23 968(error): column number does not match value number
+2011-05-09 11:40:23 968(error): column number does not match value number
+2011-05-09 11:40:23 968(error): column number does not match value number
+2011-05-09 11:40:23 968(error): column number does not match value number
+2011-05-09 11:40:23 968(error): column number does not match value number
+2011-05-09 11:43:18 287(error): can not insert duplicated key
+2011-05-09 11:43:18 287(error): key value number does not match key column number
+2011-05-09 11:43:18 287(error): No key found to be deleted
+2011-05-09 11:43:18 318(error): column number does not match value number
+2011-05-09 11:43:18 318(error): column number does not match value number
+2011-05-09 11:43:18 318(error): No data assigned to be inserted
+2011-05-09 11:43:18 318(error): column number does not match value number
+2011-05-09 11:43:18 318(error): column number does not match value number
+2011-05-09 11:43:18 318(error): column number does not match value number
+2011-05-09 11:43:18 318(error): column number does not match value number
+2011-05-09 11:43:18 334(error): column number does not match value number
+2011-05-09 11:43:18 334(error): column number does not match value number
+2011-05-09 11:46:25 966(error): can not insert duplicated key
+2011-05-09 11:46:25 966(error): key value number does not match key column number
+2011-05-09 11:46:25 966(error): No key found to be deleted
+2011-05-09 11:46:25 998(error): column number does not match value number
+2011-05-09 11:46:25 998(error): column number does not match value number
+2011-05-09 11:46:25 998(error): No data assigned to be inserted
+2011-05-09 11:46:25 998(error): column number does not match value number
+2011-05-09 11:46:25 998(error): column number does not match value number
+2011-05-09 11:46:25 998(error): column number does not match value number
+2011-05-09 11:46:26 013(error): column number does not match value number
+2011-05-09 11:46:26 013(error): column number does not match value number
+2011-05-09 11:46:26 013(error): column number does not match value number
+2011-05-09 11:46:48 545(error): can not insert duplicated key
+2011-05-09 11:46:48 545(error): key value number does not match key column number
+2011-05-09 11:46:48 545(error): No key found to be deleted
+2011-05-09 11:46:48 577(error): column number does not match value number
+2011-05-09 11:46:48 577(error): column number does not match value number
+2011-05-09 11:46:48 577(error): No data assigned to be inserted
+2011-05-09 11:46:48 577(error): column number does not match value number
+2011-05-09 11:46:48 592(error): column number does not match value number
+2011-05-09 11:46:48 592(error): column number does not match value number
+2011-05-09 11:46:48 592(error): column number does not match value number
+2011-05-09 11:46:48 592(error): column number does not match value number
+2011-05-09 11:46:48 592(error): column number does not match value number
+2011-05-09 11:53:09 779(error): can not insert duplicated key
+2011-05-09 11:53:09 779(error): key value number does not match key column number
+2011-05-09 11:53:09 779(error): No key found to be deleted
+2011-05-09 11:53:09 810(error): column number does not match value number
+2011-05-09 11:53:09 810(error): column number does not match value number
+2011-05-09 11:53:09 810(error): No data assigned to be inserted
+2011-05-09 11:53:09 826(error): column number does not match value number
+2011-05-09 11:53:09 826(error): column number does not match value number
+2011-05-09 11:53:09 826(error): column number does not match value number
+2011-05-09 11:53:09 826(error): column number does not match value number
+2011-05-09 11:53:09 841(error): column number does not match value number
+2011-05-09 11:53:09 841(error): column number does not match value number
+2011-05-09 11:58:06 509(error): can not insert duplicated key
+2011-05-09 11:58:06 509(error): key value number does not match key column number
+2011-05-09 11:58:06 509(error): No key found to be deleted
+2011-05-09 11:58:06 556(error): column number does not match value number
+2011-05-09 11:58:06 556(error): column number does not match value number
+2011-05-09 11:58:06 618(error): No data assigned to be inserted
+2011-05-09 11:58:06 618(error): column number does not match value number
+2011-05-09 11:58:06 634(error): column number does not match value number
+2011-05-09 11:58:06 634(error): column number does not match value number
+2011-05-09 11:58:06 634(error): column number does not match value number
+2011-05-09 11:58:06 634(error): column number does not match value number
+2011-05-09 11:58:06 634(error): column number does not match value number
+2011-05-09 13:23:58 910(error): can not insert duplicated key
+2011-05-09 13:23:58 957(error): key value number does not match key column number
+2011-05-09 13:23:58 957(error): No key found to be deleted
+2011-05-09 13:23:58 988(error): column number does not match value number
+2011-05-09 13:23:58 988(error): column number does not match value number
+2011-05-09 13:23:58 988(error): No data assigned to be inserted
+2011-05-09 13:23:58 988(error): column number does not match value number
+2011-05-09 13:23:58 988(error): column number does not match value number
+2011-05-09 13:23:58 988(error): column number does not match value number
+2011-05-09 13:23:59 004(error): column number does not match value number
+2011-05-09 13:23:59 004(error): column number does not match value number
+2011-05-09 13:23:59 004(error): column number does not match value number
+2011-05-09 13:34:42 075(error): can not insert duplicated key
+2011-05-09 13:34:42 075(error): key value number does not match key column number
+2011-05-09 13:34:42 075(error): No key found to be deleted
+2011-05-09 13:34:42 106(error): column number does not match value number
+2011-05-09 13:34:42 106(error): column number does not match value number
+2011-05-09 13:34:42 106(error): No data assigned to be inserted
+2011-05-09 13:34:42 106(error): column number does not match value number
+2011-05-09 13:34:42 122(error): column number does not match value number
+2011-05-09 13:34:42 122(error): column number does not match value number
+2011-05-09 13:34:42 122(error): column number does not match value number
+2011-05-09 13:34:42 122(error): column number does not match value number
+2011-05-09 13:34:42 122(error): column number does not match value number
+2011-05-09 13:35:11 857(error): can not insert duplicated key
+2011-05-09 13:35:11 857(error): key value number does not match key column number
+2011-05-09 13:35:11 857(error): No key found to be deleted
+2011-05-09 13:35:11 904(error): column number does not match value number
+2011-05-09 13:35:11 904(error): column number does not match value number
+2011-05-09 13:35:11 904(error): No data assigned to be inserted
+2011-05-09 13:35:11 904(error): column number does not match value number
+2011-05-09 13:35:11 920(error): column number does not match value number
+2011-05-09 13:35:11 920(error): column number does not match value number
+2011-05-09 13:35:11 920(error): column number does not match value number
+2011-05-09 13:35:11 920(error): column number does not match value number
+2011-05-09 13:35:11 936(error): column number does not match value number
+2011-05-09 13:36:52 658(error): can not insert duplicated key
+2011-05-09 13:36:52 658(error): key value number does not match key column number
+2011-05-09 13:36:52 658(error): No key found to be deleted
+2011-05-09 13:36:52 689(error): column number does not match value number
+2011-05-09 13:36:52 689(error): column number does not match value number
+2011-05-09 13:36:52 689(error): No data assigned to be inserted
+2011-05-09 13:36:52 689(error): column number does not match value number
+2011-05-09 13:36:52 689(error): column number does not match value number
+2011-05-09 13:36:52 689(error): column number does not match value number
+2011-05-09 13:36:52 705(error): column number does not match value number
+2011-05-09 13:36:52 705(error): column number does not match value number
+2011-05-09 13:36:52 705(error): column number does not match value number
+2011-05-09 13:38:05 192(error): can not insert duplicated key
+2011-05-09 13:38:05 192(error): key value number does not match key column number
+2011-05-09 13:38:05 192(error): No key found to be deleted
+2011-05-09 13:38:05 224(error): column number does not match value number
+2011-05-09 13:38:05 224(error): column number does not match value number
+2011-05-09 13:38:05 224(error): No data assigned to be inserted
+2011-05-09 13:38:05 224(error): column number does not match value number
+2011-05-09 13:38:05 224(error): column number does not match value number
+2011-05-09 13:38:05 224(error): column number does not match value number
+2011-05-09 13:38:05 239(error): column number does not match value number
+2011-05-09 13:38:05 239(error): column number does not match value number
+2011-05-09 13:38:05 239(error): column number does not match value number
+2011-05-09 13:38:13 989(error): can not insert duplicated key
+2011-05-09 13:38:13 989(error): key value number does not match key column number
+2011-05-09 13:38:13 989(error): No key found to be deleted
+2011-05-09 13:38:14 005(error): column number does not match value number
+2011-05-09 13:38:14 005(error): column number does not match value number
+2011-05-09 13:38:14 005(error): No data assigned to be inserted
+2011-05-09 13:38:14 021(error): column number does not match value number
+2011-05-09 13:38:14 021(error): column number does not match value number
+2011-05-09 13:38:14 021(error): column number does not match value number
+2011-05-09 13:38:14 021(error): column number does not match value number
+2011-05-09 13:38:14 036(error): column number does not match value number
+2011-05-09 13:38:14 036(error): column number does not match value number
+2011-05-09 13:45:00 708(error): can not insert duplicated key
+2011-05-09 13:45:00 708(error): key value number does not match key column number
+2011-05-09 13:45:00 708(error): No key found to be deleted
+2011-05-09 13:45:00 724(error): column number does not match value number
+2011-05-09 13:45:00 724(error): column number does not match value number
+2011-05-09 13:45:00 724(error): No data assigned to be inserted
+2011-05-09 13:45:00 739(error): column number does not match value number
+2011-05-09 13:45:00 739(error): column number does not match value number
+2011-05-09 13:45:00 739(error): column number does not match value number
+2011-05-09 13:45:00 739(error): column number does not match value number
+2011-05-09 13:45:00 739(error): column number does not match value number
+2011-05-09 13:45:00 739(error): column number does not match value number
+2011-05-09 13:45:21 990(error): can not insert duplicated key
+2011-05-09 13:45:22 006(error): key value number does not match key column number
+2011-05-09 13:45:22 006(error): No key found to be deleted
+2011-05-09 13:45:22 022(error): column number does not match value number
+2011-05-09 13:45:22 022(error): column number does not match value number
+2011-05-09 13:45:22 022(error): No data assigned to be inserted
+2011-05-09 13:45:22 022(error): column number does not match value number
+2011-05-09 13:45:22 022(error): column number does not match value number
+2011-05-09 13:45:22 022(error): column number does not match value number
+2011-05-09 13:45:22 022(error): column number does not match value number
+2011-05-09 13:45:22 022(error): column number does not match value number
+2011-05-09 13:45:22 022(error): column number does not match value number
+2011-05-09 13:45:32 084(error): can not insert duplicated key
+2011-05-09 13:45:32 084(error): key value number does not match key column number
+2011-05-09 13:45:32 084(error): No key found to be deleted
+2011-05-09 13:45:32 116(error): column number does not match value number
+2011-05-09 13:45:32 116(error): column number does not match value number
+2011-05-09 13:45:32 116(error): No data assigned to be inserted
+2011-05-09 13:45:32 116(error): column number does not match value number
+2011-05-09 13:45:32 131(error): column number does not match value number
+2011-05-09 13:45:32 131(error): column number does not match value number
+2011-05-09 13:45:32 131(error): column number does not match value number
+2011-05-09 13:45:32 131(error): column number does not match value number
+2011-05-09 13:45:32 131(error): column number does not match value number
+2011-05-09 13:48:00 059(error): can not insert duplicated key
+2011-05-09 13:48:00 059(error): key value number does not match key column number
+2011-05-09 13:48:00 059(error): No key found to be deleted
+2011-05-09 13:48:00 090(error): column number does not match value number
+2011-05-09 13:48:00 090(error): column number does not match value number
+2011-05-09 13:48:00 090(error): No data assigned to be inserted
+2011-05-09 13:48:00 090(error): column number does not match value number
+2011-05-09 13:48:00 090(error): column number does not match value number
+2011-05-09 13:48:00 106(error): column number does not match value number
+2011-05-09 13:48:00 106(error): column number does not match value number
+2011-05-09 13:48:00 106(error): column number does not match value number
+2011-05-09 13:48:00 106(error): column number does not match value number
+2011-05-09 13:49:03 999(error): can not insert duplicated key
+2011-05-09 13:49:03 999(error): key value number does not match key column number
+2011-05-09 13:49:03 999(error): No key found to be deleted
+2011-05-09 13:49:04 030(error): column number does not match value number
+2011-05-09 13:49:04 030(error): column number does not match value number
+2011-05-09 13:49:04 030(error): No data assigned to be inserted
+2011-05-09 13:49:04 030(error): column number does not match value number
+2011-05-09 13:49:04 046(error): column number does not match value number
+2011-05-09 13:49:04 046(error): column number does not match value number
+2011-05-09 13:49:04 046(error): column number does not match value number
+2011-05-09 13:49:04 046(error): column number does not match value number
+2011-05-09 13:49:04 046(error): column number does not match value number
+2011-05-09 13:50:55 128(error): can not insert duplicated key
+2011-05-09 13:50:55 128(error): key value number does not match key column number
+2011-05-09 13:50:55 128(error): No key found to be deleted
+2011-05-09 13:50:55 159(error): column number does not match value number
+2011-05-09 13:50:55 159(error): column number does not match value number
+2011-05-09 13:50:55 159(error): No data assigned to be inserted
+2011-05-09 13:50:55 159(error): column number does not match value number
+2011-05-09 13:50:55 159(error): column number does not match value number
+2011-05-09 13:50:55 175(error): column number does not match value number
+2011-05-09 13:50:55 175(error): column number does not match value number
+2011-05-09 13:50:55 191(error): column number does not match value number
+2011-05-09 13:50:55 191(error): column number does not match value number
+2011-05-09 13:58:04 176(error): can not insert duplicated key
+2011-05-09 13:58:07 879(error): key value number does not match key column number
+2011-05-09 13:58:07 879(error): No key found to be deleted
+2011-05-09 14:01:08 761(error): column number does not match value number
+2011-05-09 14:01:08 761(error): column number does not match value number
+2011-05-09 14:01:08 761(error): No data assigned to be inserted
+2011-05-09 14:01:08 855(error): column number does not match value number
+2011-05-09 14:01:08 870(error): column number does not match value number
+2011-05-09 14:01:08 870(error): column number does not match value number
+2011-05-09 14:01:08 886(error): column number does not match value number
+2011-05-09 14:01:08 886(error): column number does not match value number
+2011-05-09 14:01:08 886(error): column number does not match value number
+2011-05-09 14:02:13 467(error): can not insert duplicated key
+2011-05-09 14:02:13 467(error): key value number does not match key column number
+2011-05-09 14:02:13 467(error): No key found to be deleted
+2011-05-09 14:02:54 124(error): column number does not match value number
+2011-05-09 14:04:01 143(error): can not insert duplicated key
+2011-05-09 14:04:01 143(error): key value number does not match key column number
+2011-05-09 14:04:01 143(error): No key found to be deleted
+2011-05-09 14:04:10 940(error): can not insert duplicated key
+2011-05-09 14:04:13 706(error): can not insert duplicated key
+2011-05-09 14:04:39 019(error): can not insert duplicated key
+2011-05-09 14:04:52 457(error): column number does not match value number
+2011-05-09 14:07:25 572(error): can not insert duplicated key
+2011-05-09 14:07:25 572(error): key value number does not match key column number
+2011-05-09 14:07:25 572(error): No key found to be deleted
+2011-05-09 14:07:33 510(error): can not insert duplicated key
+2011-05-09 14:07:42 323(error): can not insert duplicated key
+2011-05-09 14:07:58 652(error): can not insert duplicated key
+2011-05-09 14:08:36 028(error): column number does not match value number
+2011-05-09 14:09:01 935(error): column number does not match value number
+2011-05-09 14:09:23 421(error): can not insert duplicated key
+2011-05-09 14:09:23 421(error): key value number does not match key column number
+2011-05-09 14:09:23 421(error): No key found to be deleted
+2011-05-09 14:09:44 640(error): can not insert duplicated key
+2011-05-09 14:09:46 734(error): can not insert duplicated key
+2011-05-09 14:09:46 734(error): can not insert duplicated key
+2011-05-09 14:09:55 578(error): can not insert duplicated key
+2011-05-09 14:27:46 494: FREELISTS:null
+2011-05-09 14:27:46 494: FREELISTS:null
+2011-05-09 14:38:45 473: FREELISTS:null
+2011-05-09 14:38:45 473: FREELISTS:null
+2011-05-09 14:38:46 066: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values ( , ??????????????????????????????????????????????????????? )
+2011-05-09 14:38:46 066(Sys error): synchronize data to data source db failed
+2011-05-09 14:38:46 207: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values ( , ??????????????????????????????????????????????????????? )
+2011-05-09 14:38:46 207(Sys error): synchronize data to data source db failed
+2011-05-09 14:38:46 207: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values ( , ??????????????????????????????????????????????????????? )
+2011-05-09 14:38:46 207(Sys error): synchronize data to data source db failed
+2011-05-09 14:38:46 223: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values ( , ??????????????????????????????????????????????????????? )
+2011-05-09 14:38:46 223(Sys error): synchronize data to data source db failed
+2011-05-09 14:38:46 223: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values ( , ??????????????????????????????????????????????????????? )
+2011-05-09 14:38:46 223(Sys error): synchronize data to data source db failed
+2011-05-09 14:38:46 223: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values ( , ??????????????????????????????????????????????????????? )
+2011-05-09 14:38:46 223(Sys error): synchronize data to data source db failed
+2011-05-09 14:41:54 464(Sys error): internal un handled error!
+2011-05-09 14:41:54 933: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 14:41:54 933(Sys error): synchronize data to data source db failed
+2011-05-09 14:41:54 933: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 14:41:54 933(Sys error): synchronize data to data source db failed
+2011-05-09 14:41:54 933: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 14:41:54 933(Sys error): synchronize data to data source db failed
+2011-05-09 14:41:54 933: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 14:41:54 933(Sys error): synchronize data to data source db failed
+2011-05-09 14:41:54 949: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 14:41:54 949(Sys error): synchronize data to data source db failed
+2011-05-09 14:41:54 949: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 14:41:54 949(Sys error): synchronize data to data source db failed
+2011-05-09 14:42:38 591: FREELISTS:null
+2011-05-09 14:42:38 591: FREELISTS:null
+2011-05-09 14:42:38 622: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 15:14:59 681: delete from T_TEST2 where (TABLE_NAME=? or (? is null and TABLE_NAME is null) and (OWNER=? or (? is null and OWNER is null)
+2011-05-09 15:14:59 681(Sys error): synchronize data to data source db failed
+2011-05-09 15:15:28 995(Sys error): internal un handled error!
+2011-05-09 15:15:42 292: delete from T_TEST2 where (TABLE_NAME=? or (? is null and TABLE_NAME is null) and (OWNER=? or (? is null and OWNER is null)
+2011-05-09 15:16:46 670: delete from T_TEST2 where (TABLE_NAME=? or (? is null and TABLE_NAME is null) and (OWNER=? or (? is null and OWNER is null)
+2011-05-09 15:18:33 174: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 15:37:37 327: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, USER_STATS, FREELIST_GROUPS, SAMPLE_SIZE, DEPENDENCIES, LAST_ANALYZED, IOT_TYPE, ROW_MOVEMENT, TABLE_NAME, CACHE, PCT_INCREASE, CLUSTER_OWNER, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, DEGREE, DURATION, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, INSTANCES, BUFFER_POOL, NESTED, DROPPED, INI_TRANS, CHAIN_CNT, CELL_FLASH_CACHE, TEMPORARY, PCT_USED, RESULT_CACHE, COMPRESSION, AVG_SPACE, SEGMENT_CREATED, MAX_TRANS, EMPTY_BLOCKS, PARTITIONED, PCT_FREE, READ_ONLY, AVG_ROW_LEN, GLOBAL_STATS, IOT_NAME, NUM_ROWS, SECONDARY, NUM_FREELIST_BLOCKS, NEXT_EXTENT, COMPRESS_FOR, FLASH_CACHE, SKIP_CORRUPT, BLOCKS, MONITORING, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-05-09 15:52:51 753: FREELISTS:null
+2011-05-09 15:52:51 768: PCT_INCREASE:null
+2011-05-09 16:24:11 247(Sys error): internal un handled error!
+2011-05-09 17:04:34 121: FREELISTS:null
+2011-05-09 17:04:56 106: PCT_INCREASE:null
+2011-05-11 10:38:10 924: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:38:10 939: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:38:10 939(fatal): Fydb System initialize failed!
+2011-05-11 10:39:11 658: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:41:57 049: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:41:57 049: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:42:04 939: C:\my java\Fydb\console\log\1841519503\DEMO\T_TEST2_1.log
+2011-05-11 10:44:56 768: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:44:56 768: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:46:19 752: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:46:25 611: C:\my java\Fydb\console\fydb.sys
+2011-05-11 10:48:51 268: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:00:17 268: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:00:19 658: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:00:19 658: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:00:19 658(Sys error): load system metadata file failed
+2011-05-11 11:21:48 924: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:21:50 846: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:22:20 205: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:22:23 486: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:23:53 393: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:28:32 830: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:28:34 752: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:31:38 877: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:31:40 658: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:36:24 518: C:\my java\Fydb\console\fydb.sys
+2011-05-11 11:36:26 689: C:\my java\Fydb\console\fydb.sys
+2011-05-12 13:30:07 221: null.sys
+2011-05-12 13:30:07 408(Sys error): parse log failed
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 283(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 299(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 314(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:10 330(Sys error): Fydb System is not opened!
+2011-05-12 13:30:46 502: null.sys
+2011-05-12 13:32:13 455: null.sys
+2011-05-12 13:32:13 455: C:\my java\Fydb\console\log\1841519503\DEMO\T_TEST2_1.log
+2011-05-12 13:32:13 486(Sys error): parse log failed
+2011-05-12 15:07:45 424: null.sys
+2011-05-12 15:08:18 830(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 830(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 846(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 846(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 846(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 846(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 846(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 846(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 846(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 846(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 861(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:08:18 877(Sys error): Fydb System is not opened!
+2011-05-12 15:09:20 705: null.sys
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 002(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 018(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:10:01 033(Sys error): Fydb System is not opened!
+2011-05-12 15:12:11 268: null.sys
+2011-05-12 15:12:27 205(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 205(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 205(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 221(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 236(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 236(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 236(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 252(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 252(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 252(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 268(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 283(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 299(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 299(Sys error): Fydb System is not opened!
+2011-05-12 15:12:27 299(Sys error): Fydb System is not opened!
+2011-05-12 15:13:04 893: null.sys
+2011-05-12 15:13:46 768: null.sys
+2011-05-12 15:16:10 080: null.sys
+2011-05-12 15:16:29 486(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 486(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 486(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 486(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 502(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:16:29 518(Sys error): Fydb System is not opened!
+2011-05-12 15:17:11 002: null.sys
+2011-05-12 15:18:25 158: null.sys
+2011-05-12 15:19:25 424: null.sys
+2011-05-12 15:20:46 846: null.sys
+2011-05-12 15:22:39 252: null.sys
+2011-05-12 15:24:17 393: null.sys
+2011-05-12 15:24:59 455: C:\my java\Fydb\console\log\1841519503\DEMO\T_TEST2.sys
+2011-05-12 15:26:29 658(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 658(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 658(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 658(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 752(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 752(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 752(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 752(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 768(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:26:29 783(Sys error): Fydb System is not opened!
+2011-05-12 15:27:17 143: null.sys
+2011-05-12 15:29:23 111: null.sys
+2011-05-12 15:36:22 939(Sys error): parse log failed
+2011-05-12 15:36:35 377(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 377(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 377(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 377(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 377(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 377(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 377(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 377(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 393(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:36:35 408(Sys error): Fydb System is not opened!
+2011-05-12 15:42:35 893(Sys error): log file corrupted!
+2011-05-12 15:44:09 955(Sys error): log file corrupted!
+2011-05-12 15:44:54 158(Sys error): log file corrupted!
+2011-05-12 15:52:37 486: C:\my java\Fydb\console\log\1841519503\DEMO\T_TEST2.sys
+2011-05-12 15:52:37 486: C:\my java\Fydb\console\log\1841519503\DEMO\T_TEST2_1.log
+2011-05-12 15:52:38 346: C:\my java\Fydb\console\log\1841519503\DEMO\T_TEST2.sys
+2011-05-16 10:55:05 296(Sys error): connectting to physical data source (oracle db) failed
+2011-05-16 14:06:01 109(Sys error): internal un handled error!
+2011-05-16 14:06:15 203(Sys error): internal un handled error!
+2011-05-16 14:23:12 156(Sys error): Parse dataset initial xml file failed
+2011-05-16 14:40:34 625: T_TEST2~11G
+2011-05-16 15:48:24 531: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 15:48:24 546: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1_1.log
+2011-05-16 15:50:28 109: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 16:01:28 859: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 16:02:43 734: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 16:05:19 625: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 16:06:17 875: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 16:08:18 140: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 16:10:49 296: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 16:15:35 875: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-16 16:17:55 203: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST1.sys
+2011-05-19 12:41:10 828(Sys error): Build server gate socket failed
+2011-05-19 13:01:29 468(Sys error): Build server gate socket failed
+2011-05-19 13:02:04 218(Sys error): Build server gate socket failed
+2011-05-25 11:10:55 593(Sys error): Build server gate socket failed
+2011-05-25 11:16:21 203: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST2.sys
+2011-05-25 11:16:21 203: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST2_1.log
+2011-05-25 11:16:23 328: C:\my java\Fydb\console\log\1712582900\DEMO\T_TEST2.sys
+2011-05-25 11:16:23 421(Sys error): Session is running in local and synchronized mode
+2011-05-25 11:17:29 437(Sys error): Session is running in local and synchronized mode
+2011-05-25 11:23:47 718(Sys error): Session is running in local and synchronized mode
+2011-05-25 12:51:07 625(Sys error): Unknown asynchronized call
+2011-05-31 14:38:54 554(Sys error): internal un handled error!
+2011-05-31 14:39:49 852(Sys error): internal un handled error!
+2011-06-01 15:29:33 123: [2, 19]
+2011-06-01 15:29:33 139(Sys error): Index is not initialized, it will be removed from memory
+2011-06-01 15:38:40 613(Sys error): internal un handled error!
+2011-06-01 16:59:39 904(Sys error): internal un handled error!
+2011-06-01 17:00:23 234(Sys error): internal un handled error!
+2011-06-01 17:17:24 237(Sys error): internal un handled error!
+2011-06-01 17:18:20 065(Sys error): internal un handled error!
+2011-06-01 17:30:00 079(Sys error): internal un handled error!
+2011-06-01 17:45:40 666(Sys error): internal un handled error!
+2011-06-02 13:58:11 412(Sys error): internal un handled error!
+2011-06-02 15:41:41 573(Sys error): internal un handled error!
+2011-06-02 15:42:58 357(Sys error): internal un handled error!
+2011-06-02 17:18:34 564(Sys error): internal un handled error!
+2011-06-02 17:33:00 035(Sys error): internal un handled error!
+2011-06-02 17:34:03 582(Sys error): internal un handled error!
+2011-06-02 17:39:32 870(Sys error): internal un handled error!
+2011-06-09 14:56:24 362: C:\my java\Fydb\console\data\test\test
+2011-06-09 14:56:24 393(Sys error): internal un handled error!
+2011-06-09 15:04:51 666(Sys error): internal un handled error!
+2011-06-09 15:15:45 649(Sys error): internal un handled error!
+2011-06-09 15:15:45 664(Sys error): internal un handled error!
+2011-06-09 15:15:45 680(Sys error): internal un handled error!
+2011-06-09 15:15:45 680(Sys error): internal un handled error!
+2011-06-09 15:15:45 711(Sys error): internal un handled error!
+2011-06-09 15:15:45 727(Sys error): internal un handled error!
+2011-06-09 15:15:45 727(Sys error): internal un handled error!
+2011-06-09 15:15:45 727(Sys error): internal un handled error!
+2011-06-09 15:15:45 742(Sys error): internal un handled error!
+2011-06-09 15:15:45 836(Sys error): internal un handled error!
+2011-06-09 15:15:45 852(Sys error): internal un handled error!
+2011-06-09 15:15:45 867(Sys error): internal un handled error!
+2011-06-09 15:15:45 867(Sys error): internal un handled error!
+2011-06-09 15:15:45 883(Sys error): internal un handled error!
+2011-06-09 15:15:45 883(Sys error): internal un handled error!
+2011-06-09 15:15:45 899(Sys error): internal un handled error!
+2011-06-09 15:15:45 899(Sys error): internal un handled error!
+2011-06-09 15:15:45 914(Sys error): internal un handled error!
+2011-06-09 15:15:45 930(Sys error): internal un handled error!
+2011-06-09 15:15:46 008(Sys error): internal un handled error!
+2011-06-09 15:15:46 024(Sys error): internal un handled error!
+2011-06-09 15:15:46 024(Sys error): internal un handled error!
+2011-06-09 15:15:46 039(Sys error): internal un handled error!
+2011-06-09 15:15:46 039(Sys error): internal un handled error!
+2011-06-09 15:15:46 039(Sys error): internal un handled error!
+2011-06-09 15:15:46 055(Sys error): internal un handled error!
+2011-06-09 15:15:46 055(Sys error): internal un handled error!
+2011-06-09 15:15:46 070(Sys error): internal un handled error!
+2011-06-09 15:15:46 086(Sys error): internal un handled error!
+2011-06-09 15:15:46 086(Sys error): internal un handled error!
+2011-06-09 15:15:46 102(Sys error): internal un handled error!
+2011-06-09 15:15:46 164(Sys error): internal un handled error!
+2011-06-09 15:15:46 164(Sys error): internal un handled error!
+2011-06-09 15:15:46 195(Sys error): internal un handled error!
+2011-06-09 15:15:46 336(Sys error): internal un handled error!
+2011-06-09 15:15:46 336(Sys error): internal un handled error!
+2011-06-09 15:15:46 336(Sys error): internal un handled error!
+2011-06-09 15:15:46 352(Sys error): internal un handled error!
+2011-06-09 15:15:46 352(Sys error): internal un handled error!
+2011-06-09 15:15:46 367(Sys error): internal un handled error!
+2011-06-09 15:15:46 367(Sys error): internal un handled error!
+2011-06-09 15:15:46 383(Sys error): internal un handled error!
+2011-06-09 15:15:46 383(Sys error): internal un handled error!
+2011-06-09 15:15:46 399(Sys error): internal un handled error!
+2011-06-09 15:15:46 399(Sys error): internal un handled error!
+2011-06-09 15:15:46 399(Sys error): internal un handled error!
+2011-06-09 15:15:46 414(Sys error): internal un handled error!
+2011-06-09 15:15:46 430(Sys error): internal un handled error!
+2011-06-09 15:15:46 430(Sys error): internal un handled error!
+2011-06-09 15:15:46 445(Sys error): internal un handled error!
+2011-06-09 15:15:46 445(Sys error): internal un handled error!
+2011-06-09 15:15:46 461(Sys error): internal un handled error!
+2011-06-09 15:15:46 461(Sys error): internal un handled error!
+2011-06-09 15:15:46 477(Sys error): internal un handled error!
+2011-06-09 15:15:46 492(Sys error): internal un handled error!
+2011-06-09 15:15:46 508(Sys error): internal un handled error!
+2011-06-09 15:15:46 867(Sys error): internal un handled error!
+2011-06-09 15:15:46 883(Sys error): internal un handled error!
+2011-06-09 15:15:46 899(Sys error): internal un handled error!
+2011-06-09 15:15:46 899(Sys error): internal un handled error!
+2011-06-09 15:15:46 899(Sys error): internal un handled error!
+2011-06-09 15:15:46 914(Sys error): internal un handled error!
+2011-06-09 15:15:46 914(Sys error): internal un handled error!
+2011-06-09 15:15:46 930(Sys error): internal un handled error!
+2011-06-09 15:15:46 930(Sys error): internal un handled error!
+2011-06-09 15:15:46 945(Sys error): internal un handled error!
+2011-06-09 15:15:46 945(Sys error): internal un handled error!
+2011-06-09 15:15:46 961(Sys error): internal un handled error!
+2011-06-09 15:15:47 055(Sys error): internal un handled error!
+2011-06-09 15:15:47 055(Sys error): internal un handled error!
+2011-06-09 15:15:47 070(Sys error): internal un handled error!
+2011-06-09 15:15:47 070(Sys error): internal un handled error!
+2011-06-09 15:15:47 086(Sys error): internal un handled error!
+2011-06-09 15:15:47 086(Sys error): internal un handled error!
+2011-06-09 15:15:47 102(Sys error): internal un handled error!
+2011-06-09 15:15:47 102(Sys error): internal un handled error!
+2011-06-09 15:15:47 117(Sys error): internal un handled error!
+2011-06-09 15:15:47 117(Sys error): internal un handled error!
+2011-06-09 15:15:47 133(Sys error): internal un handled error!
+2011-06-09 15:15:47 430(Sys error): internal un handled error!
+2011-06-09 15:15:47 430(Sys error): internal un handled error!
+2011-06-09 15:15:47 445(Sys error): internal un handled error!
+2011-06-09 15:15:47 445(Sys error): internal un handled error!
+2011-06-09 15:15:47 461(Sys error): internal un handled error!
+2011-06-09 15:15:47 461(Sys error): internal un handled error!
+2011-06-09 15:15:47 477(Sys error): internal un handled error!
+2011-06-09 15:15:47 477(Sys error): internal un handled error!
+2011-06-09 15:15:47 492(Sys error): internal un handled error!
+2011-06-09 15:15:47 492(Sys error): internal un handled error!
+2011-06-09 15:15:47 492(Sys error): internal un handled error!
+2011-06-09 15:15:47 508(Sys error): internal un handled error!
+2011-06-09 15:15:47 524(Sys error): internal un handled error!
+2011-06-09 15:15:47 524(Sys error): internal un handled error!
+2011-06-09 15:15:47 539(Sys error): internal un handled error!
+2011-06-09 15:15:47 539(Sys error): internal un handled error!
+2011-06-09 15:15:47 555(Sys error): internal un handled error!
+2011-06-09 15:15:47 555(Sys error): internal un handled error!
+2011-06-09 15:15:47 570(Sys error): internal un handled error!
+2011-06-09 15:15:47 570(Sys error): internal un handled error!
+2011-06-09 15:15:47 586(Sys error): internal un handled error!
+2011-06-09 15:15:47 586(Sys error): internal un handled error!
+2011-06-09 15:15:47 602(Sys error): internal un handled error!
+2011-06-09 15:15:47 602(Sys error): internal un handled error!
+2011-06-09 15:15:47 617(Sys error): internal un handled error!
+2011-06-09 15:15:47 617(Sys error): internal un handled error!
+2011-06-09 15:15:47 633(Sys error): internal un handled error!
+2011-06-09 15:15:47 680(Sys error): internal un handled error!
+2011-06-09 15:15:47 695(Sys error): internal un handled error!
+2011-06-09 15:15:47 695(Sys error): internal un handled error!
+2011-06-09 15:15:47 899(Sys error): internal un handled error!
+2011-06-09 15:15:47 899(Sys error): internal un handled error!
+2011-06-09 15:15:47 899(Sys error): internal un handled error!
+2011-06-09 15:15:47 914(Sys error): internal un handled error!
+2011-06-09 15:15:47 914(Sys error): internal un handled error!
+2011-06-09 15:15:47 930(Sys error): internal un handled error!
+2011-06-09 15:15:47 930(Sys error): internal un handled error!
+2011-06-09 15:15:47 946(Sys error): internal un handled error!
+2011-06-09 15:15:47 946(Sys error): internal un handled error!
+2011-06-09 15:15:47 961(Sys error): internal un handled error!
+2011-06-09 15:15:47 961(Sys error): internal un handled error!
+2011-06-09 15:15:47 977(Sys error): internal un handled error!
+2011-06-09 15:15:47 992(Sys error): internal un handled error!
+2011-06-09 15:15:47 992(Sys error): internal un handled error!
+2011-06-09 15:15:48 008(Sys error): internal un handled error!
+2011-06-09 15:15:48 008(Sys error): internal un handled error!
+2011-06-09 15:15:48 024(Sys error): internal un handled error!
+2011-06-09 15:15:48 024(Sys error): internal un handled error!
+2011-06-09 15:15:48 024(Sys error): internal un handled error!
+2011-06-09 15:15:48 039(Sys error): internal un handled error!
+2011-06-09 15:15:48 039(Sys error): internal un handled error!
+2011-06-09 15:15:48 055(Sys error): internal un handled error!
+2011-06-09 15:15:48 071(Sys error): internal un handled error!
+2011-06-09 15:15:48 086(Sys error): internal un handled error!
+2011-06-09 15:15:48 242(Sys error): internal un handled error!
+2011-06-09 15:15:48 242(Sys error): internal un handled error!
+2011-06-09 15:15:48 258(Sys error): internal un handled error!
+2011-06-09 15:15:48 258(Sys error): internal un handled error!
+2011-06-09 15:15:48 274(Sys error): internal un handled error!
+2011-06-09 15:15:48 274(Sys error): internal un handled error!
+2011-06-09 15:15:48 289(Sys error): internal un handled error!
+2011-06-09 15:15:48 289(Sys error): internal un handled error!
+2011-06-09 15:15:48 305(Sys error): internal un handled error!
+2011-06-09 15:15:48 430(Sys error): internal un handled error!
+2011-06-09 15:15:48 446(Sys error): internal un handled error!
+2011-06-09 15:15:48 446(Sys error): internal un handled error!
+2011-06-09 15:15:48 508(Sys error): internal un handled error!
+2011-06-09 15:15:48 524(Sys error): internal un handled error!
+2011-06-09 15:15:48 524(Sys error): internal un handled error!
+2011-06-09 15:15:48 539(Sys error): internal un handled error!
+2011-06-09 15:15:48 555(Sys error): internal un handled error!
+2011-06-09 15:15:48 555(Sys error): internal un handled error!
+2011-06-09 15:15:48 555(Sys error): internal un handled error!
+2011-06-09 15:15:48 571(Sys error): internal un handled error!
+2011-06-09 15:15:48 571(Sys error): internal un handled error!
+2011-06-09 15:15:48 602(Sys error): internal un handled error!
+2011-06-09 15:15:48 602(Sys error): internal un handled error!
+2011-06-09 15:15:48 758(Sys error): internal un handled error!
+2011-06-09 15:15:48 758(Sys error): internal un handled error!
+2011-06-09 15:15:48 774(Sys error): internal un handled error!
+2011-06-09 15:15:48 774(Sys error): internal un handled error!
+2011-06-09 15:15:48 789(Sys error): internal un handled error!
+2011-06-09 15:15:48 789(Sys error): internal un handled error!
+2011-06-09 15:15:48 805(Sys error): internal un handled error!
+2011-06-09 15:15:48 805(Sys error): internal un handled error!
+2011-06-09 15:15:48 805(Sys error): internal un handled error!
+2011-06-09 15:15:48 821(Sys error): internal un handled error!
+2011-06-09 15:15:48 821(Sys error): internal un handled error!
+2011-06-09 15:15:48 836(Sys error): internal un handled error!
+2011-06-09 15:15:48 836(Sys error): internal un handled error!
+2011-06-09 15:15:48 852(Sys error): internal un handled error!
+2011-06-09 15:15:48 852(Sys error): internal un handled error!
+2011-06-09 15:15:48 852(Sys error): internal un handled error!
+2011-06-09 15:15:48 883(Sys error): internal un handled error!
+2011-06-09 15:15:48 883(Sys error): internal un handled error!
+2011-06-09 15:15:48 899(Sys error): internal un handled error!
+2011-06-09 15:15:48 899(Sys error): internal un handled error!
+2011-06-09 15:15:48 914(Sys error): internal un handled error!
+2011-06-09 15:15:48 992(Sys error): internal un handled error!
+2011-06-09 15:15:49 117(Sys error): internal un handled error!
+2011-06-09 15:15:49 117(Sys error): internal un handled error!
+2011-06-09 15:15:49 117(Sys error): internal un handled error!
+2011-06-09 15:15:49 133(Sys error): internal un handled error!
+2011-06-09 15:15:49 133(Sys error): internal un handled error!
+2011-06-09 15:15:49 149(Sys error): internal un handled error!
+2011-06-09 15:15:49 149(Sys error): internal un handled error!
+2011-06-09 15:15:49 164(Sys error): internal un handled error!
+2011-06-09 15:15:49 164(Sys error): internal un handled error!
+2011-06-09 15:15:49 164(Sys error): internal un handled error!
+2011-06-09 15:15:49 180(Sys error): internal un handled error!
+2011-06-09 15:15:49 180(Sys error): internal un handled error!
+2011-06-09 15:15:49 196(Sys error): internal un handled error!
+2011-06-09 15:15:49 196(Sys error): internal un handled error!
+2011-06-09 15:15:49 211(Sys error): internal un handled error!
+2011-06-09 15:15:49 227(Sys error): internal un handled error!
+2011-06-09 15:15:49 227(Sys error): internal un handled error!
+2011-06-09 15:15:49 242(Sys error): internal un handled error!
+2011-06-09 15:15:49 242(Sys error): internal un handled error!
+2011-06-09 15:15:49 258(Sys error): internal un handled error!
+2011-06-09 15:15:49 258(Sys error): internal un handled error!
+2011-06-09 15:15:49 274(Sys error): internal un handled error!
+2011-06-09 15:15:49 289(Sys error): internal un handled error!
+2011-06-09 15:15:49 492(Sys error): internal un handled error!
+2011-06-09 15:15:49 508(Sys error): internal un handled error!
+2011-06-09 15:15:49 508(Sys error): internal un handled error!
+2011-06-09 15:15:49 524(Sys error): internal un handled error!
+2011-06-09 15:15:49 539(Sys error): internal un handled error!
+2011-06-09 15:15:49 555(Sys error): internal un handled error!
+2011-06-09 15:15:49 571(Sys error): internal un handled error!
+2011-06-09 15:15:49 586(Sys error): internal un handled error!
+2011-06-09 15:15:49 664(Sys error): internal un handled error!
+2011-06-09 15:15:49 664(Sys error): internal un handled error!
+2011-06-09 15:15:49 680(Sys error): internal un handled error!
+2011-06-09 15:15:49 805(Sys error): internal un handled error!
+2011-06-09 15:15:49 821(Sys error): internal un handled error!
+2011-06-09 15:15:49 852(Sys error): internal un handled error!
+2011-06-09 15:15:49 852(Sys error): internal un handled error!
+2011-06-09 15:15:49 867(Sys error): internal un handled error!
+2011-06-09 15:15:49 867(Sys error): internal un handled error!
+2011-06-09 15:15:49 883(Sys error): internal un handled error!
+2011-06-09 15:15:49 883(Sys error): internal un handled error!
+2011-06-09 15:15:49 930(Sys error): internal un handled error!
+2011-06-09 15:15:49 930(Sys error): internal un handled error!
+2011-06-09 15:15:49 930(Sys error): internal un handled error!
+2011-06-09 15:15:49 946(Sys error): internal un handled error!
+2011-06-09 15:15:49 946(Sys error): internal un handled error!
+2011-06-09 15:15:49 961(Sys error): internal un handled error!
+2011-06-09 15:15:49 961(Sys error): internal un handled error!
+2011-06-09 15:15:49 977(Sys error): internal un handled error!
+2011-06-09 15:15:49 992(Sys error): internal un handled error!
+2011-06-09 15:15:50 149(Sys error): internal un handled error!
+2011-06-09 15:15:50 164(Sys error): internal un handled error!
+2011-06-09 15:15:50 164(Sys error): internal un handled error!
+2011-06-09 15:15:50 164(Sys error): internal un handled error!
+2011-06-09 15:15:50 180(Sys error): internal un handled error!
+2011-06-09 15:15:50 180(Sys error): internal un handled error!
+2011-06-09 15:15:50 196(Sys error): internal un handled error!
+2011-06-09 15:15:50 196(Sys error): internal un handled error!
+2011-06-09 15:15:50 211(Sys error): internal un handled error!
+2011-06-09 15:15:50 242(Sys error): internal un handled error!
+2011-06-09 15:15:50 242(Sys error): internal un handled error!
+2011-06-09 15:15:50 258(Sys error): internal un handled error!
+2011-06-09 15:15:50 258(Sys error): internal un handled error!
+2011-06-09 15:15:50 258(Sys error): internal un handled error!
+2011-06-09 15:15:50 274(Sys error): internal un handled error!
+2011-06-09 15:15:50 274(Sys error): internal un handled error!
+2011-06-09 15:15:50 289(Sys error): internal un handled error!
+2011-06-09 15:15:50 305(Sys error): internal un handled error!
+2011-06-09 15:15:50 321(Sys error): internal un handled error!
+2011-06-09 15:15:50 321(Sys error): internal un handled error!
+2011-06-09 15:15:50 492(Sys error): internal un handled error!
+2011-06-09 15:15:50 492(Sys error): internal un handled error!
+2011-06-09 15:15:50 508(Sys error): internal un handled error!
+2011-06-09 15:15:50 508(Sys error): internal un handled error!
+2011-06-09 15:15:50 508(Sys error): internal un handled error!
+2011-06-09 15:15:50 524(Sys error): internal un handled error!
+2011-06-09 15:15:50 539(Sys error): internal un handled error!
+2011-06-09 15:15:50 539(Sys error): internal un handled error!
+2011-06-09 15:15:50 555(Sys error): internal un handled error!
+2011-06-09 15:15:50 586(Sys error): internal un handled error!
+2011-06-09 15:15:50 602(Sys error): internal un handled error!
+2011-06-09 15:15:50 602(Sys error): internal un handled error!
+2011-06-09 15:15:50 618(Sys error): internal un handled error!
+2011-06-09 15:15:50 618(Sys error): internal un handled error!
+2011-06-09 15:15:50 633(Sys error): internal un handled error!
+2011-06-09 15:15:50 633(Sys error): internal un handled error!
+2011-06-09 15:15:50 649(Sys error): internal un handled error!
+2011-06-09 15:15:50 664(Sys error): internal un handled error!
+2011-06-09 15:15:50 852(Sys error): internal un handled error!
+2011-06-09 15:15:50 852(Sys error): internal un handled error!
+2011-06-09 15:15:50 868(Sys error): internal un handled error!
+2011-06-09 15:15:50 868(Sys error): internal un handled error!
+2011-06-09 15:15:50 883(Sys error): internal un handled error!
+2011-06-09 15:15:50 883(Sys error): internal un handled error!
+2011-06-09 15:15:50 899(Sys error): internal un handled error!
+2011-06-09 15:15:50 914(Sys error): internal un handled error!
+2011-06-09 15:15:50 914(Sys error): internal un handled error!
+2011-06-09 15:15:50 930(Sys error): internal un handled error!
+2011-06-09 15:15:50 930(Sys error): internal un handled error!
+2011-06-09 15:15:50 946(Sys error): internal un handled error!
+2011-06-09 15:15:50 946(Sys error): internal un handled error!
+2011-06-09 15:15:50 961(Sys error): internal un handled error!
+2011-06-09 15:15:50 961(Sys error): internal un handled error!
+2011-06-09 15:15:50 977(Sys error): internal un handled error!
+2011-06-09 15:15:50 977(Sys error): internal un handled error!
+2011-06-09 15:15:50 993(Sys error): internal un handled error!
+2011-06-09 15:15:50 993(Sys error): internal un handled error!
+2011-06-09 15:15:51 024(Sys error): internal un handled error!
+2011-06-09 15:15:51 024(Sys error): internal un handled error!
+2011-06-09 15:15:51 180(Sys error): internal un handled error!
+2011-06-09 15:15:51 196(Sys error): internal un handled error!
+2011-06-09 15:15:51 196(Sys error): internal un handled error!
+2011-06-09 15:15:51 211(Sys error): internal un handled error!
+2011-06-09 15:15:51 227(Sys error): internal un handled error!
+2011-06-09 15:15:51 243(Sys error): internal un handled error!
+2011-06-09 15:15:51 258(Sys error): internal un handled error!
+2011-06-09 15:15:51 258(Sys error): internal un handled error!
+2011-06-09 15:15:51 274(Sys error): internal un handled error!
+2011-06-09 15:15:51 305(Sys error): internal un handled error!
+2011-06-09 15:15:51 305(Sys error): internal un handled error!
+2011-06-09 15:15:51 321(Sys error): internal un handled error!
+2011-06-09 15:15:51 321(Sys error): internal un handled error!
+2011-06-09 15:15:51 336(Sys error): internal un handled error!
+2011-06-09 15:15:51 368(Sys error): internal un handled error!
+2011-06-09 15:15:51 493(Sys error): internal un handled error!
+2011-06-09 15:15:51 508(Sys error): internal un handled error!
+2011-06-09 15:15:51 508(Sys error): internal un handled error!
+2011-06-09 15:15:51 508(Sys error): internal un handled error!
+2011-06-09 15:15:51 524(Sys error): internal un handled error!
+2011-06-09 15:15:51 524(Sys error): internal un handled error!
+2011-06-09 15:15:51 539(Sys error): internal un handled error!
+2011-06-09 15:15:51 539(Sys error): internal un handled error!
+2011-06-09 15:15:51 555(Sys error): internal un handled error!
+2011-06-09 15:15:51 555(Sys error): internal un handled error!
+2011-06-09 15:15:51 571(Sys error): internal un handled error!
+2011-06-09 15:15:51 571(Sys error): internal un handled error!
+2011-06-09 15:15:51 586(Sys error): internal un handled error!
+2011-06-09 15:15:51 586(Sys error): internal un handled error!
+2011-06-09 15:15:51 602(Sys error): internal un handled error!
+2011-06-09 15:15:51 633(Sys error): internal un handled error!
+2011-06-09 15:15:51 649(Sys error): internal un handled error!
+2011-06-09 15:15:51 664(Sys error): internal un handled error!
+2011-06-09 15:15:51 946(Sys error): internal un handled error!
+2011-06-09 15:15:51 946(Sys error): internal un handled error!
+2011-06-09 15:15:51 993(Sys error): internal un handled error!
+2011-06-09 15:15:51 993(Sys error): internal un handled error!
+2011-06-09 15:15:51 993(Sys error): internal un handled error!
+2011-06-09 15:15:52 008(Sys error): internal un handled error!
+2011-06-09 15:15:52 008(Sys error): internal un handled error!
+2011-06-09 15:15:52 024(Sys error): internal un handled error!
+2011-06-09 15:15:52 055(Sys error): internal un handled error!
+2011-06-09 15:15:52 055(Sys error): internal un handled error!
+2011-06-09 15:15:52 071(Sys error): internal un handled error!
+2011-06-09 15:15:52 071(Sys error): internal un handled error!
+2011-06-09 15:15:52 086(Sys error): internal un handled error!
+2011-06-09 15:15:52 086(Sys error): internal un handled error!
+2011-06-09 15:15:52 102(Sys error): internal un handled error!
+2011-06-09 15:15:52 102(Sys error): internal un handled error!
+2011-06-09 15:15:52 102(Sys error): internal un handled error!
+2011-06-09 15:15:52 118(Sys error): internal un handled error!
+2011-06-09 15:15:52 118(Sys error): internal un handled error!
+2011-06-09 15:15:52 133(Sys error): internal un handled error!
+2011-06-09 15:15:52 149(Sys error): internal un handled error!
+2011-06-09 15:15:52 149(Sys error): internal un handled error!
+2011-06-09 15:15:52 149(Sys error): internal un handled error!
+2011-06-09 15:15:52 164(Sys error): internal un handled error!
+2011-06-09 15:15:52 164(Sys error): internal un handled error!
+2011-06-09 15:15:52 180(Sys error): internal un handled error!
+2011-06-09 15:15:52 196(Sys error): internal un handled error!
+2011-06-09 15:15:52 196(Sys error): internal un handled error!
+2011-06-09 15:15:52 399(Sys error): internal un handled error!
+2011-06-09 15:15:52 414(Sys error): internal un handled error!
+2011-06-09 15:15:52 430(Sys error): internal un handled error!
+2011-06-09 15:15:52 430(Sys error): internal un handled error!
+2011-06-09 15:15:52 446(Sys error): internal un handled error!
+2011-06-09 15:15:52 446(Sys error): internal un handled error!
+2011-06-09 15:15:52 446(Sys error): internal un handled error!
+2011-06-09 15:15:52 461(Sys error): internal un handled error!
+2011-06-09 15:15:52 477(Sys error): internal un handled error!
+2011-06-09 15:15:52 477(Sys error): internal un handled error!
+2011-06-09 15:15:52 493(Sys error): internal un handled error!
+2011-06-09 15:15:52 493(Sys error): internal un handled error!
+2011-06-09 15:15:52 508(Sys error): internal un handled error!
+2011-06-09 15:15:52 508(Sys error): internal un handled error!
+2011-06-09 15:15:52 524(Sys error): internal un handled error!
+2011-06-09 15:15:52 524(Sys error): internal un handled error!
+2011-06-09 15:15:52 539(Sys error): internal un handled error!
+2011-06-09 15:15:52 539(Sys error): internal un handled error!
+2011-06-09 15:15:52 586(Sys error): internal un handled error!
+2011-06-09 15:15:52 618(Sys error): internal un handled error!
+2011-06-09 15:15:52 633(Sys error): internal un handled error!
+2011-06-09 15:15:52 758(Sys error): internal un handled error!
+2011-06-09 15:15:52 774(Sys error): internal un handled error!
+2011-06-09 15:15:52 774(Sys error): internal un handled error!
+2011-06-09 15:15:52 789(Sys error): internal un handled error!
+2011-06-09 15:15:52 805(Sys error): internal un handled error!
+2011-06-09 15:15:52 805(Sys error): internal un handled error!
+2011-06-09 15:15:52 821(Sys error): internal un handled error!
+2011-06-09 15:15:52 821(Sys error): internal un handled error!
+2011-06-09 15:15:52 836(Sys error): internal un handled error!
+2011-06-09 15:15:52 836(Sys error): internal un handled error!
+2011-06-09 15:15:52 836(Sys error): internal un handled error!
+2011-06-09 15:15:52 852(Sys error): internal un handled error!
+2011-06-09 15:15:52 852(Sys error): internal un handled error!
+2011-06-09 15:15:52 868(Sys error): internal un handled error!
+2011-06-09 15:15:52 868(Sys error): internal un handled error!
+2011-06-09 15:15:52 883(Sys error): internal un handled error!
+2011-06-09 15:15:52 883(Sys error): internal un handled error!
+2011-06-09 15:15:52 899(Sys error): internal un handled error!
+2011-06-09 15:15:52 899(Sys error): internal un handled error!
+2011-06-09 15:15:52 899(Sys error): internal un handled error!
+2011-06-09 15:15:52 930(Sys error): internal un handled error!
+2011-06-09 15:15:52 930(Sys error): internal un handled error!
+2011-06-09 15:15:53 102(Sys error): internal un handled error!
+2011-06-09 15:15:53 118(Sys error): internal un handled error!
+2011-06-09 15:15:53 118(Sys error): internal un handled error!
+2011-06-09 15:15:53 118(Sys error): internal un handled error!
+2011-06-09 15:15:53 133(Sys error): internal un handled error!
+2011-06-09 15:15:53 149(Sys error): internal un handled error!
+2011-06-09 15:15:53 149(Sys error): internal un handled error!
+2011-06-09 15:15:53 164(Sys error): internal un handled error!
+2011-06-09 15:15:53 164(Sys error): internal un handled error!
+2011-06-09 15:15:53 164(Sys error): internal un handled error!
+2011-06-09 15:15:53 180(Sys error): internal un handled error!
+2011-06-09 15:15:53 180(Sys error): internal un handled error!
+2011-06-09 15:15:53 196(Sys error): internal un handled error!
+2011-06-09 15:15:53 196(Sys error): internal un handled error!
+2011-06-09 15:15:53 289(Sys error): internal un handled error!
+2011-06-09 15:15:53 289(Sys error): internal un handled error!
+2011-06-09 15:15:53 305(Sys error): internal un handled error!
+2011-06-09 15:15:53 430(Sys error): internal un handled error!
+2011-06-09 15:15:53 446(Sys error): internal un handled error!
+2011-06-09 15:15:53 446(Sys error): internal un handled error!
+2011-06-09 15:15:53 461(Sys error): internal un handled error!
+2011-06-09 15:15:53 461(Sys error): internal un handled error!
+2011-06-09 15:15:53 477(Sys error): internal un handled error!
+2011-06-09 15:15:53 477(Sys error): internal un handled error!
+2011-06-09 15:15:53 493(Sys error): internal un handled error!
+2011-06-09 15:15:53 493(Sys error): internal un handled error!
+2011-06-09 15:15:53 508(Sys error): internal un handled error!
+2011-06-09 15:15:53 508(Sys error): internal un handled error!
+2011-06-09 15:15:53 524(Sys error): internal un handled error!
+2011-06-09 15:15:53 524(Sys error): internal un handled error!
+2011-06-09 15:15:53 540(Sys error): internal un handled error!
+2011-06-09 15:15:53 540(Sys error): internal un handled error!
+2011-06-09 15:15:53 540(Sys error): internal un handled error!
+2011-06-09 15:15:53 555(Sys error): internal un handled error!
+2011-06-09 15:15:53 555(Sys error): internal un handled error!
+2011-06-09 15:15:53 571(Sys error): internal un handled error!
+2011-06-09 15:15:53 571(Sys error): internal un handled error!
+2011-06-09 15:15:53 586(Sys error): internal un handled error!
+2011-06-09 15:15:53 602(Sys error): internal un handled error!
+2011-06-09 15:15:53 618(Sys error): internal un handled error!
+2011-06-09 15:17:28 403: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-09 15:17:28 419(Sys error): internal un handled error!
+2011-06-09 15:17:39 560(Sys error): internal un handled error!
+2011-06-09 15:17:39 576(Sys error): internal un handled error!
+2011-06-09 15:17:39 591(Sys error): internal un handled error!
+2011-06-09 15:17:39 607(Sys error): internal un handled error!
+2011-06-09 15:17:39 622(Sys error): internal un handled error!
+2011-06-09 15:17:39 622(Sys error): internal un handled error!
+2011-06-09 15:17:39 638(Sys error): internal un handled error!
+2011-06-09 15:17:39 669(Sys error): internal un handled error!
+2011-06-09 15:17:39 669(Sys error): internal un handled error!
+2011-06-09 15:17:39 685(Sys error): internal un handled error!
+2011-06-09 15:17:39 685(Sys error): internal un handled error!
+2011-06-09 15:17:39 685(Sys error): internal un handled error!
+2011-06-09 15:17:39 701(Sys error): internal un handled error!
+2011-06-09 15:17:39 701(Sys error): internal un handled error!
+2011-06-09 15:17:39 716(Sys error): internal un handled error!
+2011-06-09 15:17:39 716(Sys error): internal un handled error!
+2011-06-09 15:17:39 732(Sys error): internal un handled error!
+2011-06-09 15:17:39 732(Sys error): internal un handled error!
+2011-06-09 15:17:39 747(Sys error): internal un handled error!
+2011-06-09 15:17:39 747(Sys error): internal un handled error!
+2011-06-09 15:17:39 763(Sys error): internal un handled error!
+2011-06-09 15:17:39 763(Sys error): internal un handled error!
+2011-06-09 15:17:39 779(Sys error): internal un handled error!
+2011-06-09 15:17:39 779(Sys error): internal un handled error!
+2011-06-09 15:17:39 794(Sys error): internal un handled error!
+2011-06-09 15:17:39 794(Sys error): internal un handled error!
+2011-06-09 15:17:39 794(Sys error): internal un handled error!
+2011-06-09 15:17:39 810(Sys error): internal un handled error!
+2011-06-09 15:17:39 810(Sys error): internal un handled error!
+2011-06-09 15:17:39 826(Sys error): internal un handled error!
+2011-06-09 15:17:39 841(Sys error): internal un handled error!
+2011-06-09 15:17:39 951(Sys error): internal un handled error!
+2011-06-09 15:17:40 091(Sys error): internal un handled error!
+2011-06-09 15:17:40 107(Sys error): internal un handled error!
+2011-06-09 15:17:40 122(Sys error): internal un handled error!
+2011-06-09 15:17:40 122(Sys error): internal un handled error!
+2011-06-09 15:17:40 138(Sys error): internal un handled error!
+2011-06-09 15:17:40 138(Sys error): internal un handled error!
+2011-06-09 15:17:40 138(Sys error): internal un handled error!
+2011-06-09 15:17:40 154(Sys error): internal un handled error!
+2011-06-09 15:17:40 154(Sys error): internal un handled error!
+2011-06-09 15:17:40 169(Sys error): internal un handled error!
+2011-06-09 15:17:40 169(Sys error): internal un handled error!
+2011-06-09 15:17:40 185(Sys error): internal un handled error!
+2011-06-09 15:17:40 185(Sys error): internal un handled error!
+2011-06-09 15:17:40 185(Sys error): internal un handled error!
+2011-06-09 15:17:40 201(Sys error): internal un handled error!
+2011-06-09 15:17:40 201(Sys error): internal un handled error!
+2011-06-09 15:17:40 216(Sys error): internal un handled error!
+2011-06-09 15:17:40 232(Sys error): internal un handled error!
+2011-06-09 15:17:40 232(Sys error): internal un handled error!
+2011-06-09 15:17:40 247(Sys error): internal un handled error!
+2011-06-09 15:17:40 263(Sys error): internal un handled error!
+2011-06-09 15:17:40 435(Sys error): internal un handled error!
+2011-06-09 15:17:40 451(Sys error): internal un handled error!
+2011-06-09 15:17:40 451(Sys error): internal un handled error!
+2011-06-09 15:17:40 466(Sys error): internal un handled error!
+2011-06-09 15:17:40 466(Sys error): internal un handled error!
+2011-06-09 15:17:40 466(Sys error): internal un handled error!
+2011-06-09 15:17:40 482(Sys error): internal un handled error!
+2011-06-09 15:17:40 497(Sys error): internal un handled error!
+2011-06-09 15:17:40 497(Sys error): internal un handled error!
+2011-06-09 15:17:40 497(Sys error): internal un handled error!
+2011-06-09 15:17:40 513(Sys error): internal un handled error!
+2011-06-09 15:17:40 513(Sys error): internal un handled error!
+2011-06-09 15:17:40 529(Sys error): internal un handled error!
+2011-06-09 15:17:40 529(Sys error): internal un handled error!
+2011-06-09 15:17:40 607(Sys error): internal un handled error!
+2011-06-09 15:17:40 622(Sys error): internal un handled error!
+2011-06-09 15:17:40 638(Sys error): internal un handled error!
+2011-06-09 15:17:40 779(Sys error): internal un handled error!
+2011-06-09 15:17:40 794(Sys error): internal un handled error!
+2011-06-09 15:17:40 794(Sys error): internal un handled error!
+2011-06-09 15:17:40 810(Sys error): internal un handled error!
+2011-06-09 15:17:40 810(Sys error): internal un handled error!
+2011-06-09 15:17:40 826(Sys error): internal un handled error!
+2011-06-09 15:17:40 826(Sys error): internal un handled error!
+2011-06-09 15:17:40 826(Sys error): internal un handled error!
+2011-06-09 15:17:40 841(Sys error): internal un handled error!
+2011-06-09 15:17:40 841(Sys error): internal un handled error!
+2011-06-09 15:17:40 857(Sys error): internal un handled error!
+2011-06-09 15:17:40 857(Sys error): internal un handled error!
+2011-06-09 15:17:40 857(Sys error): internal un handled error!
+2011-06-09 15:17:40 872(Sys error): internal un handled error!
+2011-06-09 15:17:40 888(Sys error): internal un handled error!
+2011-06-09 15:17:40 888(Sys error): internal un handled error!
+2011-06-09 15:17:40 904(Sys error): internal un handled error!
+2011-06-09 15:17:40 904(Sys error): internal un handled error!
+2011-06-09 15:17:40 919(Sys error): internal un handled error!
+2011-06-09 15:17:40 935(Sys error): internal un handled error!
+2011-06-09 15:17:40 951(Sys error): internal un handled error!
+2011-06-09 15:17:41 122(Sys error): internal un handled error!
+2011-06-09 15:17:41 138(Sys error): internal un handled error!
+2011-06-09 15:17:41 138(Sys error): internal un handled error!
+2011-06-09 15:17:41 154(Sys error): internal un handled error!
+2011-06-09 15:17:41 169(Sys error): internal un handled error!
+2011-06-09 15:17:41 185(Sys error): internal un handled error!
+2011-06-09 15:17:41 201(Sys error): internal un handled error!
+2011-06-09 15:17:41 201(Sys error): internal un handled error!
+2011-06-09 15:17:41 216(Sys error): internal un handled error!
+2011-06-09 15:17:41 232(Sys error): internal un handled error!
+2011-06-09 15:17:41 247(Sys error): internal un handled error!
+2011-06-09 15:17:41 263(Sys error): internal un handled error!
+2011-06-09 15:17:41 279(Sys error): internal un handled error!
+2011-06-09 15:17:41 419(Sys error): internal un handled error!
+2011-06-09 15:17:41 451(Sys error): internal un handled error!
+2011-06-09 15:17:41 466(Sys error): internal un handled error!
+2011-06-09 15:17:41 466(Sys error): internal un handled error!
+2011-06-09 15:17:41 482(Sys error): internal un handled error!
+2011-06-09 15:17:41 497(Sys error): internal un handled error!
+2011-06-09 15:17:41 513(Sys error): internal un handled error!
+2011-06-09 15:17:41 513(Sys error): internal un handled error!
+2011-06-09 15:17:41 529(Sys error): internal un handled error!
+2011-06-09 15:17:41 669(Sys error): internal un handled error!
+2011-06-09 15:17:41 685(Sys error): internal un handled error!
+2011-06-09 15:17:41 685(Sys error): internal un handled error!
+2011-06-09 15:17:41 701(Sys error): internal un handled error!
+2011-06-09 15:17:41 701(Sys error): internal un handled error!
+2011-06-09 15:17:41 701(Sys error): internal un handled error!
+2011-06-09 15:17:41 716(Sys error): internal un handled error!
+2011-06-09 15:17:41 732(Sys error): internal un handled error!
+2011-06-09 15:17:41 732(Sys error): internal un handled error!
+2011-06-09 15:17:41 747(Sys error): internal un handled error!
+2011-06-09 15:17:41 747(Sys error): internal un handled error!
+2011-06-09 15:17:41 763(Sys error): internal un handled error!
+2011-06-09 15:17:41 763(Sys error): internal un handled error!
+2011-06-09 15:17:41 779(Sys error): internal un handled error!
+2011-06-09 15:17:41 779(Sys error): internal un handled error!
+2011-06-09 15:17:41 794(Sys error): internal un handled error!
+2011-06-09 15:17:41 794(Sys error): internal un handled error!
+2011-06-09 15:17:41 810(Sys error): internal un handled error!
+2011-06-09 15:17:41 810(Sys error): internal un handled error!
+2011-06-09 15:17:41 826(Sys error): internal un handled error!
+2011-06-09 15:17:41 841(Sys error): internal un handled error!
+2011-06-09 15:17:41 857(Sys error): internal un handled error!
+2011-06-09 15:17:42 013(Sys error): internal un handled error!
+2011-06-09 15:17:42 029(Sys error): internal un handled error!
+2011-06-09 15:17:42 029(Sys error): internal un handled error!
+2011-06-09 15:17:42 044(Sys error): internal un handled error!
+2011-06-09 15:17:42 044(Sys error): internal un handled error!
+2011-06-09 15:17:42 044(Sys error): internal un handled error!
+2011-06-09 15:17:42 060(Sys error): internal un handled error!
+2011-06-09 15:17:42 060(Sys error): internal un handled error!
+2011-06-09 15:17:42 122(Sys error): internal un handled error!
+2011-06-09 15:17:42 138(Sys error): internal un handled error!
+2011-06-09 15:17:42 154(Sys error): internal un handled error!
+2011-06-09 15:17:42 154(Sys error): internal un handled error!
+2011-06-09 15:17:42 169(Sys error): internal un handled error!
+2011-06-09 15:17:42 185(Sys error): internal un handled error!
+2011-06-09 15:17:42 185(Sys error): internal un handled error!
+2011-06-09 15:17:42 357(Sys error): internal un handled error!
+2011-06-09 15:17:42 373(Sys error): internal un handled error!
+2011-06-09 15:17:42 388(Sys error): internal un handled error!
+2011-06-09 15:17:42 388(Sys error): internal un handled error!
+2011-06-09 15:17:42 404(Sys error): internal un handled error!
+2011-06-09 15:17:42 404(Sys error): internal un handled error!
+2011-06-09 15:17:42 419(Sys error): internal un handled error!
+2011-06-09 15:17:42 419(Sys error): internal un handled error!
+2011-06-09 15:17:42 435(Sys error): internal un handled error!
+2011-06-09 15:17:42 435(Sys error): internal un handled error!
+2011-06-09 15:17:42 451(Sys error): internal un handled error!
+2011-06-09 15:17:42 451(Sys error): internal un handled error!
+2011-06-09 15:17:42 466(Sys error): internal un handled error!
+2011-06-09 15:17:42 466(Sys error): internal un handled error!
+2011-06-09 15:17:42 482(Sys error): internal un handled error!
+2011-06-09 15:17:42 482(Sys error): internal un handled error!
+2011-06-09 15:17:42 482(Sys error): internal un handled error!
+2011-06-09 15:17:42 498(Sys error): internal un handled error!
+2011-06-09 15:17:42 498(Sys error): internal un handled error!
+2011-06-09 15:17:42 513(Sys error): internal un handled error!
+2011-06-09 15:17:42 529(Sys error): internal un handled error!
+2011-06-09 15:17:42 544(Sys error): internal un handled error!
+2011-06-09 15:18:43 016: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-09 15:18:43 016(Sys error): internal un handled error!
+2011-06-09 15:28:41 152: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-09 15:28:41 152(Sys error): internal un handled error!
+2011-06-09 15:31:24 175(Sys error): internal un handled error!
+2011-06-09 15:32:56 960(Sys error): internal un handled error!
+2011-06-09 15:46:24 512: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-09 15:46:24 512(Sys error): internal un handled error!
+2011-06-09 15:58:52 921: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-09 15:58:52 936(Sys error): internal un handled error!
+2011-06-09 16:08:23 118: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-09 16:08:23 134(Sys error): internal un handled error!
+2011-06-09 16:13:55 727(Sys error): internal un handled error!
+2011-06-09 16:13:55 930(Sys error): internal un handled error!
+2011-06-09 16:13:56 071(Sys error): internal un handled error!
+2011-06-09 16:13:56 180(Sys error): internal un handled error!
+2011-06-09 16:13:56 289(Sys error): internal un handled error!
+2011-06-09 16:13:56 430(Sys error): internal un handled error!
+2011-06-09 16:13:56 539(Sys error): internal un handled error!
+2011-06-09 16:13:56 649(Sys error): internal un handled error!
+2011-06-09 16:13:56 789(Sys error): internal un handled error!
+2011-06-09 16:13:56 977(Sys error): internal un handled error!
+2011-06-09 16:13:57 242(Sys error): internal un handled error!
+2011-06-09 16:13:57 352(Sys error): internal un handled error!
+2011-06-09 16:13:57 461(Sys error): internal un handled error!
+2011-06-09 16:13:57 586(Sys error): internal un handled error!
+2011-06-09 16:13:57 727(Sys error): internal un handled error!
+2011-06-09 16:13:57 883(Sys error): internal un handled error!
+2011-06-09 16:13:58 086(Sys error): internal un handled error!
+2011-06-09 16:13:58 336(Sys error): internal un handled error!
+2011-06-09 16:13:58 446(Sys error): internal un handled error!
+2011-06-09 16:13:58 555(Sys error): internal un handled error!
+2011-06-09 16:13:58 680(Sys error): internal un handled error!
+2011-06-09 16:13:58 789(Sys error): internal un handled error!
+2011-06-09 16:13:58 946(Sys error): internal un handled error!
+2011-06-09 16:13:59 039(Sys error): internal un handled error!
+2011-06-09 16:13:59 180(Sys error): internal un handled error!
+2011-06-09 16:13:59 321(Sys error): internal un handled error!
+2011-06-09 16:13:59 430(Sys error): internal un handled error!
+2011-06-09 16:13:59 602(Sys error): internal un handled error!
+2011-06-09 16:13:59 743(Sys error): internal un handled error!
+2011-06-09 16:13:59 836(Sys error): internal un handled error!
+2011-06-09 16:14:00 164(Sys error): internal un handled error!
+2011-06-09 16:14:00 289(Sys error): internal un handled error!
+2011-06-09 16:14:00 399(Sys error): internal un handled error!
+2011-06-09 16:14:00 539(Sys error): internal un handled error!
+2011-06-09 16:14:00 696(Sys error): internal un handled error!
+2011-06-09 16:14:00 805(Sys error): internal un handled error!
+2011-06-09 16:14:00 946(Sys error): internal un handled error!
+2011-06-09 16:14:01 055(Sys error): internal un handled error!
+2011-06-09 16:14:01 196(Sys error): internal un handled error!
+2011-06-09 16:14:01 305(Sys error): internal un handled error!
+2011-06-09 16:14:01 477(Sys error): internal un handled error!
+2011-06-09 16:14:01 618(Sys error): internal un handled error!
+2011-06-09 16:14:01 727(Sys error): internal un handled error!
+2011-06-09 16:14:01 868(Sys error): internal un handled error!
+2011-06-09 16:14:01 977(Sys error): internal un handled error!
+2011-06-09 16:14:02 165(Sys error): internal un handled error!
+2011-06-09 16:14:02 274(Sys error): internal un handled error!
+2011-06-09 16:14:02 399(Sys error): internal un handled error!
+2011-06-09 16:14:02 524(Sys error): internal un handled error!
+2011-06-09 16:14:02 649(Sys error): internal un handled error!
+2011-06-09 16:14:02 899(Sys error): internal un handled error!
+2011-06-09 16:14:02 993(Sys error): internal un handled error!
+2011-06-09 16:14:03 258(Sys error): internal un handled error!
+2011-06-09 16:14:03 493(Sys error): internal un handled error!
+2011-06-09 16:14:03 711(Sys error): internal un handled error!
+2011-06-09 16:14:03 821(Sys error): internal un handled error!
+2011-06-09 16:14:03 946(Sys error): internal un handled error!
+2011-06-09 16:14:04 102(Sys error): internal un handled error!
+2011-06-09 16:14:04 415(Sys error): internal un handled error!
+2011-06-09 16:14:04 555(Sys error): internal un handled error!
+2011-06-09 16:14:04 696(Sys error): internal un handled error!
+2011-06-09 16:14:04 821(Sys error): internal un handled error!
+2011-06-09 16:14:04 930(Sys error): internal un handled error!
+2011-06-09 16:14:05 087(Sys error): internal un handled error!
+2011-06-09 16:14:05 212(Sys error): internal un handled error!
+2011-06-09 16:14:05 368(Sys error): internal un handled error!
+2011-06-09 16:14:05 477(Sys error): internal un handled error!
+2011-06-09 16:14:05 602(Sys error): internal un handled error!
+2011-06-09 16:14:05 790(Sys error): internal un handled error!
+2011-06-09 16:14:06 024(Sys error): internal un handled error!
+2011-06-09 16:14:06 165(Sys error): internal un handled error!
+2011-06-09 16:14:06 305(Sys error): internal un handled error!
+2011-06-09 16:14:06 446(Sys error): internal un handled error!
+2011-06-09 16:14:06 633(Sys error): internal un handled error!
+2011-06-09 16:14:06 790(Sys error): internal un handled error!
+2011-06-09 16:14:06 915(Sys error): internal un handled error!
+2011-06-09 16:14:07 055(Sys error): internal un handled error!
+2011-06-09 16:14:07 165(Sys error): internal un handled error!
+2011-06-09 16:14:07 305(Sys error): internal un handled error!
+2011-06-09 16:14:07 446(Sys error): internal un handled error!
+2011-06-09 16:14:07 680(Sys error): internal un handled error!
+2011-06-09 16:14:07 837(Sys error): internal un handled error!
+2011-06-09 16:14:08 009(Sys error): internal un handled error!
+2011-06-09 16:14:08 134(Sys error): internal un handled error!
+2011-06-09 16:14:08 290(Sys error): internal un handled error!
+2011-06-09 16:14:08 446(Sys error): internal un handled error!
+2011-06-09 16:14:08 696(Sys error): internal un handled error!
+2011-06-09 16:14:08 946(Sys error): internal un handled error!
+2011-06-09 16:14:09 149(Sys error): internal un handled error!
+2011-06-09 16:14:09 321(Sys error): internal un handled error!
+2011-06-09 16:14:09 415(Sys error): internal un handled error!
+2011-06-09 16:14:09 540(Sys error): internal un handled error!
+2011-06-09 16:14:09 696(Sys error): internal un handled error!
+2011-06-09 16:14:09 837(Sys error): internal un handled error!
+2011-06-09 16:14:09 931(Sys error): internal un handled error!
+2011-06-09 16:14:10 087(Sys error): internal un handled error!
+2011-06-09 16:14:10 212(Sys error): internal un handled error!
+2011-06-09 16:14:10 384(Sys error): internal un handled error!
+2011-06-09 16:14:10 524(Sys error): internal un handled error!
+2011-06-09 16:14:10 681(Sys error): internal un handled error!
+2011-06-09 16:14:10 806(Sys error): internal un handled error!
+2011-06-09 16:14:10 946(Sys error): internal un handled error!
+2011-06-09 16:14:11 071(Sys error): internal un handled error!
+2011-06-09 16:14:11 259(Sys error): internal un handled error!
+2011-06-09 16:14:11 399(Sys error): internal un handled error!
+2011-06-09 16:14:11 540(Sys error): internal un handled error!
+2011-06-09 16:14:11 649(Sys error): internal un handled error!
+2011-06-09 16:14:11 774(Sys error): internal un handled error!
+2011-06-09 16:14:11 931(Sys error): internal un handled error!
+2011-06-09 16:14:12 024(Sys error): internal un handled error!
+2011-06-09 16:14:12 165(Sys error): internal un handled error!
+2011-06-09 16:14:12 321(Sys error): internal un handled error!
+2011-06-09 16:16:02 779(Sys error): internal un handled error!
+2011-06-09 16:22:22 078: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-09 16:22:22 078(Sys error): internal un handled error!
+2011-06-10 09:11:47 413: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-10 09:11:47 413(Sys error): internal un handled error!
+2011-06-10 09:15:38 660: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-10 09:15:38 660(Sys error): internal un handled error!
+2011-06-10 09:25:43 964: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-10 09:25:43 964(Sys error): internal un handled error!
+2011-06-10 09:31:33 850(Sys error): internal un handled error!
+2011-06-10 09:35:27 859: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-10 09:35:27 859(Sys error): internal un handled error!
+2011-06-10 09:56:44 246: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-10 09:56:44 246(Sys error): internal un handled error!
+2011-06-10 15:35:57 661(Sys error): Physical data source not initialized
+2011-06-10 15:37:01 804(Sys error): Physical data source not initialized
+2011-06-10 15:37:08 367(Sys error): Physical data is loading
+2011-06-10 15:38:18 370(Sys error): Physical data source not initialized
+2011-06-10 15:39:27 388(Sys error): Physical data source not initialized
+2011-06-10 15:41:40 581(Sys error): Physical data source not initialized
+2011-06-10 15:42:54 209: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-10 15:42:54 209(Sys error): internal un handled error!
+2011-06-10 15:50:47 961(Sys error): Physical data source not initialized
+2011-06-10 15:53:10 529(Sys error): Physical data source not initialized
+2011-06-10 16:00:54 057(Sys error): Physical data source not initialized
+2011-06-10 16:06:12 062(Sys error): Physical data source not initialized
+2011-06-10 16:45:41 736: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-10 16:45:41 736(Sys error): internal un handled error!
+2011-06-10 16:59:22 200(Sys error): Physical data source not initialized
+2011-06-10 17:00:26 452(Sys error): Physical data source not initialized
+2011-06-10 17:02:30 801(Sys error): Physical data source not initialized
+2011-06-10 17:04:28 586(Sys error): Physical data source not initialized
+2011-06-10 17:07:11 104(Sys error): Physical data source not initialized
+2011-06-10 17:12:26 519(Sys error): Physical data is loading
+2011-06-10 17:27:10 427(Sys error): Physical data source not initialized
+2011-06-10 17:27:10 427(Sys error): Physical data source not initialized
+2011-06-10 17:29:13 413(Sys error): Physical data source not initialized
+2011-06-10 17:29:13 429(Sys error): Physical data source not initialized
+2011-06-10 17:40:18 233(Sys error): Physical data source not initialized
+2011-06-10 17:40:18 233(Sys error): Physical data source not initialized
+2011-06-13 09:00:34 462(Sys error): Physical data source not initialized
+2011-06-13 09:00:34 509(Sys error): Physical data source not initialized
+2011-06-13 09:10:28 086(Sys error): Physical data source not initialized
+2011-06-13 09:10:28 102(Sys error): Physical data source not initialized
+2011-06-13 09:27:18 999(Sys error): Physical data source not initialized
+2011-06-13 09:27:18 999(Sys error): Physical data source not initialized
+2011-06-13 09:28:03 892(Sys error): Physical data source not initialized
+2011-06-13 09:28:03 908(Sys error): Physical data source not initialized
+2011-06-13 09:28:06 830(Sys error): internal un handled error!
+2011-06-13 09:28:06 830(Sys error): internal un handled error!
+2011-06-13 09:28:06 892(Sys error): internal un handled error!
+2011-06-13 09:28:06 939(Sys error): internal un handled error!
+2011-06-13 09:28:06 955(Sys error): internal un handled error!
+2011-06-13 09:28:07 017(Sys error): internal un handled error!
+2011-06-13 09:28:07 095(Sys error): internal un handled error!
+2011-06-13 09:28:07 173(Sys error): internal un handled error!
+2011-06-13 09:28:07 220(Sys error): internal un handled error!
+2011-06-13 09:28:07 298(Sys error): internal un handled error!
+2011-06-13 09:28:07 423(Sys error): internal un handled error!
+2011-06-13 09:28:07 439(Sys error): internal un handled error!
+2011-06-13 09:28:07 502(Sys error): internal un handled error!
+2011-06-13 09:28:07 736(Sys error): internal un handled error!
+2011-06-13 09:28:07 736(Sys error): internal un handled error!
+2011-06-13 09:28:07 783(Sys error): internal un handled error!
+2011-06-13 09:28:07 798(Sys error): internal un handled error!
+2011-06-13 09:28:07 923(Sys error): internal un handled error!
+2011-06-13 09:28:08 033(Sys error): internal un handled error!
+2011-06-13 09:28:08 049(Sys error): internal un handled error!
+2011-06-13 09:28:08 174(Sys error): internal un handled error!
+2011-06-13 09:28:08 220(Sys error): internal un handled error!
+2011-06-13 09:28:08 220(Sys error): internal un handled error!
+2011-06-13 09:28:08 299(Sys error): internal un handled error!
+2011-06-13 09:28:08 345(Sys error): internal un handled error!
+2011-06-13 09:28:08 361(Sys error): internal un handled error!
+2011-06-13 09:28:08 455(Sys error): internal un handled error!
+2011-06-13 09:28:08 517(Sys error): internal un handled error!
+2011-06-13 09:28:08 689(Sys error): internal un handled error!
+2011-06-13 09:28:08 752(Sys error): internal un handled error!
+2011-06-13 09:28:08 752(Sys error): internal un handled error!
+2011-06-13 09:28:08 767(Sys error): internal un handled error!
+2011-06-13 09:28:08 970(Sys error): internal un handled error!
+2011-06-13 09:28:08 970(Sys error): internal un handled error!
+2011-06-13 09:28:09 111(Sys error): internal un handled error!
+2011-06-13 09:28:09 127(Sys error): internal un handled error!
+2011-06-13 09:28:09 127(Sys error): internal un handled error!
+2011-06-13 09:28:09 330(Sys error): internal un handled error!
+2011-06-13 09:28:09 517(Sys error): internal un handled error!
+2011-06-13 09:28:09 517(Sys error): internal un handled error!
+2011-06-13 09:28:09 611(Sys error): internal un handled error!
+2011-06-13 09:28:09 674(Sys error): internal un handled error!
+2011-06-13 09:28:09 861(Sys error): internal un handled error!
+2011-06-13 09:28:10 017(Sys error): internal un handled error!
+2011-06-13 09:28:10 174(Sys error): internal un handled error!
+2011-06-13 09:28:10 174(Sys error): internal un handled error!
+2011-06-13 09:28:10 174(Sys error): internal un handled error!
+2011-06-13 09:28:10 189(Sys error): internal un handled error!
+2011-06-13 09:28:10 299(Sys error): internal un handled error!
+2011-06-13 09:28:10 330(Sys error): internal un handled error!
+2011-06-13 09:28:10 470(Sys error): internal un handled error!
+2011-06-13 09:28:10 470(Sys error): internal un handled error!
+2011-06-13 09:28:10 517(Sys error): internal un handled error!
+2011-06-13 09:28:10 658(Sys error): internal un handled error!
+2011-06-13 09:28:10 736(Sys error): internal un handled error!
+2011-06-13 09:28:10 783(Sys error): internal un handled error!
+2011-06-13 09:28:10 908(Sys error): internal un handled error!
+2011-06-13 09:28:11 127(Sys error): internal un handled error!
+2011-06-13 09:28:11 283(Sys error): internal un handled error!
+2011-06-13 09:28:11 330(Sys error): internal un handled error!
+2011-06-13 09:28:11 330(Sys error): internal un handled error!
+2011-06-13 09:28:11 346(Sys error): internal un handled error!
+2011-06-13 09:31:23 588(Sys error): Physical data source not initialized
+2011-06-13 09:31:23 604(Sys error): Physical data source not initialized
+2011-06-13 09:58:30 587(Sys error): Physical data should be re-initialized for loading
+2011-06-13 10:02:42 666(Sys error): Physical data should be re-initialized for loading
+2011-06-13 10:36:32 429(Sys error): Physical data source not initialized
+2011-06-13 10:36:32 429(Sys error): Physical data source not initialized
+2011-06-13 10:58:43 375(Sys error): Physical data source not initialized
+2011-06-13 10:58:43 375(Sys error): Physical data source not initialized
+2011-06-13 11:08:02 427(Sys error): Physical data source not initialized
+2011-06-13 11:08:02 427(Sys error): Physical data source not initialized
+2011-06-13 11:30:37 742(Sys error): Physical data source not initialized
+2011-06-13 11:30:37 742(Sys error): Physical data source not initialized
+2011-06-13 11:52:14 541(Sys error): internal un handled error!
+2011-06-13 12:29:57 035(Sys error): Physical data source not initialized
+2011-06-13 12:29:57 035(Sys error): Physical data source not initialized
+2011-06-13 12:31:05 851(Sys error): internal un handled error!
+2011-06-14 15:16:39 757(Sys error): Physical data source not initialized
+2011-06-14 15:16:39 757(Sys error): internal un handled error!
+2011-06-14 15:16:39 757(Sys error): Physical data source not initialized
+2011-06-14 15:16:39 757(Sys error): Physical data source not initialized
+2011-06-14 15:17:46 874(Sys error): Physical data source not initialized
+2011-06-14 15:17:46 874(Sys error): internal un handled error!
+2011-06-14 15:17:46 874(Sys error): Physical data source not initialized
+2011-06-14 15:17:46 874(Sys error): Physical data source not initialized
+2011-06-14 15:22:12 933(Sys error): internal un handled error!
+2011-06-14 15:22:12 933(Sys error): Physical data source not initialized
+2011-06-14 15:22:12 933(Sys error): Physical data source not initialized
+2011-06-14 15:23:54 556(Sys error): Physical data is loading
+2011-06-14 17:46:32 182(Sys error): Log applying failed!
+2011-06-15 10:46:51 421(Sys error): Physical data source not initialized
+2011-06-15 10:46:51 421(Sys error): internal un handled error!
+2011-06-15 10:52:33 369(Sys error): Physical data source not initialized
+2011-06-15 10:52:33 369(Sys error): internal un handled error!
+2011-06-15 10:54:55 405(Sys error): Physical data source not initialized
+2011-06-15 10:54:55 405(Sys error): internal un handled error!
+2011-06-15 10:58:37 382: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 10:58:37 382(Sys error): internal un handled error!
+2011-06-15 11:13:00 814(Sys error): Physical data source not initialized
+2011-06-15 11:13:00 814(Sys error): internal un handled error!
+2011-06-15 13:48:04 042: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 13:48:04 058(Sys error): internal un handled error!
+2011-06-15 13:50:27 790: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 13:50:27 790(Sys error): internal un handled error!
+2011-06-15 13:52:37 247: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 13:52:37 263(Sys error): internal un handled error!
+2011-06-15 14:32:24 302(Sys error): Physical data source not initialized
+2011-06-15 14:32:24 302(Sys error): internal un handled error!
+2011-06-15 14:32:24 302(Sys error): Physical data source not initialized
+2011-06-15 14:32:59 100(Sys error): Physical data is loading
+2011-06-15 14:36:11 998: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 14:36:11 998(Sys error): internal un handled error!
+2011-06-15 14:36:40 671: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 14:36:40 671(Sys error): internal un handled error!
+2011-06-15 15:05:28 281: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 15:05:28 296(Sys error): internal un handled error!
+2011-06-15 16:31:23 726: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 16:31:23 726(Sys error): internal un handled error!
+2011-06-15 16:43:08 698(Sys error): Physical data source not initialized
+2011-06-15 16:43:08 713(Sys error): internal un handled error!
+2011-06-15 16:48:53 033: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 16:48:53 033(Sys error): internal un handled error!
+2011-06-15 16:50:12 630: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-15 16:50:12 630(Sys error): internal un handled error!
+2011-06-15 16:52:05 618(Sys error): Physical data source not initialized
+2011-06-15 16:52:05 618(Sys error): internal un handled error!
+2011-06-15 17:08:11 091(Sys error): Build server gate socket failed
+2011-06-16 09:29:33 188(Sys error): internal un handled error!
+2011-06-16 09:52:27 700(Sys error): internal un handled error!
+2011-06-16 10:07:00 167(Sys error): internal un handled error!
+2011-06-16 10:43:08 064(Sys error): internal un handled error!
+2011-06-16 10:46:18 726(Sys error): internal un handled error!
+2011-06-16 10:51:07 846(Sys error): internal un handled error!
+2011-06-16 11:32:51 506(Sys error): Physical data source not initialized
+2011-06-16 11:32:51 506(Sys error): internal un handled error!
+2011-06-16 11:32:51 506(Sys error): Physical data source not initialized
+2011-06-16 12:37:47 662(Sys error): Physical data source not initialized
+2011-06-16 12:37:47 678(Sys error): internal un handled error!
+2011-06-16 12:37:47 678(Sys error): Physical data source not initialized
+2011-06-16 13:37:41 877(Sys error): Physical data source not initialized
+2011-06-16 13:37:41 877(Sys error): internal un handled error!
+2011-06-16 13:37:41 924(Sys error): Physical data source not initialized
+2011-06-17 11:19:38 293: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-17 11:19:38 308(Sys error): internal un handled error!
+2011-06-17 11:19:38 308(Sys error): Physical data should be re-initialized for loading
+2011-06-17 11:52:47 069(Sys error): internal un handled error!
+2011-06-17 12:35:52 513(Sys error): internal un handled error!
+2011-06-17 12:49:51 692(Sys error): Physical data source not initialized
+2011-06-17 12:49:51 692(Sys error): internal un handled error!
+2011-06-17 12:49:51 692(Sys error): Physical data source not initialized
+2011-06-17 13:54:02 966(Sys error): Physical data source not initialized
+2011-06-17 13:54:02 966(Sys error): internal un handled error!
+2011-06-17 13:54:02 966(Sys error): Physical data source not initialized
+2011-06-17 17:00:18 394: C:\my java\Fydb\console\data\test\test*.dat
+2011-06-17 17:00:18 394(Sys error): internal un handled error!
+2011-06-20 09:04:26 801(Sys error): Physical data source not initialized
+2011-06-20 09:04:26 833(Sys error): internal un handled error!
+2011-06-20 09:04:26 833(Sys error): Physical data source not initialized
+2011-06-20 14:35:23 326(Sys error): Physical data source not initialized
+2011-06-20 14:35:23 357(Sys error): internal un handled error!
+2011-06-20 14:35:23 357(Sys error): Physical data source not initialized
+2011-06-20 14:47:31 755(Sys error): Physical data source not initialized
+2011-06-20 14:47:31 755(Sys error): internal un handled error!
+2011-06-20 14:47:32 052(Sys error): Physical data source not initialized
+2011-06-20 15:18:15 842(Sys error): Physical data source not initialized
+2011-06-20 15:18:15 842(Sys error): internal un handled error!
+2011-06-20 15:18:15 842(Sys error): Physical data source not initialized
+2011-06-20 17:25:32 862(Sys error): internal un handled error!
+2011-06-20 17:25:33 300(Sys error): internal un handled error!
+2011-06-20 17:25:34 378(Sys error): internal un handled error!
+2011-06-20 17:25:34 378(Sys error): internal un handled error!
+2011-06-20 17:25:34 440(Sys error): internal un handled error!
+2011-06-20 17:25:35 534(Sys error): internal un handled error!
+2011-06-20 17:25:42 191(Sys error): internal un handled error!
+2011-06-20 17:25:43 113(Sys error): internal un handled error!
+2011-06-21 09:51:42 180(Sys error): internal un handled error!
+2011-06-21 09:52:45 339(Sys error): internal un handled error!
+2011-06-21 09:53:30 591(Sys error): internal un handled error!
+2011-06-22 14:10:48 879(Sys error): Build server gate socket failed
+2011-06-22 15:52:35 232: C:\my java\Fydb\console\log\-1\null\T_TEST2.sys
+2011-06-22 15:52:35 279: C:\my java\Fydb\console\log\-1\null\T_TEST2_1.log
+2011-06-22 15:52:35 357(Sys error): Physical data source not initialized
+2011-06-22 15:52:35 373(Sys error): internal un handled error!
+2011-06-22 15:52:35 388(Sys error): internal un handled error!
+2011-06-22 15:54:21 314: C:\my java\Fydb\console\log\-1\null\T_TEST2.sys
+2011-06-22 15:54:35 767: C:\my java\Fydb\console\log\-1\null\T_TEST2.sys
+2011-06-22 15:54:49 971(Sys error): internal un handled error!
+2011-06-22 15:54:50 002(Sys error): Asynchronized call parameter number wrong
+2011-06-22 15:54:50 018(Sys error): internal un handled error!
+2011-06-22 15:54:50 033(Sys error): internal un handled error!
+2011-06-22 15:58:35 431(Sys error): internal un handled error!
+2011-06-22 15:58:35 509(Sys error): Asynchronized call parameter number wrong
+2011-06-22 15:58:35 525(Sys error): internal un handled error!
+2011-06-22 15:58:35 541(Sys error): internal un handled error!
+2011-06-22 16:02:01 704: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, SKIP_CORRUPT, SAMPLE_SIZE, FREELIST_GROUPS, DROPPED, IOT_TYPE, LAST_ANALYZED, USER_STATS, TABLE_NAME, CACHE, PCT_INCREASE, COMPRESSION, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, MONITORING, DEGREE, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, BUFFER_POOL, INSTANCES, NESTED, INI_TRANS, GLOBAL_STATS, CHAIN_CNT, TEMPORARY, PCT_USED, AVG_SPACE, MAX_TRANS, PARTITIONED, EMPTY_BLOCKS, PCT_FREE, DURATION, AVG_ROW_LEN, IOT_NAME, SECONDARY, NUM_ROWS, NUM_FREELIST_BLOCKS, NEXT_EXTENT, ROW_MOVEMENT, CLUSTER_OWNER, DEPENDENCIES, BLOCKS, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-06-22 16:02:09 423(Sys error): synchronize data to data source db failed
+2011-06-22 16:02:09 610: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, SKIP_CORRUPT, SAMPLE_SIZE, FREELIST_GROUPS, DROPPED, IOT_TYPE, LAST_ANALYZED, USER_STATS, TABLE_NAME, CACHE, PCT_INCREASE, COMPRESSION, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, MONITORING, DEGREE, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, BUFFER_POOL, INSTANCES, NESTED, INI_TRANS, GLOBAL_STATS, CHAIN_CNT, TEMPORARY, PCT_USED, AVG_SPACE, MAX_TRANS, PARTITIONED, EMPTY_BLOCKS, PCT_FREE, DURATION, AVG_ROW_LEN, IOT_NAME, SECONDARY, NUM_ROWS, NUM_FREELIST_BLOCKS, NEXT_EXTENT, ROW_MOVEMENT, CLUSTER_OWNER, DEPENDENCIES, BLOCKS, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-06-22 16:02:21 297(Sys error): synchronize data to data source db failed
+2011-06-22 16:02:21 297: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, SKIP_CORRUPT, SAMPLE_SIZE, FREELIST_GROUPS, DROPPED, IOT_TYPE, LAST_ANALYZED, USER_STATS, TABLE_NAME, CACHE, PCT_INCREASE, COMPRESSION, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, MONITORING, DEGREE, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, BUFFER_POOL, INSTANCES, NESTED, INI_TRANS, GLOBAL_STATS, CHAIN_CNT, TEMPORARY, PCT_USED, AVG_SPACE, MAX_TRANS, PARTITIONED, EMPTY_BLOCKS, PCT_FREE, DURATION, AVG_ROW_LEN, IOT_NAME, SECONDARY, NUM_ROWS, NUM_FREELIST_BLOCKS, NEXT_EXTENT, ROW_MOVEMENT, CLUSTER_OWNER, DEPENDENCIES, BLOCKS, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-06-22 16:02:40 265(Sys error): synchronize data to data source db failed
+2011-06-22 16:02:40 265: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, SKIP_CORRUPT, SAMPLE_SIZE, FREELIST_GROUPS, DROPPED, IOT_TYPE, LAST_ANALYZED, USER_STATS, TABLE_NAME, CACHE, PCT_INCREASE, COMPRESSION, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, MONITORING, DEGREE, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, BUFFER_POOL, INSTANCES, NESTED, INI_TRANS, GLOBAL_STATS, CHAIN_CNT, TEMPORARY, PCT_USED, AVG_SPACE, MAX_TRANS, PARTITIONED, EMPTY_BLOCKS, PCT_FREE, DURATION, AVG_ROW_LEN, IOT_NAME, SECONDARY, NUM_ROWS, NUM_FREELIST_BLOCKS, NEXT_EXTENT, ROW_MOVEMENT, CLUSTER_OWNER, DEPENDENCIES, BLOCKS, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-06-22 16:02:40 265(Sys error): synchronize data to data source db failed
+2011-06-22 16:02:40 359: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, SKIP_CORRUPT, SAMPLE_SIZE, FREELIST_GROUPS, DROPPED, IOT_TYPE, LAST_ANALYZED, USER_STATS, TABLE_NAME, CACHE, PCT_INCREASE, COMPRESSION, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, MONITORING, DEGREE, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, BUFFER_POOL, INSTANCES, NESTED, INI_TRANS, GLOBAL_STATS, CHAIN_CNT, TEMPORARY, PCT_USED, AVG_SPACE, MAX_TRANS, PARTITIONED, EMPTY_BLOCKS, PCT_FREE, DURATION, AVG_ROW_LEN, IOT_NAME, SECONDARY, NUM_ROWS, NUM_FREELIST_BLOCKS, NEXT_EXTENT, ROW_MOVEMENT, CLUSTER_OWNER, DEPENDENCIES, BLOCKS, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-06-22 16:02:40 359(Sys error): synchronize data to data source db failed
+2011-06-22 16:02:40 468: insert into T_TEST2 ( FREELISTS, TABLE_LOCK, SKIP_CORRUPT, SAMPLE_SIZE, FREELIST_GROUPS, DROPPED, IOT_TYPE, LAST_ANALYZED, USER_STATS, TABLE_NAME, CACHE, PCT_INCREASE, COMPRESSION, BACKED_UP, CLUSTER_NAME, MIN_EXTENTS, MONITORING, DEGREE, LOGGING, TABLESPACE_NAME, MAX_EXTENTS, BUFFER_POOL, INSTANCES, NESTED, INI_TRANS, GLOBAL_STATS, CHAIN_CNT, TEMPORARY, PCT_USED, AVG_SPACE, MAX_TRANS, PARTITIONED, EMPTY_BLOCKS, PCT_FREE, DURATION, AVG_ROW_LEN, IOT_NAME, SECONDARY, NUM_ROWS, NUM_FREELIST_BLOCKS, NEXT_EXTENT, ROW_MOVEMENT, CLUSTER_OWNER, DEPENDENCIES, BLOCKS, AVG_SPACE_FREELIST_BLOCKS, INITIAL_EXTENT, STATUS, OWNER ) values (  ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ? )
+2011-06-22 16:02:40 468(Sys error): synchronize data to data source db failed
+2011-06-24 15:12:07 309(Sys error): Build communicate server gate socket failed
+2011-06-24 15:59:30 965(Sys error): Build communicate server gate socket failed
+2011-06-24 15:59:47 934(Sys error): Build communicate server gate socket failed

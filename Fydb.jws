@@ -1,0 +1,28 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <hash n="component-versions">
+      <value n="oracle.ide.model.Project" v="10.1.3.0.3"/>
+   </hash>
+   <list n="listOfChildren">
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="fymain/fymain.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="fydata/fydata.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="fycomm/fycomm.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="console/console.jpr"/>
+      </hash>
+      <hash>
+         <value n="nodeClass" v="oracle.ide.model.Project"/>
+         <url n="URL" path="fyclient/fyclient.jpr"/>
+      </hash>
+   </list>
+</jws:workspace>

@@ -1,0 +1,304 @@
+Name	Value	Type
+-----	------	-----
+- this		PhyHashKVData$ManagerBlock
+      blockType	4	int
+      address	8192	long
+      token	2	int
+      hashMod	0	int
+      parentBlock	null	PhyHashKVData$ManagerBlock
+    - children		HashMap
+        - table		HashMap$Entry[1024]
+            - [0]	69	HashMap$Entry
+                + key	69	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-338944	int
+                - next	645	HashMap$Entry
+                    + key	645	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-4809728	int
+                      next	null	HashMap$Entry
+            - [2]	10	HashMap$Entry
+                + key	10	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-8209406	int
+                  next	null	HashMap$Entry
+            - [3]	174	HashMap$Entry
+                + key	174	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1252349	int
+                - next	404	HashMap$Entry
+                    + key	404	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-3248125	int
+                      next	null	HashMap$Entry
+            - [4]	389	HashMap$Entry
+                + key	389	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3116028	int
+                  next	null	HashMap$Entry
+            - [7]	602	HashMap$Entry
+                + key	602	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-4445177	int
+                  next	null	HashMap$Entry
+            - [10]	92	HashMap$Entry
+                + key	92	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-540662	int
+                  next	null	HashMap$Entry
+            - [12]	256	HashMap$Entry
+                + key	256	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1959924	int
+                - next	109	HashMap$Entry
+                    + key	109	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-688116	int
+                    - next	471	HashMap$Entry
+                        + key	471	Integer
+                        + value		PhyHashKVData$ManagerBlock
+                          hash	-3829748	int
+                        - next	328	HashMap$Entry
+                            + key	328	Integer
+                            + value		PhyHashKVData$ManagerBlock
+                              hash	-2588660	int
+                              next	null	HashMap$Entry
+            - [13]	622	HashMap$Entry
+                + key	622	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-4616179	int
+                  next	null	HashMap$Entry
+            - [16]	584	HashMap$Entry
+                + key	584	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-4290544	int
+                  next	null	HashMap$Entry
+            - [17]	641	HashMap$Entry
+                + key	641	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-4778991	int
+                  next	null	HashMap$Entry
+            - [18]	604	HashMap$Entry
+                + key	604	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-4460526	int
+                  next	null	HashMap$Entry
+            - [20]	521	HashMap$Entry
+                + key	521	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-12136428	int
+                  next	null	HashMap$Entry
+            - [21]	473	HashMap$Entry
+                + key	473	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3847147	int
+                  next	null	HashMap$Entry
+            - [23]	50	HashMap$Entry
+                + key	50	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-176105	int
+                  next	null	HashMap$Entry
+            - [29]	564	HashMap$Entry
+                + key	564	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-12510179	int
+                  next	null	HashMap$Entry
+            - [30]	624	HashMap$Entry
+                + key	624	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-4631522	int
+                - next	395	HashMap$Entry
+                    + key	395	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-3170274	int
+                      next	null	HashMap$Entry
+            - [31]	111	HashMap$Entry
+                + key	111	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-703457	int
+                - next	90	HashMap$Entry
+                    + key	90	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-517089	int
+                      next	null	HashMap$Entry
+            - [33]	408	HashMap$Entry
+                + key	408	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3282911	int
+                - next	170	HashMap$Entry
+                    + key	170	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-1213407	int
+                      next	null	HashMap$Entry
+            - [36]	52	HashMap$Entry
+                + key	52	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-191452	int
+                  next	null	HashMap$Entry
+            - [39]	147	HashMap$Entry
+                + key	147	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1013721	int
+                  next	null	HashMap$Entry
+            - [40]	307	HashMap$Entry
+                + key	307	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-2406360	int
+                  next	null	HashMap$Entry
+            - [42]	467	HashMap$Entry
+                + key	467	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3794902	int
+                  next	null	HashMap$Entry
+            - [45]	393	HashMap$Entry
+                + key	393	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3152851	int
+                  next	null	HashMap$Entry
+            - [46]	134	HashMap$Entry
+                + key	134	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-905170	int
+                  next	null	HashMap$Entry
+            - [47]	298	HashMap$Entry
+                + key	298	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-2328529	int
+                  next	null	HashMap$Entry
+            - [49]	391	HashMap$Entry
+                + key	391	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3135439	int
+                - next	71	HashMap$Entry
+                    + key	71	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-354255	int
+                      next	null	HashMap$Entry
+            - [51]	477	HashMap$Entry
+                + key	477	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3881933	int
+                  next	null	HashMap$Entry
+            - [59]	8	HashMap$Entry
+                + key	8	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-8200133	int
+                  next	null	HashMap$Entry
+            - [60]	151	HashMap$Entry
+                + key	151	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1052612	int
+                  next	null	HashMap$Entry
+            - [61]	305	HashMap$Entry
+                + key	305	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-2386883	int
+                  next	null	HashMap$Entry
+            - [63]	227	HashMap$Entry
+                + key	227	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1712065	int
+                  next	null	HashMap$Entry
+            - [67]	185	HashMap$Entry
+                + key	185	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1347517	int
+                  next	null	HashMap$Entry
+            - [69]	559	HashMap$Entry
+                + key	559	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-12466107	int
+                  next	null	HashMap$Entry
+            - [71]	397	HashMap$Entry
+                + key	397	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3187641	int
+                  next	null	HashMap$Entry
+            - [74]	229	HashMap$Entry
+                + key	229	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1725366	int
+                - next	566	HashMap$Entry
+                    + key	566	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-12527542	int
+                      next	null	HashMap$Entry
+            - [75]	578	HashMap$Entry
+                + key	578	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-4228021	int
+                - next	519	HashMap$Entry
+                    + key	519	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-12118965	int
+                      next	null	HashMap$Entry
+            - [79]	412	HashMap$Entry
+                + key	412	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3317681	int
+                  next	null	HashMap$Entry
+            - [80]	562	HashMap$Entry
+                + key	562	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-12476336	int
+                  next	null	HashMap$Entry
+            - [83]	387	HashMap$Entry
+                + key	387	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3100589	int
+                  next	null	HashMap$Entry
+            - [84]	130	HashMap$Entry
+                + key	130	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-866220	int
+                  next	null	HashMap$Entry
+            - [89]	231	HashMap$Entry
+                + key	231	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1742759	int
+                - next	250	HashMap$Entry
+                    + key	250	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-1911719	int
+                      next	null	HashMap$Entry
+            - [91]	75	HashMap$Entry
+                + key	75	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-393125	int
+                  next	null	HashMap$Entry
+            - [92]	300	HashMap$Entry
+                + key	300	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-2343844	int
+                  next	null	HashMap$Entry
+            - [93]	210	HashMap$Entry
+                + key	210	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-1564579	int
+                  next	null	HashMap$Entry
+            - [97]	582	HashMap$Entry
+                + key	582	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-4275103	int
+                - next	523	HashMap$Entry
+                    + key	523	Integer
+                    + value		PhyHashKVData$ManagerBlock
+                      hash	-12153759	int
+                      next	null	HashMap$Entry
+            - [98]	385	HashMap$Entry
+                + key	385	Integer
+                + value		PhyHashKVData$ManagerBlock
+                  hash	-3081118	int
+                  next	null	HashMap$Entry
+          sizeOfOf	602	int
+          threshold	768	int
+          loadFactor	0.75	float
+          modCount	602	int
+          entrySet	null	Set
+          keySet	null	Set
+          values	null	Collection
+    + this$0		PhyHashKVData
+  baseNum	-544250976	int
+  hashMod	302	int
++ childManagerBlock		PhyHashKVData$ManagerBlock
++ Static fields of PhyHashKVData		

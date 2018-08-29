@@ -1,0 +1,2899 @@
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=gb2312">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 11">
+<meta name=Originator content="Microsoft Word 11">
+<link rel=Edit-Time-Data href="ReadMe_Cn_files/editdata.mso">
+<title>FyDB: A small distributed In-memory NO-SQL DB</title>
+<o:SmartTagType namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="place"/>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Fuyuncat</o:Author>
+  <o:LastAuthor>Fuyuncat</o:LastAuthor>
+  <o:Revision>3</o:Revision>
+  <o:TotalTime>340</o:TotalTime>
+  <o:Created>2011-07-08T07:23:00Z</o:Created>
+  <o:LastSaved>2011-07-08T07:29:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>3010</o:Words>
+  <o:Characters>17162</o:Characters>
+  <o:Company>Orient Overseas Container Line Ltd.</o:Company>
+  <o:Lines>143</o:Lines>
+  <o:Paragraphs>40</o:Paragraphs>
+  <o:CharactersWithSpaces>20132</o:CharactersWithSpaces>
+  <o:Version>11.9999</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:DontDisplayPageBoundaries/>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:ValidateAgainstSchemas/>
+  <w:SaveIfXMLInvalid>false</w:SaveIfXMLInvalid>
+  <w:IgnoreMixedContent>false</w:IgnoreMixedContent>
+  <w:AlwaysShowPlaceholderText>false</w:AlwaysShowPlaceholderText>
+  <w:Compatibility>
+   <w:SelectEntireFieldWithStartOrEnd/>
+   <w:UseWord2002TableStyleRules/>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:LatentStyles DefLockedState="false" LatentStyleCount="156">
+ </w:LatentStyles>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;
+	mso-font-charset:2;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:0 268435456 0 0 -2147483648 0;}
+@font-face
+	{font-family:宋体;
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-alt:SimSun;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:1627421319 -2147483648 8 0 66047 0;}
+@font-face
+	{font-family:"\@宋体";
+	panose-1:2 1 6 0 3 1 1 1 1 1;
+	mso-font-charset:134;
+	mso-generic-font-family:auto;
+	mso-font-pitch:variable;
+	mso-font-signature:3 135135232 16 0 262145 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;}
+h1
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:1;
+	font-size:16.0pt;
+	font-family:Arial;
+	mso-font-kerning:16.0pt;}
+h2
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:2;
+	font-size:14.0pt;
+	font-family:Arial;
+	font-style:italic;}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:12.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{mso-style-update:auto;
+	mso-style-noshow:yes;
+	mso-style-next:Normal;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:24.0pt;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:12.0pt;
+	font-family:"Times New Roman";
+	mso-fareast-font-family:宋体;}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;
+	text-underline:single;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:purple;
+	text-decoration:underline;
+	text-underline:single;}
+p.MsoDocumentMap, li.MsoDocumentMap, div.MsoDocumentMap
+	{mso-style-noshow:yes;
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	background:navy;
+	font-size:10.0pt;
+	font-family:Tahoma;
+	mso-fareast-font-family:宋体;}
+p.MsoPlainText, li.MsoPlainText, div.MsoPlainText
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Courier New";
+	mso-fareast-font-family:宋体;}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 65.95pt 1.0in 65.95pt;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+ /* List Definitions */
+ @list l0
+	{mso-list-id:288820825;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1836961828 67698703 -181651724 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l0:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l0:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.75in;
+	mso-level-number-position:left;
+	margin-left:.75in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l0:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l0:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1
+	{mso-list-id:476994892;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-902031752 -1774692396 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l1:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l1:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l1:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2
+	{mso-list-id:988557233;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-750638696 -1774692396 67698713 67698715 67698703 67698713 67698715 67698703 67698713 67698715;}
+@list l2:level1
+	{mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;}
+@list l2:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l2:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l3
+	{mso-list-id:1060709206;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1483154048 -181651724 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l3:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l3:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l3:level4
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level5
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l3:level6
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l3:level7
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l3:level8
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l3:level9
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4
+	{mso-list-id:1222129833;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-917069498 -181651724 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l4:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l4:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l4:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l4:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l4:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5
+	{mso-list-id:1383169021;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1013437058 -181651724 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l5:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l5:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l5:level3
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0A7;
+	mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:Wingdings;}
+@list l5:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l5:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6
+	{mso-list-id:1388411837;
+	mso-list-type:hybrid;
+	mso-list-template-ids:-1775077496 -181651724 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l6:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l6:level2
+	{mso-level-number-format:bullet;
+	mso-level-text:o;
+	mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;
+	font-family:"Courier New";}
+@list l6:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l6:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7
+	{mso-list-id:2078477283;
+	mso-list-type:hybrid;
+	mso-list-template-ids:1287163940 -181651724 67698691 67698693 67698689 67698691 67698693 67698689 67698691 67698693;}
+@list l7:level1
+	{mso-level-number-format:bullet;
+	mso-level-text:\F0B7;
+	mso-level-tab-stop:.25in;
+	mso-level-number-position:left;
+	margin-left:.25in;
+	text-indent:-.25in;
+	font-family:Symbol;}
+@list l7:level2
+	{mso-level-tab-stop:1.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level3
+	{mso-level-tab-stop:1.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level4
+	{mso-level-tab-stop:2.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level5
+	{mso-level-tab-stop:2.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level6
+	{mso-level-tab-stop:3.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level7
+	{mso-level-tab-stop:3.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level8
+	{mso-level-tab-stop:4.0in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+@list l7:level9
+	{mso-level-tab-stop:4.5in;
+	mso-level-number-position:left;
+	text-indent:-.25in;}
+ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";
+	mso-ansi-language:#0400;
+	mso-fareast-language:#0400;
+	mso-bidi-language:#0400;}
+</style>
+<![endif]--><!--[if gte mso 9]><xml>
+ <o:shapelayout v:ext="edit">
+  <o:idmap v:ext="edit" data="1"/>
+ </o:shapelayout></xml><![endif]-->
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText align=center style='text-align:center'><b
+style='mso-bidi-font-weight:normal'><span style='font-size:16.0pt;font-family:
+宋体;mso-bidi-font-family:宋体'>FyDB: 一个分布式的内存NO-SQL数据库</span></b></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText align=center style='text-align:center'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>fuyuncat@gmail.com<o:p></o:p></span></p>
+
+<p class=MsoPlainText align=center style='text-align:center'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><a
+href="http://www.hellodba.com/">www.HelloDBA.com</a><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:24.0pt right dotted 479.6pt'><!--[if supportFields]><span style='mso-element:field-begin'></span>
+<![endif]--><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901471">
+<font size="2">1.<span
+style='mso-tab-count:1; color:windowtext; text-decoration:none; text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+特性:</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901472"><font size="2">数据</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901472"><font size="2">存储和访问:</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]-->
+<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><!--[if gte mso 9]><font size="2"><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003200390037003900300031003400370032000000</w:data>
+</xml></font><![endif]--></span><!--[if supportFields]><![endif]--></a></span>
+</span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901473">
+<font size="2">分布式和异构:</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:24.0pt right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901474">
+<font size="2">2.<span
+style='mso-tab-count:1'><span
+style='color:windowtext;text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span
+style='text-underline:none'>安装</span></span></font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]-->
+<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><!--[if gte mso 9]><font size="2"><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003200390037003900300031003400370034000000</w:data>
+</xml></font><![endif]--></span><!--[if supportFields]><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901475"><font size="2">服务端</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901475"><font size="2">:</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901476"><font size="2">客户端</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901476"><font size="2">:</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:24.0pt right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901477">
+<font size="2">3.<span
+style='mso-tab-count:1'><span
+style='color:windowtext;text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span
+style='text-underline:none'>配置</span></span></font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901478">
+<font size="2">parameters.ini:</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span></a></span></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901479"><font size="2">服务端</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901479"><font size="2">参数:<span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'> </span>
+</font>
+<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><font size="2"><!--[if gte mso 9]><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003200390037003900300031003400370039000000</w:data>
+</xml></font><![endif]--></span><!--[if supportFields]><![endif]--></a></span>
+</span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc3 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901480"><font size="2">客户端</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901480"><font size="2">参数:</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901481">
+<font size="2">Datasets.xml</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]-->
+<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><!--[if gte mso 9]><font size="2"><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003200390037003900300031003400380031000000</w:data>
+</xml></font><![endif]--></span><!--[if supportFields]><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:24.0pt right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901482">
+<font size="2">4.<span
+style='mso-tab-count:1; color:windowtext; text-decoration:none; text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span style='mso-tab-count:1 dotted; display:none; mso-hide:screen; text-underline:none'>
+运行</span></font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span></a></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:24.0pt right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901483">
+<font size="2">5.<span
+style='mso-tab-count:1'><span
+style='color:windowtext;text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span
+style='text-underline:none'>部署</span></span>:</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901484">
+<font size="2">从Java程序直接调用;</font><span
+style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901485"><font size="2">作为</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901485"><font size="2">一个独立的服务运行;</font><span style='mso-tab-count:
+1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:24.0pt right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901486">
+<font size="2">6.<span
+style='mso-tab-count:1'><span
+style='color:windowtext;text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span
+style='text-underline:none'>架构</span></span></font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901487">
+<font size="2">本地<span style='mso-tab-count:1 dotted; display:none; mso-hide:screen; text-underline:none'>文件作为数据源</span></font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901488">
+<font size="2">RDBMS<span style='mso-tab-count:1 dotted; display:none; mso-hide:screen; text-underline:none'>作为数据源</span></font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901489"><font size="2">异构</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901489"><font size="2">数据源<span style='mso-tab-count:
+1 dotted; display:none; mso-hide:screen; text-underline:none'>整合</span></font><span style='mso-tab-count:
+1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]-->
+<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><!--[if gte mso 9]><font size="2"><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003200390037003900300031003400380039000000</w:data>
+</xml></font><![endif]--></span><!--[if supportFields]><![endif]--></a></span>
+</span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901490"><font size="2">分布式</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901490"><font size="2">架构</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]-->
+<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><!--[if gte mso 9]><font size="2"><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003200390037003900300031003400390030000000</w:data>
+</xml></font><![endif]--></span><!--[if supportFields]><![endif]--></a></span>
+</span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc1 style='tab-stops:24.0pt right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901491">
+<font size="2">7.<span
+style='mso-tab-count:1'><span
+style='color:windowtext;text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span
+style='text-underline:none'>控制台命令</span></span></font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901492"><font size="2">本地</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901492"><font size="2">命令</font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]-->
+<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><!--[if gte mso 9]><font size="2"><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003200390037003900300031003400390032000000</w:data>
+</xml></font><![endif]--></span><!--[if supportFields]><![endif]--></a></span>
+</span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoToc2 style='tab-stops:right dotted 479.6pt'>
+<span class="MsoHyperlink"><a href="#_Toc297901493"><font size="2">服务端</font></a><span style='mso-no-proof:yes'><a href="#_Toc297901493"><font size="2">和<span
+style='mso-tab-count:1 dotted; display:none; mso-hide:screen; text-underline:none'>数据访问命令</span></font><span
+style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]--></a></span></span></p>
+
+<p class=MsoToc1 style='tab-stops:24.0pt right dotted 479.6pt'><span
+class=MsoHyperlink><span style='mso-no-proof:yes'><a href="#_Toc297901494">
+<font size="2">8.<span
+style='mso-tab-count:1'><span
+style='color:windowtext;text-decoration:none;text-underline:none'>&nbsp;&nbsp;&nbsp;&nbsp; </span>
+<span
+style='text-underline:none'>申明与许可证协议</span></span></font><span style='mso-tab-count:1 dotted; color:windowtext; display:none; mso-hide:screen; text-decoration:none; text-underline:none'><font size="2">. 
+</font> </span><!--[if supportFields]><![endif]-->
+<span
+style='color:windowtext;display:none;mso-hide:screen;text-decoration:none;
+text-underline:none'><!--[if gte mso 9]><font size="2"><xml>
+ <w:data>08D0C9EA79F9BACE118C8200AA004BA90B02000000080000000E0000005F0054006F0063003200390037003900300031003400390034000000</w:data>
+</xml></font><![endif]--></span><!--[if supportFields]><![endif]--></a></span></span><span
+style='mso-no-proof:yes'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><!--[if supportFields]><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-element:field-end'></span></span><![endif]--><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<h1 style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in'><a name="_Ref297901253"></a><a name="_Toc297901471"><span
+style='mso-bookmark:_Ref297901253'><![if !supportLists]><span style='mso-fareast-font-family:
+Arial'><span style='mso-list:Ignore'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;
+</span></span></span><![endif]></span></a><span class=SpellE><span
+style='mso-bookmark:_Toc297901471'><span style='mso-bookmark:_Ref297901253'>特性</span></span></span><span
+style='mso-bookmark:_Toc297901471'><span style='mso-bookmark:_Ref297901253'>:</span></span></h1>
+
+<h2><a name="_Toc297901472">数据存储与访问:</a></h2>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l4 level1 lfo4;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>内存数据存储与访问;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l4 level1 lfo4;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>支持数据的持久化;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l4 level1 lfo4;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>支持本地内存索引: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>哈希索引;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>B树索引;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l5 level1 lfo6;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>支持 KV映射的 Get()/Put()/Remove() 方法;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l5 level1 lfo6;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>支持数据的批量查找、修改、添加和删除;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l5 level1 lfo6;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>支持对2个数据集的连接查询;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l5 level1 lfo6;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>支持简单的数据访问脚本命令;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l5 level1 lfo6;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>一个简单的优化器选择最佳数据访问方式<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l5 level1 lfo6;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>支持数据的一致性读;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l5 level1 lfo6;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>支持的数据类型: <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>String
+(char, <span class=SpellE>varchar</span>, varchar2 <span class=GramE>... )</span>;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Date
+(Date, Time, <span class=SpellE>Datetime</span>, Timestamp ...);<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Integer
+(Number, Integer, <span class=SpellE>Int</span> ...);<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>Long (Long <span class=SpellE>Int</span> ...)</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>Double (Double,
+Float ...);<o:p></o:p></span></p>
+
+<h2><a name="_Ref297901316"></a><a name="_Toc297901473"><span style='mso-bookmark:
+_Ref297901316'>分布式与异构:</span></a></h2>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l6 level1 lfo8;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>高可用性：支持多服务器节点;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l6 level1 lfo8;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>异构性： <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-tab-count:1'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>传统
+RDBMS (Oracle, MySQL, MS SQL, Sybase, DB2) 作为外部数据源; <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>本地文件作为外部数据源;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l7 level1 lfo10;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>操作系统无关;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<h1 style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in'><a name="_Toc297901474"><![if !supportLists]><span
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>安装</a></h1>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>要求Java 5或以上版本<o:p></o:p></span></p>
+
+<h2><a name="_Toc297901475">服务端:</a> </h2>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l2 level1 lfo12;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>从www.HelloDBA.com下载最新压缩包<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l2 level1 lfo12;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>在服务器上创建一个文件夹，如 c:\fydb<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l2 level1 lfo12;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>将必要文件解压到文件夹<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>fy_server.jar<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>fy_comm.jar</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>parameters.ini<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>DataSets.xml</span> (need to be configured)<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l2 level1 lfo12;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>可选：如果你要将FyDB作为服务运行，你需要使用工具（如java的keytool）来生成ssl key和trust文件，以提供服务通道。压缩包中提供了2个示例文件。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l2 level1 lfo12;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>可选：如果你要将FyDB部署成分布式服务，你需要使用工具（如java的keytool）来生成ssl key和trust文件，以提供交互通道。压缩包中提供了2个示例文件。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l2 level1 lfo12;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>可选：如果你要将RDBMS作为外部数据源，你还需要下载相应的JDBC驱动，如， <o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;
+mso-ansi-language:FR'>ojdbc14.jar (Oracle)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FR style='font-family:宋体;mso-bidi-font-family:
+宋体;mso-ansi-language:FR'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>jconn3.jar (Sybase)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FR style='font-family:宋体;mso-bidi-font-family:
+宋体;mso-ansi-language:FR'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>mysql-connector-java-3.1.14-bin.jar</span></span><span style='font-family:
+宋体;mso-bidi-font-family:宋体'> (<span class=SpellE>MySQL</span>)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>sqljdbc.jar</span> (MS SQL)<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<h2><a name="_Toc297901476">客户端:</a> </h2>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l1 level1 lfo14;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>1.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>从www.HelloDBA.com下载最新压缩包<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l1 level1 lfo14;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>2.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>在客户端机器上创建一个文件夹，如 c:\fydb<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l1 level1 lfo14;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp; </span></span></span>
+<![endif]><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>将必要文件解压到文件夹.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>fy_client.jar</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>fy_comm.jar</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>parameters.ini<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>SSL key/trust files<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>注意：你需要确保各个服务器和客户端上的Java版本一致。<o:p></o:p></span></p>
+
+<h1 style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in'><a name="_Toc297901477"><![if !supportLists]><span
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>3.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Configuration</a></h1>
+
+<h2><a name="_Toc297901478">parameters.ini:</a></h2>
+
+<h3><a name="_Toc297901479">服务端参数：</a></h3>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>logFileSize</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 日志文件大小限制，单位为字节。一旦超过限制，FyDB会切换到下一个文件，并且按序命名文件。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>logNumber</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 最大日志文件数。一旦达到限制数，FyDB会移除老文件并创建一个新日志文件。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>maxSessionNumber</span></b></span></span><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>: 本服务端的最大客户端会话数。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><b style='mso-bidi-font-weight:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>baseDir</span></b></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>: 存储文件(如跟踪文件、数据文件)的基本目录。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>traceDir</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 跟踪文件目录，如果没有指定，则会依据baseDir创建。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>logDir</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 日志文件目录，如果没有指定，则会依据baseDir创建。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dataDir</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 数据文件目录，如果没有指定，则会依据baseDir创建。<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbKeyFile</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 用于建立客户端连接的<span class=SpellE>ssl</span> Key 文件名<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbTrustFile</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 用于建立客户端连接的<span class=SpellE>ssl</span> trust 文件名.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbPassword</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 用于建立客户端ssl连接的密码.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbHostAddr</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 服务监听的IP地址。如果你的服务器存在多个IP地址，一定要指定本参数<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbGatePort</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 服务监听的端口<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>imKeyFile</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 用于建立分布式交互通道的<span class=SpellE>ssl</span> Key 文件名<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>imTrustFile</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 用于建立分布式交互通道的<span class=SpellE>ssl</span> trust文件名<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>imPassword</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 用于建立分布式交互通道的密码<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>imHostAddr</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 分布式服务监听的IP地址。如果你的服务器存在多个IP地址，一定要指定本参数<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>imGatePort</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 分布式服务监听的端口。<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>buddyServers</span></b></span></span><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>: 分布式环境中，其他服务器的IP地址，以,分割<o:p></o:p></span></p>
+
+<h3><a name="_Toc297901480">客户端参数:</a></h3>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbKeyFile</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 用于建立客户端连接的<span class=SpellE>ssl</span> Key文件名<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l0 level2 lfo2;tab-stops:list .25in .75in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbTrustFile</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 用于建立客户端连接的<span class=SpellE>ssl</span> trust文件名<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<h2><a name="_Toc297901481"></a><span class=SpellE><span style='mso-bookmark:
+_Toc297901481'>Datasets.xml</span></span><span style='mso-bookmark:_Toc297901481'></span></h2>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>注意：元素名是区分大小写的！<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dataSet</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 外部数据源配置。可以配置多个数据集。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=GramE><b style='mso-bidi-font-weight:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>name</span></b></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>: <span class=SpellE>该参数已失效</span>!<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>memType</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 内存数据存储类型. <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.5in;text-indent:-.25in;mso-list:
+l3 level3 lfo16;tab-stops:list 1.5in'><![if !supportLists]><span
+style='font-family:Wingdings;mso-fareast-font-family:Wingdings;mso-bidi-font-family:
+Wingdings'><span style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><i style='mso-bidi-font-style:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>HashMap</span></i></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> --- 对于单个键值获取有更好的性能<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.5in;text-indent:-.25in;mso-list:
+l3 level3 lfo16;tab-stops:list 1.5in'><![if !supportLists]><span
+style='font-family:Wingdings;mso-fareast-font-family:Wingdings;mso-bidi-font-family:
+Wingdings'><span style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><i style='mso-bidi-font-style:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>TreeMap</span></i></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> --- 对于键值的范围查找有更好的性能<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>phyType</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 外部数据源类型。包括<span class=SpellE><i style='mso-bidi-font-style:
+normal'>DB_Oracle</i></span><i style='mso-bidi-font-style:normal'>, <span
+class=SpellE>DB_Mysql</span>, <span class=SpellE>DB_Mssql</span>, <span
+class=SpellE>DB_Sybase</span>, DB_DB2,</i> <span class=SpellE><i
+style='mso-bidi-font-weight:normal'>HashMap</i></span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.5in;text-indent:-.25in;mso-list:
+l3 level3 lfo16;tab-stops:list 1.5in'><![if !supportLists]><span
+style='font-family:Wingdings;mso-fareast-font-family:Wingdings;mso-bidi-font-family:
+Wingdings'><span style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>DB_* 表示采用RDBMS作为外部数据源。需要下载相应的JDBC驱动。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.5in;text-indent:-.25in;mso-list:
+l3 level3 lfo16;tab-stops:list 1.5in'><![if !supportLists]><span
+style='font-family:Wingdings;mso-fareast-font-family:Wingdings;mso-bidi-font-family:
+Wingdings'><span style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span style='font-family:
+宋体;mso-bidi-font-family:宋体'>HashMap</span></span><span style='font-family:宋体;
+mso-bidi-font-family:宋体'> 表示采用本地或其他服务器上的文件作为外部数据源。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><b style='mso-bidi-font-weight:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>tableName</span></b></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>: <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>对于 DB_* 数据源，为RDBMS中的表名;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>对于<span class=SpellE>HashMap</span>, 为文件名。注意：FyDB在存储文件到本地上时，会自动添加一个序列号。请不要将序列号设置进来。例如，数据源为T_TEST，在存储文件时，文件会被存储为T_TEST0.dat, T_TEST1.dat ...，在这里设置时，需设置为T_TEST. <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>注意：在分布式环境中。FyDB在载入数据源时会先在网络上检查是否已经有相同数据源在其他服务器上被加载，如果发现已经加载，则会从相应服务器上将数据过载过来，而不会直接从外部数据源上获取。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>keyColumns</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 键值字段，必须唯一和非空，可以是一个或多个字段。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>注意：如果数据是从其他服务器上过载过来的，该设置可以忽略。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=GramE><b style='mso-bidi-font-weight:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>where</span></b></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>: RDBMS数据源的可选项。通过该设置限制只取表的部分值。遵循标准SQL的WHERE子句的语法。.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>connString</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: RDBMS数据源选项，即JDBC连接串。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>注意：如果多个服务器需要连接同一个数据源，那么在各个服务器上配置时，需要保证该字符串完全一致。否则将无法正常同步数据。例如，你不能在一个服务器上在连接串中填写IP地址，在另一个服务器上填写主机名。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbUser</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: RDBMS数据源选项，即连接RDBMS的用户名<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>dbPassword</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: RDBMS数据源选项，即连接RDBMS的密码<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>storeLocal</span></b></span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>: 分布式环境中，文件数据源可选选项，如果数据从其他服务器上过载过来，设置是否在本地存储一个镜像文件。 <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='text-indent:.25in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>注意：如果本地已经存在同名文件，将会将原文件备份为.bak结尾的文件，再创建新文件。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.25in;text-indent:-.25in;mso-list:
+l3 level1 lfo16;tab-stops:list .25in'><![if !supportLists]><span
+style='font-family:Symbol;mso-fareast-font-family:Symbol;mso-bidi-font-family:
+Symbol'><span style='mso-list:Ignore'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=GramE><b style='mso-bidi-font-weight:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>indexes</span></b></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>: 本地内存索引。 <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>注意：FyDB中的所有索引都不会被存储到物理介质上去，而是在载入数据时在本地内存中创建。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>indexType</span></span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>: 索引结构类型。<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.5in;text-indent:-.25in;mso-list:
+l3 level3 lfo16;tab-stops:list 1.5in'><![if !supportLists]><span
+style='font-family:Wingdings;mso-fareast-font-family:Wingdings;mso-bidi-font-family:
+Wingdings'><span style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><i style='mso-bidi-font-style:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>HashMap</span></i></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> --- </span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> 对于单个键值获取有更好的性能<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.5in;text-indent:-.25in;mso-list:
+l3 level3 lfo16;tab-stops:list 1.5in'><![if !supportLists]><span
+style='font-family:Wingdings;mso-fareast-font-family:Wingdings;mso-bidi-font-family:
+Wingdings'><span style='mso-list:Ignore'>§<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=SpellE><i style='mso-bidi-font-style:
+normal'><span style='font-family:宋体;mso-bidi-font-family:宋体'>TreeMap</span></i></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> --- </span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> 对于键值的范围查找有更好的性能<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:1.0in;text-indent:-.25in;mso-list:
+l3 level2 lfo16;tab-stops:list 1.0in'><![if !supportLists]><span
+style='mso-fareast-font-family:"Courier New"'><span style='mso-list:Ignore'>o<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span></span><![endif]><span class=GramE><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>columns</span></span><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>: 索引字段，可以是一个或多个。<o:p></o:p></span></p>
+
+<h1 style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in'><a name="_Toc297901482"><![if !supportLists]><span
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>4.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>Run</a></h1>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>完成安装和配置后，就可以由java启动FyDB的服务端、客户端了。<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>e.g.</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>C:\Fydb&gt; java -jar fy_server.jar<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>launching</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> FyDB server ...<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>loading</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> system meta data ...<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>building</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> communicator ...<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Initializing <span class=GramE>communicator ...</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Connecting to <span class=GramE>buddies ...</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>huang2/192.168.1.2<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>connecting</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> to buddy huang2<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>huang2<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>2011-07-08 10:30:13 347(warning): Connect to buddy
+failed<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Initializing session <span class=GramE>leader ...</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>loading</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> datasets ...<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>jdbc:</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>mysql://huang2:3306/wapdb<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>java.lang.Exception</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>: 2011-07-08 10:30:16 144(Sys error):
+<span class=SpellE>connectting</span> to physical data source failed<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>at</span> <span class=SpellE>fydb.fy_comm.Tracer.trace</span>(Unknown
+Source)<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>at</span> <span class=SpellE>fydb.fy_main.Manager.loadDataSet</span>(Unknown
+Source)<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>at</span> <span class=SpellE>fydb.fy_main.Manager.for</span>(Unknown
+Source)<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>at</span> <span class=SpellE>fydb.fy_main.Manager.launch</span>(Unknown
+Source)<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+class=GramE>at</span> <span class=SpellE>fydb.fy_main.Manager.main</span>(Unknown
+Source)<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>2011-07-08 10:30:18 691: T_TEST2 loaded.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>C:\my java\Fydb\classes\log\0\T_USER.sys<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>2011-07-08 10:30:18 707(warning): Log control file not
+exist, will create a new one<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span lang=FR style='font-family:
+宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>C:\my java\<span class=SpellE>Fydb</span>\classes\log\0\T_USER_1.log<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>2011-07-08 10:30:18 707(warning): Log file not exist,
+will create a new one<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>2011-07-08 10:30:18 738: T_USER loaded.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> server is <span class=GramE>running
+...</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>注意：如果某个外部数据源无法访问，在启动时会抛出相应异常，但不影响其他数据集的载入。<o:p></o:p></span></p>
+
+<h1 style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in'><a name="_Toc297901483"><![if !supportLists]><span
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>5.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>部署:</a></h1>
+
+<h2><a name="_Toc297901484">由java程序调用</a></h2>
+
+<p class=MsoPlainText><o:p>
+<img border="0" src="FyDB_Images/image001.gif" width="299" height="304"></o:p></p>
+
+<h2><a name="_Toc297901485">作为单独服务运行</a></h2>
+
+<p class=MsoPlainText><o:p>
+<img border="0" src="FyDB_Images/image002.gif" width="596" height="320"></o:p></p>
+
+<h1 style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in'><a name="_Toc297901486"><![if !supportLists]><span
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>6.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>架构</a></h1>
+
+<h2><a name="_Toc297901487">本地文件作为数据源</a></h2>
+
+<p class=MsoPlainText><o:p>
+<img border="0" src="FyDB_Images/image003.gif" width="461" height="325"></o:p></p>
+
+<h2><a name="_Toc297901488">RDBMS作为数据源</a></h2>
+
+<p class=MsoPlainText><o:p>
+<img border="0" src="FyDB_Images/image004.gif" width="456" height="346"></o:p></p>
+
+<h2><a name="_Toc297901489">异构数据源整合</a></h2>
+
+<p class=MsoPlainText><o:p>
+<img border="0" src="FyDB_Images/image005.gif" width="498" height="369"></o:p></p>
+
+<h2><a name="_Toc297901490">分布式架构</a></h2>
+
+<p class=MsoNormal>
+<img border="0" src="FyDB_Images/image006.gif" width="673" height="453"></p>
+
+<h1 style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in'><a name="_Toc297901491"><![if !supportLists]><span
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>7.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>控制台命令</a></h1>
+
+<h2><a name="_Toc297901492">本地命令</a></h2>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Help<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>help :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> show help information<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>help</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> [ Command]<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Example:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>FyDB&gt; help<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>FyDB Console Help Information:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>H(</span><span class=SpellE>elp</span>) [Command]<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>: get help
+information of command;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span>List
+@Commands<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>:
+Show all commands;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>E(</span><span class=SpellE>xit</span>)<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>: exit console;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Version<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>version :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> show version of console or FyDB
+server<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+class=GramE><span lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;
+mso-ansi-language:FR'>usage</span></span><span lang=FR style='font-family:宋体;
+mso-bidi-font-family:宋体;mso-ansi-language:FR'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span lang=FR style='font-family:
+宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>version <span class=GramE>[ {</span>@server|@console}
+]<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span lang=FR style='font-family:
+宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class="SpellE">
+<span style="font-family: 宋体">示例</span></span><span
+lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>&gt;version<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> <span class=SpellE>ConsoleAlpha</span>
+0.01<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Copyright @2011 Fuyuncat. All rights reserved.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>FUYUNCAT
+PROPRIETARY/CONFIDENTIAL.</span></span><span style='font-family:宋体;mso-bidi-font-family:
+宋体'> Use is subject to license terms.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Email: fuyucat@gmail.com<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>WebSite</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>: www.HelloDBA.com<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>List<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>list :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> list commands or datasets in
+server.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+class=GramE><span lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;
+mso-ansi-language:FR'>usage</span></span><span lang=FR style='font-family:宋体;
+mso-bidi-font-family:宋体;mso-ansi-language:FR'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+class=GramE><span lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;
+mso-ansi-language:FR'>list</span></span></span><span lang=FR style='font-family:
+宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'><span
+style='mso-spacerun:yes'>&nbsp; </span>{@<span class=SpellE>datasets</span>|@<span
+class=SpellE>commands</span>}<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span lang=FR style='font-family:
+宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class="SpellE">
+<span style="font-family: 宋体">示例</span></span><span
+lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>&gt;list @commands<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>SHOW<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>GET<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span lang=ZH-CN
+style='font-family:宋体;mso-bidi-font-family:宋体'>…</span><span style='font-family:
+宋体;mso-bidi-font-family:宋体'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Set<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>set :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> set <span class=SpellE>properites</span>
+of console<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>set</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> [ {@<span class=SpellE>timing|@time</span>}<span
+style='mso-spacerun:yes'>&nbsp; </span>{<span class=SpellE>on|off</span>} ]<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style="font-family: 宋体">示例</span><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>FyDB&gt;set @time on<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>FyDB&gt;help<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>2011-07-08 10:47:39 270<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>FyDB Console Help Information:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>H(</span><span class=SpellE>elp</span>) [Command]<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>: get help
+information of command;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span>List
+@Commands<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>:
+Show all commands;<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+class=GramE><span lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;
+mso-ansi-language:FR'>E(</span></span><span class=SpellE><span lang=FR
+style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>xit</span></span><span
+lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>)<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>: exit console;<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FR style='font-family:宋体;mso-bidi-font-family:
+宋体;mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span lang=FR
+style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>Exit<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span lang=FR
+style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>exit</span></span><span
+lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'> :
+Exit console<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span lang=FR style='font-family:
+宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'><span
+style='mso-spacerun:yes'>&nbsp;</span><span class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span lang=FR
+style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>exit</span></span><span
+lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FR style='font-family:宋体;mso-bidi-font-family:
+宋体;mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+<h2><a name="_Toc297901493"><span lang=FR style='mso-ansi-language:FR'>服务端和数据访问命令</span></a><o:p></o:p></span></h2>
+
+<p class=MsoPlainText><span class=SpellE><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Connecct</span></b></span><b
+style='mso-bidi-font-weight:normal'><span style='font-family:宋体;mso-bidi-font-family:
+宋体'><o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>connect :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> connect to FyDB serve<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>connect<span
+style='mso-spacerun:yes'>&nbsp; </span>$</span></span><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>ServerNameOrIP</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp; </span>$port<span
+style='mso-spacerun:yes'>&nbsp; </span>$password<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style="font-family: 宋体">示例</span><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>&gt;<span class=SpellE>conn</span>
+146.222.94.152 6636 fuyuncat@gmail.com<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Connecting to server <span class=GramE>146.222.94.152
+...</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Connected to server successfully!<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Disconnect<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>disconnect :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> Disconnect from server.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>disconnect</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Version<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>version :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> show version of console or FyDB
+server<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>version</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> [ {@<span class=SpellE>server|@console</span>}
+]<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>List<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>list :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> list commands or datasets in
+server.<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span></span><span
+class=GramE><span lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;
+mso-ansi-language:FR'>usage</span></span><span lang=FR style='font-family:宋体;
+mso-bidi-font-family:宋体;mso-ansi-language:FR'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+class=GramE><span lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;
+mso-ansi-language:FR'>list</span></span></span><span lang=FR style='font-family:
+宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'><span
+style='mso-spacerun:yes'>&nbsp; </span>{@<span class=SpellE>datasets</span>|@<span
+class=SpellE>commands</span>}<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=FR style='font-family:宋体;mso-bidi-font-family:
+宋体;mso-ansi-language:FR'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style="font-family: 宋体">示例</span><span
+lang=FR style='font-family:宋体;mso-bidi-font-family:宋体;mso-ansi-language:FR'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>&gt;list @datasets<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>dataset</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> name<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>--------------------------------------<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>T_TEST2<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>JDBC:ORACLE:THIN:@LOCALHOST:1521:ORA10G/DEMO/T_TEST2<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>T_USER<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Totally 3 datasets loaded in server.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Get<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>get :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> get data value from dataset,
+with optional query criteria<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>get<span
+style='mso-spacerun:yes'>&nbsp; </span>{</span></span><span style='font-family:
+宋体;mso-bidi-font-family:宋体'>@<span class=SpellE>value|@metadata</span>}<span
+style='mso-spacerun:yes'>&nbsp; </span>from<span
+style='mso-spacerun:yes'>&nbsp; </span>$<span class=SpellE>DatasetName</span> [
+with<span style='mso-spacerun:yes'>&nbsp; </span>$Criteria ({colName1=data1 and
+colName2&gt;data2...}) ]<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>Notice: <span class=SpellE>quoters</span> for String
+value is <span class=GramE>&quot; instead</span> of ' <o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style="font-family: 宋体">示例</span><span style='font-family:宋体;mso-bidi-font-family:宋体'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB&gt;get
+@value from t_test2 with {owner=&quot;DEMO&quot; and <span class=SpellE>table_name</span>
+&gt;= &quot;T_T&quot;}<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>FREELISTS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>TABLE_LOCK<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>SKIP_CORRUPT<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>FREELIST_GROUPS SAMPLE_SIZE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>DROPPED
+LAST_ANALYZED<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>IOT_TYPE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>USER_STATS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>TABLE_NAME<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>CACHE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>PCT_INCREASE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>COMPRESSION<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>BACKED_UP<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>CLUSTER_NAME<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>MIN_EXTENTS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>DEGREE<span style='mso-spacerun:yes'>&nbsp;
+</span>MONITORING</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>LOGGING
+TABLESPACE_NAME MAX_EXTENTS<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>INSTANCES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>BUFFER_POOL<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>NESTED<span style='mso-spacerun:yes'>&nbsp; </span>INI</span>_TRANS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>CHAIN_CNT<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>GLOBAL_STATS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>TEMPORARY<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>PCT_USED<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>AVG_SPACE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>MAX_TRANS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>EMPTY_<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>BLOCKS<span style='mso-spacerun:yes'>&nbsp; </span>PARTITIONED</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>PCT_FREE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>AVG_ROW_LEN<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DURATION<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>IOT_NAME<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>NUM_ROWS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>SECONDARY<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>NUM_FREELIST_BLOCKS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>NEXT_EXTENT<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>ROW_MOVEMENT<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>CLUSTER_OWNER<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span class=GramE>BLOCKS<span
+style='mso-spacerun:yes'>&nbsp; </span>DEPENDENCIES</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>AVG_SPACE_FREELIST_BLOCKS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>INITIAL_EXTENT<span style='mso-spacerun:yes'>&nbsp; </span>STATUS<span
+style='mso-spacerun:yes'>&nbsp; </span>OWNER<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>--------------- -----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>-------
+-------------<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>----------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>-----<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------<span style='mso-spacerun:yes'>&nbsp; </span>----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-------
+--------------- -----------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------<span style='mso-spacerun:yes'>&nbsp; </span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>---------<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>--------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>------<span
+style='mso-spacerun:yes'>&nbsp; </span>-----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-----------<span style='mso-spacerun:yes'>&nbsp; </span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>---------<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>-------------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>-----------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>------<span
+style='mso-spacerun:yes'>&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-------------------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------------<span style='mso-spacerun:yes'>&nbsp; </span>------<span
+style='mso-spacerun:yes'>&nbsp; </span>-----<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>null</span></span><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>ENABLED DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>null<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>23 <span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2006-07-05
+13:11:25.0<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>T_USERS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>N<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>null<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>1</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>YES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=SpellE>YES</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>EDGARDEMO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>2147483645<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DEFAULT <span class=GramE>NO<span style='mso-spacerun:yes'>&nbsp;
+</span>1</span><span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>5840<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>255<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>4 <span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1000<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>94<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>null</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>23<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>null<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>4<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>65536<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>VALID<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>DEMO<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>null</span></span><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>ENABLED DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>null<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>5<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2006-04-03
+11:56:56.0<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>T_USERINFO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>N<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>N<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>null</span></span><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>1</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>YES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span class=SpellE>YES</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>EDGARDEMO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>2147483645<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DEFAULT NO<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>YES<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>255<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1000<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>18<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>null</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>5<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>null<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>5<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>65536<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>VALID<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>DEMO</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=ZH-CN style='font-family:宋体;mso-bidi-font-family:
+宋体'>… …</span><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>18 <span
+class=SpellE>datas</span> found.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Add<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>add :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> add data into dataset<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>add<span
+style='mso-spacerun:yes'>&nbsp; </span>$</span></span><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>newDatas</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>
+({colName1:data1;colName2:data2...})<span style='mso-spacerun:yes'>&nbsp;
+</span>to<span style='mso-spacerun:yes'>&nbsp; </span>$<span class=SpellE>DatasetName</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></b></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Remove<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>remove :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> remove data from dataset, with
+optional query criteria<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>remove<span
+style='mso-spacerun:yes'>&nbsp; </span>from</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp; </span>$<span class=SpellE>DatasetName</span> [
+with<span style='mso-spacerun:yes'>&nbsp; </span>$Criteria ({colName1=data1 and
+colName2&gt;data2...}) ]<br style='mso-special-character:line-break'>
+<![if !supportLineBreakNewLine]><br style='mso-special-character:line-break'>
+<![endif]><o:p></o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Modify<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>modify :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> <span class=SpellE>modiy</span>
+data of dataset, with optional query criteria<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>modify<span
+style='mso-spacerun:yes'>&nbsp; </span>$</span></span><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>newDatas</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> ({colName1:data1;colName2:data2...})<span
+style='mso-spacerun:yes'>&nbsp; </span>in<span style='mso-spacerun:yes'>&nbsp;
+</span>$<span class=SpellE>DatasetName</span> [ with<span
+style='mso-spacerun:yes'>&nbsp; </span>$Criteria ({colName1=data1 and
+colName2&gt;data2...}) ]<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Join<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>join :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> join data value from 2
+datasets, query criteria<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>join<span
+style='mso-spacerun:yes'>&nbsp; </span>@value</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp; </span>from<span
+style='mso-spacerun:yes'>&nbsp; </span>$DatasetName1<span
+style='mso-spacerun:yes'>&nbsp; </span>with<span
+style='mso-spacerun:yes'>&nbsp; </span>$searchCriteria1 ({colName1=data1 and colName2&gt;data2...})<span
+style='mso-spacerun:yes'>&nbsp; </span>$DatasetName2<span
+style='mso-spacerun:yes'>&nbsp; </span>with<span
+style='mso-spacerun:yes'>&nbsp; </span>$searchCriteria2 ({colName1=d<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>ata1 and colName2&gt;data2...}<span class=GramE>)<span
+style='mso-spacerun:yes'>&nbsp; </span>{</span>ON|LEFTON|RIGHTON|OUTON}<span
+style='mso-spacerun:yes'>&nbsp; </span>$<span class=SpellE>joinCrriteria</span>
+({colName1_1=colName2_1 and colName1_2&gt;colName2_2...})<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style="font-family: 宋体">示例</span><span style='font-family:宋体;mso-bidi-font-family:宋体'>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB&gt;Join
+@value from JDBC:ORACLE:THIN:@LOCALHOST:1521:ORA10G/DEMO/T_TEST2 with {OWNER =
+&quot;DEMO&quot;} T_TEST2 with {<span class=SpellE>last_analyzed</span> &gt;=
+&quot;2006-9-22 22:00:09&quot;} ON {OWNER=OWNER and <span class=SpellE>table_name</span>
+= <span class=SpellE>table_name</span>}<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>FREELISTS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>TABLE_LOCK<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>SKIP_CORRUPT<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>FREELIST_GROUPS SAMPLE_SIZE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>DROPPED
+LAST_ANALYZED<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>IOT_TYPE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>USER_STATS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>TABLE_NAME<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>CACHE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>PCT_INCREASE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>COMPRESSION<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>BACKED_UP<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>CLUSTER_NAME<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>MIN_EXTENTS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>DEGREE<span style='mso-spacerun:yes'>&nbsp;
+</span>MONITORING</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>LOGGING
+TABLESPACE_NAME MAX_EXTENTS<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>INSTANCES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>BUFFER_POOL<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>NESTED<span style='mso-spacerun:yes'>&nbsp; </span>INI</span>_TRANS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>CHAIN_CNT<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;</span>GLOBAL_STATS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>TEMPORARY<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>PCT_USED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>AVG_SPACE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>MAX_TRANS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>EMPTY_<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>BLOCKS<span style='mso-spacerun:yes'>&nbsp; </span>PARTITIONED</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>PCT_FREE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>AVG_ROW_LEN<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DURATION<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>IOT_NAME<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>NUM_ROWS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>SECONDARY<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>NUM_FREELIST_BLOCKS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>NEXT_EXTENT<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>ROW_MOVEMENT<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>CLUSTER_OWNER<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span><span class=GramE>BLOCKS<span
+style='mso-spacerun:yes'>&nbsp; </span>DEPENDENCIES</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>AVG_SPACE_FREELIST_BLOCKS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>INITIAL_EXTENT<span style='mso-spacerun:yes'>&nbsp; </span>STATUS<span
+style='mso-spacerun:yes'>&nbsp; </span>OWNER<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>FREELISTS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>TABLE_LOCK<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>SKIP_CORRUPT<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>FREELIST_GROUPS
+SAMPLE_SIZE<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DROPPED LAST_ANALYZED<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>IOT_TYPE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>USER_<span class=GramE>STATS<span style='mso-spacerun:yes'>&nbsp;
+</span>TABLE</span>_NAME<span style='mso-spacerun:yes'>&nbsp; </span>CACHE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>PCT_INCREASE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>COMPRESSION<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>BACKED_UP<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>CLUSTER_NAME<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>MIN_EXTENTS<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>DEGREE<span style='mso-spacerun:yes'>&nbsp;
+</span>MONITORING</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>LOGGING
+TABLESPACE_NAME MAX_EXTENTS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>INSTANCES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>BUFFER_POOL<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>NESTED<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>INI_TRANS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>CHAIN_CNT<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>GLOBAL_STATS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>TEMPORARY<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>PCT_USED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>AVG_SPACE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>MAX_TRANS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>EMPTY_BLOCKS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>PARTITIONED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>PCT_FR<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>EE<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>AVG_ROW_LEN<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>DURATION<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>IOT_NAME<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>NUM_ROWS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>SECONDARY<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>NUM_FREELIST_BLOCKS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>NEXT_EXTENT<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>ROW_MOVEMENT<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>CLUSTE<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>R_OWNER
+<span class=GramE>BLOCKS<span style='mso-spacerun:yes'>&nbsp;
+</span>DEPENDENCIES</span><span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>AVG_SPACE_FREELIST_BLOCKS<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>INITIAL_EXTENT<span style='mso-spacerun:yes'>&nbsp; </span>STATUS<span
+style='mso-spacerun:yes'>&nbsp; </span>OWNER<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>--------------- -----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>-------
+-------------<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>----------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>-----<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>------<span
+style='mso-spacerun:yes'>&nbsp; </span>----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-------
+--------------- -----------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------<span style='mso-spacerun:yes'>&nbsp; </span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>---------<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>--------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>------<span
+style='mso-spacerun:yes'>&nbsp; </span>-----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>---------<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>-------------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>-----------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>------<span
+style='mso-spacerun:yes'>&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-------------------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------------<span style='mso-spacerun:yes'>&nbsp; </span>------<span
+style='mso-spacerun:yes'>&nbsp; </span>-----<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>----------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>---------------
+-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------- -------------<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>----------<span style='mso-spacerun:yes'>&nbsp; </span>----------<span
+style='mso-spacerun:yes'>&nbsp; </span>-----<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>-----------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------<span style='mso-spacerun:yes'>&nbsp; </span>----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>------- ---------------
+-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>---------<span style='mso-spacerun:yes'>&nbsp;&nbsp;
+</span>------------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>-----------<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span>------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>--<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>-----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;</span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>---------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>-------------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>-----------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>------<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>-------
+------<span style='mso-spacerun:yes'>&nbsp; </span>------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;
+</span>-------------------------<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>--------------<span style='mso-spacerun:yes'>&nbsp; </span>------<span
+style='mso-spacerun:yes'>&nbsp; </span>-----<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>null</span></span><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>ENABLED DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>null<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2006-09-22
+22:00:09.0<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>QMS_USER_OPTIONS_CMP<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>N<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>ENABLED N<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>null</span></span><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>1</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>YES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>RING<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>2147483645<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>1<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DEFAULT NO<span style='mso-spacerun:yes'>&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>YES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>255<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>155<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>null</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>null<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>4<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>0<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>65536<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>VALID<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>DEMO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>ENABLED DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>2006-09-22
+22:00:09.0<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=GramE>NO<span
+style='mso-spacerun:yes'>&nbsp; </span>QMS</span>_USER_OPTIONS_CMP<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>N<span style='mso-spacerun:yes'>&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>ENABLE<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>D<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=SpellE>1</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>YES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>RING<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>2147483645<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span><span class=GramE>1<span style='mso-spacerun:yes'>&nbsp; </span>DEFAULT</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>YES<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>N<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span class=GramE><span style='font-family:宋体;mso-bidi-font-family:
+宋体'>null</span></span><span style='font-family:宋体;mso-bidi-font-family:宋体'><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>255<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>NO<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>1000<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>155<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span><span class=SpellE>null</span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>1<span
+style='mso-spacerun:yes'>&nbsp; </span><span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>N<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>null<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>DISABLED<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span>null<span style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp; </span>4<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>DISABLED<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>0<span
+style='mso-spacerun:yes'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </span>65536<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>VALID<span
+style='mso-spacerun:yes'>&nbsp;&nbsp; </span>DEMO<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span lang=ZH-CN style='font-family:宋体;mso-bidi-font-family:
+宋体'>… …</span><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'>36 <span
+class=SpellE>datas</span> found.<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><b style='mso-bidi-font-weight:normal'><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>Show<o:p></o:p></span></b></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>show :</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> show last error info<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span style='mso-spacerun:yes'>&nbsp;</span><span
+class=GramE>usage</span>:<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>show</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> [ @error ]<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style="font-family: 宋体">示例</span><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><span class=GramE>:</span><br>
+FyDB&gt;get @metadata from <span class=SpellE>t_t</span><o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=SpellE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>FyDB</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>&gt;show @error<o:p></o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText style='margin-left:.5in'><span class=GramE><span
+style='font-family:宋体;mso-bidi-font-family:宋体'>specified</span></span><span
+style='font-family:宋体;mso-bidi-font-family:宋体'> dataset name is not found<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<h1 style='margin-left:.25in;text-indent:-.25in;mso-list:l0 level1 lfo2;
+tab-stops:list .25in'><a name="_Toc297901494"><![if !supportLists]><span
+style='mso-fareast-font-family:Arial'><span style='mso-list:Ignore'>8.<span
+style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp; </span></span></span><![endif]>申明和许可证协议</a></h1>
+
+<p class=MsoPlainText style='margin-left:.25in'><span style='font-family:宋体;
+mso-bidi-font-family:宋体'>本软件为免费软件。你可以通过我的电子邮箱（<a
+href="mailto:fuyuncat@gmail.com">fuyuncat@gmail.com</a>）向我反馈使用情况和报告问题，但是我可能无法立即回应，除非我能找到一个有力的理由长期维护本软件。<o:p></o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+<p class=MsoPlainText><span style='font-family:宋体;mso-bidi-font-family:宋体'><o:p>&nbsp;</o:p></span></p>
+
+</div>
+
+</body>
+
+</html>

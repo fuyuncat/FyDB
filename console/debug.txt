@@ -1,0 +1,56 @@
+Name	Value	Type
+-----	------	-----
++ this		PhyDBData
++ ps		T4CPreparedStatement
++ key		HashMap
+- value		HashMap
+    - table		HashMap$Entry[64]
+        + [1]	5	HashMap$Entry
+        + [2]	10	HashMap$Entry
+        + [3]	37	HashMap$Entry
+        + [5]	46	HashMap$Entry
+        + [9]	38	HashMap$Entry
+        + [13]	13	HashMap$Entry
+        + [14]	2	HashMap$Entry
+        + [15]	45	HashMap$Entry
+        + [16]	27	HashMap$Entry
+        + [17]	12	HashMap$Entry
+        + [18]	39	HashMap$Entry
+        + [22]	18	HashMap$Entry
+        + [24]	11	HashMap$Entry
+        + [26]	26	HashMap$Entry
+        + [28]	36	HashMap$Entry
+        + [35]	42	HashMap$Entry
+        + [36]	52	HashMap$Entry
+        + [37]	29	HashMap$Entry
+        + [40]	6	HashMap$Entry
+        + [41]	33	HashMap$Entry
+        + [43]	53	HashMap$Entry
+        + [45]	41	HashMap$Entry
+        + [47]	32	HashMap$Entry
+        + [48]	22	HashMap$Entry
+        + [49]	54	HashMap$Entry
+        + [50]	7	HashMap$Entry
+        + [52]	35	HashMap$Entry
+        + [54]	48	HashMap$Entry
+        + [55]	31	HashMap$Entry
+        + [56]	43	HashMap$Entry
+        + [58]	40	HashMap$Entry
+        + [59]	8	HashMap$Entry
+        + [60]	51	HashMap$Entry
+        + [62]	15	HashMap$Entry
+      sizeOfOf	45	int
+      threshold	48	int
+      loadFactor	0.75	float
+      modCount	45	int
+      entrySet	null	Set
+    + keySet		HashMap$KeySet
+    + values		HashMap$Values
+  varID	1	int
++ it		HashMap$KeyIterator
++ colID	15	Integer
++ colProperties		HashMap
++ type	"double"	String
+  strVal	null	String
++ tmpInt	99	Integer
++ Static fields of PhyDBData		
